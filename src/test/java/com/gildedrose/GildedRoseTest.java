@@ -75,6 +75,13 @@ public class GildedRoseTest {
 	}
 
 	@Test
+	public void agedBrieQualityIncreasesBy1EvenOnceSellDateHasPassed() {
+		app = createAppWithSingleItem(AGED_BRIE, 0, SAMPLE_QUALITY);
+		app.updateAtEndOfDay();
+		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY + 1));
+	}
+
+	@Test
 	public void qualityNeverExceeds50() {
 		app = createAppWithSingleItem(AGED_BRIE, SAMPLE_SELLIN, 50);
 		app.updateAtEndOfDay();
