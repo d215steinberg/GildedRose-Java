@@ -78,6 +78,13 @@ public class GildedRoseTest {
 		assertThat(getLoneItem().quality, is(50));
 	}
 
+	@Test
+	public void sulfurasNeverNeedsToBeSold() {
+		app = createAppWithSingleItem("Sulfuras", SAMPLE_SELLIN, SAMPLE_QUALITY);
+		app.updateAtEndOfDay();
+		assertThat(getLoneItem().sellIn, is(SAMPLE_SELLIN));
+	}
+
 	private GildedRose createAppWithSingleItem(String name, int sellIn, int quality) {
 		return new GildedRose(createSingleItemArray(name, sellIn, quality));
 	}
