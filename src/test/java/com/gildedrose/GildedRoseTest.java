@@ -16,13 +16,9 @@ public class GildedRoseTest {
 
 	@Test
 	public void typeRemainsUnchangedAtEndOfDay() {
-		app = createAppWithSingleItem("foo", 0, 0);
+		app = new GildedRose(new Item[] { new Item("foo", 0, 0), new Item("bar", 0, 0) });
 		app.updateQuality();
 		assertEquals("foo", getLoneItem().name);
-	}
-
-	private Item getLoneItem() {
-		return app.items[0];
 	}
 
 	private GildedRose createAppWithSingleItem(String name, int sellIn, int quality) {
@@ -33,4 +29,12 @@ public class GildedRoseTest {
 		return new Item[] { new Item(name, sellIn, quality) };
 	}
 
+	private Item getLoneItem() {
+		assert app.items.length == 1 : "More than one item";
+		return getFirstItem();
+	}
+
+	private Item getFirstItem() {
+		return app.items[0];
+	}
 }
