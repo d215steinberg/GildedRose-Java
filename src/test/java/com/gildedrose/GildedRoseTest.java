@@ -64,6 +64,20 @@ public class GildedRoseTest {
 		assertThat(getLoneItem().quality, is(0));
 	}
 
+	@Test
+	public void agedBrieQualityIncreases() {
+		app = createAppWithSingleItem("Aged Brie", SAMPLE_SELLIN, SAMPLE_QUALITY);
+		app.updateAtEndOfDay();
+		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY + 1));
+	}
+
+	@Test
+	public void qualityNeverExceeds50() {
+		app = createAppWithSingleItem("Aged Brie", SAMPLE_SELLIN, 50);
+		app.updateAtEndOfDay();
+		assertThat(getLoneItem().quality, is(50));
+	}
+
 	private GildedRose createAppWithSingleItem(String name, int sellIn, int quality) {
 		return new GildedRose(createSingleItemArray(name, sellIn, quality));
 	}
