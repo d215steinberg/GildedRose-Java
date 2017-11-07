@@ -68,17 +68,17 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	public void agedBrieQualityIncreases() {
+	public void agedBrieQualityIncreasesBy1() {
 		app = createAppWithSingleItem(AGED_BRIE, SAMPLE_SELLIN, SAMPLE_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY + 1));
 	}
 
 	@Test
-	public void agedBrieQualityIncreasesBy1EvenOnceSellDateHasPassed() {
+	public void agedBrieQualityIncreasesBy2OnceSellDateHasPassed() {
 		app = createAppWithSingleItem(AGED_BRIE, 0, SAMPLE_QUALITY);
 		app.updateAtEndOfDay();
-		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY + 1));
+		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY + 2));
 	}
 
 	@Test
