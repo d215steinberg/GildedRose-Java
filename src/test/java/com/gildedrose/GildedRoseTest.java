@@ -16,10 +16,43 @@ public class GildedRoseTest {
 	}
 
 	@Test
+	public void itemHasSpecifiedSellIn() {
+		app = createAppWithSingleItem("foo", 17, 0);
+		assertThat(getLoneItem().sellIn, is(17));
+	}
+
+	@Test
+	public void itemHasSpecifiedQuality() {
+		app = createAppWithSingleItem("foo", 0, 19);
+		assertThat(getLoneItem().quality, is(19));
+	}
+
+	@Test
 	public void typeRemainsUnchangedAtEndOfDay() {
 		app = createAppWithSingleItem("foo", 0, 0);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().name, is("foo"));
+	}
+
+	@Test
+	public void sellInDecreasesAtEndOfDay() {
+		app = createAppWithSingleItem("foo", 17, 0);
+		app.updateAtEndOfDay();
+		assertThat(getLoneItem().sellIn, is(16));
+	}
+
+	@Test
+	public void qualityDecreasesByOneAtEndOfDay() {
+		app = createAppWithSingleItem("foo", 17, 19);
+		app.updateAtEndOfDay();
+		assertThat(getLoneItem().quality, is(18));
+	}
+
+	@Test
+	public void qualityDecreasesByTwoAtEndOfDayOnceSellDateHasPassed() {
+		app = createAppWithSingleItem("foo", 0, 19);
+		app.updateAtEndOfDay();
+		assertThat(getLoneItem().quality, is(17));
 	}
 
 	private GildedRose createAppWithSingleItem(String name, int sellIn, int quality) {
