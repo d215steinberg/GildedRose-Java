@@ -6,17 +6,23 @@ import org.junit.Test;
 
 public class GildedRoseTest {
 
+	private GildedRose app;
+
 	@Test
 	public void itemHasSpecifiedType() {
-		GildedRose app = createAppWithSingleItem("foo", 0, 0);
-		assertEquals("foo", app.items[0].name);
+		app = createAppWithSingleItem("foo", 0, 0);
+		assertEquals("foo", getLoneItem().name);
 	}
 
 	@Test
 	public void typeRemainsUnchangedAtEndOfDay() {
-		GildedRose app = createAppWithSingleItem("foo", 0, 0);
+		app = createAppWithSingleItem("foo", 0, 0);
 		app.updateQuality();
-		assertEquals("foo", app.items[0].name);
+		assertEquals("foo", getLoneItem().name);
+	}
+
+	private Item getLoneItem() {
+		return app.items[0];
 	}
 
 	private GildedRose createAppWithSingleItem(String name, int sellIn, int quality) {
