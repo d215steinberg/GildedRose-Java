@@ -80,7 +80,7 @@ public class GildedRoseTest {
 
 	@Test
 	public void sulfurasNeverNeedsToBeSold() {
-		app = createAppWithSingleItem("Sulfuras", SAMPLE_SELLIN, SAMPLE_QUALITY);
+		app = createAppWithSingleItem("Sulfuras, Hand of Ragnaros", SAMPLE_SELLIN, SAMPLE_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().sellIn, is(SAMPLE_SELLIN));
 	}
