@@ -57,6 +57,13 @@ public class GildedRoseTest {
 		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY - 2));
 	}
 
+	@Test
+	public void qualityIsNeverNegative() {
+		app = createAppWithSingleItem("foo", SAMPLE_SELLIN, 0);
+		app.updateAtEndOfDay();
+		assertThat(getLoneItem().quality, is(0));
+	}
+
 	private GildedRose createAppWithSingleItem(String name, int sellIn, int quality) {
 		return new GildedRose(createSingleItemArray(name, sellIn, quality));
 	}
