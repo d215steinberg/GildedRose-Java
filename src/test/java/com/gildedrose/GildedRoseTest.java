@@ -68,6 +68,13 @@ public class GildedRoseTest {
 	}
 
 	@Test
+	public void qualityIsNeverNegativeEvenOnceSellDateHasPassed() {
+		app = createAppWithSingleItem("foo", 0, 1);
+		app.updateAtEndOfDay();
+		assertThat(getLoneItem().quality, is(0));
+	}
+
+	@Test
 	public void agedBrieQualityIncreasesBy1() {
 		app = createAppWithSingleItem(AGED_BRIE, SAMPLE_SELLIN, SAMPLE_QUALITY);
 		app.updateAtEndOfDay();
