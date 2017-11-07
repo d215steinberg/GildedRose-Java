@@ -6,6 +6,7 @@ class GildedRose {
 	static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
 	static final String CONJURED = "Conjured Mana Cake";
 	Item[] items;
+	private ItemUpdaterFactory itemUpdaterFactory = new ItemUpdaterFactory();
 
 	public GildedRose(Item[] items) {
 		this.items = items;
@@ -24,7 +25,7 @@ class GildedRose {
 	}
 
 	private ItemUpdater createItemUpdater(String itemName) {
-		return new DefaultUpdater();
+		return itemUpdaterFactory.createItemUpdater(itemName);
 	}
 
 	private void updateSellIn(Item item) {
