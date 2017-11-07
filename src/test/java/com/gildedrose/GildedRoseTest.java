@@ -179,6 +179,32 @@ public class GildedRoseTest {
 		assertThat(getLoneItem().quality, is(0));
 	}
 
+	@Test
+	public void updatesQualityForAllItemsAtEndOfDay() throws Exception {
+		Item fooItem = new Item("foo", SAMPLE_SELLIN, SAMPLE_QUALITY);
+		Item agedBrieItem = new Item(AGED_BRIE, SAMPLE_SELLIN, SAMPLE_QUALITY);
+		GildedRose app = new GildedRose(new Item[] { fooItem, agedBrieItem });
+
+		app.updateAtEndOfDay();
+
+		assertThat(fooItem.quality, is(SAMPLE_QUALITY - 1));
+		assertThat(agedBrieItem.quality, is(SAMPLE_QUALITY + 1));
+	}
+
+	@Test
+	public void updatesSellInForAllItemsAtEndOfDay() throws Exception {
+		Item fooItem = new Item("foo", SAMPLE_SELLIN, SAMPLE_QUALITY);
+		Item sulfurasItem = new Item(SULFURAS, SAMPLE_SELLIN, SAMPLE_QUALITY);
+		Item agedBrieItem = new Item(AGED_BRIE, SAMPLE_SELLIN, SAMPLE_QUALITY);
+		GildedRose app = new GildedRose(new Item[] { fooItem, sulfurasItem, agedBrieItem });
+
+		app.updateAtEndOfDay();
+
+		assertThat(fooItem.sellIn, is(SAMPLE_SELLIN - 1));
+		assertThat(sulfurasItem.sellIn, is(SAMPLE_SELLIN));
+		assertThat(agedBrieItem.sellIn, is(SAMPLE_SELLIN - 1));
+	}
+
 	private GildedRose createAppWithSingleItem(String name, int sellIn, int quality) {
 		return new GildedRose(createSingleItemArray(name, sellIn, quality));
 	}
