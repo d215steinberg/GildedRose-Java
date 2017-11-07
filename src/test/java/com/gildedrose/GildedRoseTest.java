@@ -7,52 +7,54 @@ import org.junit.Test;
 
 public class GildedRoseTest {
 
+	private static final int SAMPLE_SELLIN = 17;
+	private static final int SAMPLE_QUALITY = 19;
 	private GildedRose app;
 
 	@Test
 	public void itemHasSpecifiedType() {
-		app = createAppWithSingleItem("foo", 0, 0);
+		app = createAppWithSingleItem("foo", SAMPLE_SELLIN, SAMPLE_QUALITY);
 		assertThat(getLoneItem().name, is("foo"));
 	}
 
 	@Test
 	public void itemHasSpecifiedSellIn() {
-		app = createAppWithSingleItem("foo", 17, 0);
-		assertThat(getLoneItem().sellIn, is(17));
+		app = createAppWithSingleItem("foo", SAMPLE_SELLIN, SAMPLE_QUALITY);
+		assertThat(getLoneItem().sellIn, is(SAMPLE_SELLIN));
 	}
 
 	@Test
 	public void itemHasSpecifiedQuality() {
-		app = createAppWithSingleItem("foo", 0, 19);
-		assertThat(getLoneItem().quality, is(19));
+		app = createAppWithSingleItem("foo", SAMPLE_SELLIN, SAMPLE_QUALITY);
+		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY));
 	}
 
 	@Test
 	public void typeRemainsUnchangedAtEndOfDay() {
-		app = createAppWithSingleItem("foo", 0, 0);
+		app = createAppWithSingleItem("foo", SAMPLE_SELLIN, SAMPLE_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().name, is("foo"));
 	}
 
 	@Test
 	public void sellInDecreasesAtEndOfDay() {
-		app = createAppWithSingleItem("foo", 17, 0);
+		app = createAppWithSingleItem("foo", SAMPLE_SELLIN, SAMPLE_QUALITY);
 		app.updateAtEndOfDay();
-		assertThat(getLoneItem().sellIn, is(16));
+		assertThat(getLoneItem().sellIn, is(SAMPLE_SELLIN - 1));
 	}
 
 	@Test
 	public void qualityDecreasesByOneAtEndOfDay() {
-		app = createAppWithSingleItem("foo", 17, 19);
+		app = createAppWithSingleItem("foo", SAMPLE_SELLIN, SAMPLE_QUALITY);
 		app.updateAtEndOfDay();
-		assertThat(getLoneItem().quality, is(18));
+		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY - 1));
 	}
 
 	@Test
 	public void qualityDecreasesByTwoAtEndOfDayOnceSellDateHasPassed() {
-		app = createAppWithSingleItem("foo", 0, 19);
+		app = createAppWithSingleItem("foo", 0, SAMPLE_QUALITY);
 		app.updateAtEndOfDay();
-		assertThat(getLoneItem().quality, is(17));
+		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY - 2));
 	}
 
 	private GildedRose createAppWithSingleItem(String name, int sellIn, int quality) {
