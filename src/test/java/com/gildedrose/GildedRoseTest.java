@@ -15,9 +15,7 @@ public class GildedRoseTest {
 	@Test
 	public void typeRemainsUnchangedAtEndOfDay() {
 		GildedRose app = createAppWithSingleItem("foo", 0, 0);
-
 		app.updateQuality();
-
 		assertEquals("foo", app.items[0].name);
 	}
 
