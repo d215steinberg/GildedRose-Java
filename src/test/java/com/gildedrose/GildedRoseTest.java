@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import static com.gildedrose.GildedRose.AGED_BRIE;
+import static com.gildedrose.GildedRose.SULFURAS;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -66,21 +68,21 @@ public class GildedRoseTest {
 
 	@Test
 	public void agedBrieQualityIncreases() {
-		app = createAppWithSingleItem("Aged Brie", SAMPLE_SELLIN, SAMPLE_QUALITY);
+		app = createAppWithSingleItem(AGED_BRIE, SAMPLE_SELLIN, SAMPLE_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY + 1));
 	}
 
 	@Test
 	public void qualityNeverExceeds50() {
-		app = createAppWithSingleItem("Aged Brie", SAMPLE_SELLIN, 50);
+		app = createAppWithSingleItem(AGED_BRIE, SAMPLE_SELLIN, 50);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(50));
 	}
 
 	@Test
 	public void sulfurasNeverNeedsToBeSold() {
-		app = createAppWithSingleItem("Sulfuras, Hand of Ragnaros", SAMPLE_SELLIN, SAMPLE_QUALITY);
+		app = createAppWithSingleItem(SULFURAS, SAMPLE_SELLIN, SAMPLE_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().sellIn, is(SAMPLE_SELLIN));
 	}
