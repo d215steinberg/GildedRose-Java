@@ -2,6 +2,7 @@ package com.gildedrose;
 
 import static com.gildedrose.GildedRose.AGED_BRIE;
 import static com.gildedrose.GildedRose.BACKSTAGE_PASSES;
+import static com.gildedrose.GildedRose.CONJURED;
 import static com.gildedrose.GildedRose.SULFURAS;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -177,6 +178,13 @@ public class GildedRoseTest {
 		app = createAppWithSingleItem(BACKSTAGE_PASSES, 0, SAMPLE_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(0));
+	}
+
+	@Test
+	public void conjuredQualityDecreasesBy2() {
+		app = createAppWithSingleItem(CONJURED, SAMPLE_SELLIN, SAMPLE_QUALITY);
+		app.updateAtEndOfDay();
+		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY - 2));
 	}
 
 	@Test
