@@ -1,6 +1,7 @@
 package com.gildedrose;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
@@ -11,14 +12,14 @@ public class GildedRoseTest {
 	@Test
 	public void itemHasSpecifiedType() {
 		app = createAppWithSingleItem("foo", 0, 0);
-		assertEquals("foo", getLoneItem().name);
+		assertThat(getLoneItem().name, is("foo"));
 	}
 
 	@Test
 	public void typeRemainsUnchangedAtEndOfDay() {
-		app = new GildedRose(new Item[] { new Item("foo", 0, 0), new Item("bar", 0, 0) });
+		app = createAppWithSingleItem("foo", 0, 0);
 		app.updateAtEndOfDay();
-		assertEquals("foo", getLoneItem().name);
+		assertThat(getLoneItem().name, is("foo"));
 	}
 
 	private GildedRose createAppWithSingleItem(String name, int sellIn, int quality) {
