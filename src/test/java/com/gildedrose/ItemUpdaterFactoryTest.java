@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import static com.gildedrose.GildedRose.CONJURED;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertThat;
 
@@ -17,5 +18,10 @@ public class ItemUpdaterFactoryTest {
 	@Test
 	public void createsDefaultUpdaterForUnknownItem() throws Exception {
 		assertThat(itemUpdaterFactory.createItemUpdater("foo"), instanceOf(DefaultUpdater.class));
+	}
+
+	@Test
+	public void createsConjuredUpdaterForConjuredItem() throws Exception {
+		assertThat(itemUpdaterFactory.createItemUpdater(CONJURED), instanceOf(ConjuredUpdater.class));
 	}
 }
