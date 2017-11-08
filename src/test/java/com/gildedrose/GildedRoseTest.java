@@ -188,6 +188,13 @@ public class GildedRoseTest {
 	}
 
 	@Test
+	public void conjuredQualityDecreasesBy4OnceSellDateHasPassed() {
+		app = createAppWithSingleItem(CONJURED, 0, SAMPLE_QUALITY);
+		app.updateAtEndOfDay();
+		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY - 4));
+	}
+
+	@Test
 	public void updatesQualityForAllItemsAtEndOfDay() throws Exception {
 		Item fooItem = new Item("foo", SAMPLE_SELLIN, SAMPLE_QUALITY);
 		Item agedBrieItem = new Item(AGED_BRIE, SAMPLE_SELLIN, SAMPLE_QUALITY);
