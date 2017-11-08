@@ -1,10 +1,12 @@
 package com.gildedrose;
 
+import static java.lang.Math.max;
+
 public class ConjuredUpdater implements ItemUpdater {
 
 	@Override
 	public void updateQuality(Item item) {
-		item.quality -= getQualityDecrement(item.sellIn);
+		item.quality = max(item.quality - getQualityDecrement(item.sellIn), 0);
 	}
 
 	private int getQualityDecrement(int sellIn) {

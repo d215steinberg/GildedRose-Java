@@ -195,6 +195,13 @@ public class GildedRoseTest {
 	}
 
 	@Test
+	public void conjuredQualityIsNeverNegative() {
+		app = createAppWithSingleItem(CONJURED, SAMPLE_SELLIN, 1);
+		app.updateAtEndOfDay();
+		assertThat(getLoneItem().quality, is(0));
+	}
+
+	@Test
 	public void updatesQualityForAllItemsAtEndOfDay() throws Exception {
 		Item fooItem = new Item("foo", SAMPLE_SELLIN, SAMPLE_QUALITY);
 		Item agedBrieItem = new Item(AGED_BRIE, SAMPLE_SELLIN, SAMPLE_QUALITY);
