@@ -2,7 +2,7 @@ package com.gildedrose;
 
 import static java.lang.Math.max;
 
-public class ConjuredUpdater implements ItemUpdater {
+public class ConjuredUpdater extends DefaultUpdater {
 
 	@Override
 	public void updateQuality(Item item) {
