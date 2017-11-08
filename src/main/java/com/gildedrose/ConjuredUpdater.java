@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class ConjuredUpdater implements ItemUpdater {
+public class ConjuredUpdater extends DefaultUpdater {
 
 	@Override
 	public void updateQuality(Item item) {
