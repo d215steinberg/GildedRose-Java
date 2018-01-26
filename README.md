@@ -113,7 +113,7 @@ We now un-ignore our failing Conjured test (**conjuredQualityDecreasesBy2**) in 
 
 We have missed some edge cases, so we write a new test, **conjuredQualityDecreasesBy4OnceSellDateHasPassed**, and we make that pass as well.
 ### [Lesson #27: TDD with relentless refactoring](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2327)
-We have more edge cases to address (e.g. preventing negative quality).  But TDD demands that at every green juncture we look for refactoring opportunities.  In particular, we assure that our code satisfies the DRY (Don’t Repeat Yourself) principle.  The concept of decrementing quality appears twice in our code, so we extract it.  
+We have more edge cases to address (e.g. preventing negative quality).  But TDD demands that at every green juncture we look for refactoring opportunities.  In particular, we assure that our code satisfies the DRY (Don't Repeat Yourself) principle.  The concept of decrementing quality appears twice in our code, so we extract it.  
 
 We then write the test for our next edge case, **conjuredQualityIsNeverNegative**.  We make the test pass and then refactor as necessary.  Finally, we write our last test, **conjuredQualityIsNeverNegativeEvenOnceSellDateHasPassed**, which passes off the bat.
 ## Part V: Finishing the Job
@@ -126,7 +126,7 @@ We extract the number 50 in **AgedBrieUpdater** to a constant **MAX_QUALITY**.
 
 This magic number 50 appears elsewhere as well, both in test code (**GildedRoseTest**) and in production code (**DefaultUpdater**).  We want to replace these instances with the constant **MAX_QUALITY**, but a reference to **AgedBrieUpdater.MAX_QUALITY** (even if disguised by a static import) would look wrong.  We pull the constant definition up to the **ItemUpdater** interface.
 ### [Lesson #30: Removing duplication across classes](https://github.com/d215steinberg/GildedRose-Java/commits/Lesson%2330)
-Both **ConjuredUpdater** and **AgedBrieUpdater** use the expression **sellIn > 0**.  Not only is this expression duplicated, but it is also somewhat unclear in its intent.  **sellIn > 0** means “sell date has not yet passed.”  That’s a mouthful.
+Both **ConjuredUpdater** and **AgedBrieUpdater** use the expression **sellIn > 0**.  Not only is this expression duplicated, but it is also somewhat unclear in its intent.  **sellIn > 0** means "sell date has not yet passed."  That's a mouthful.
 
 We turn our logic around and extract **sellDateHasPassed** a protected method in **DefaultUpdater**.
 ### [Lesson #31: Deleting dead code](https://github.com/d215steinberg/GildedRose-Java/commits/Lesson%2331)
@@ -150,7 +150,7 @@ In **BackstagePassesQualityIncreaser**, we extract the quality appreciation thre
 
 We rename the test methods to be magic-number neutral, e.g. **backstagePassesQualityDoesNotExceedMaximumUpToDoubleAppreciationThreshold**.
 ### [Lesson #35: My have our standards increased!](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2335)
-Now that we have implemented **BackstagePassesUpdater**, we delete the last bit of item-specific dead code from **DefaultUpdater**. In comparison to the mess that we began with, what we are left with is pretty amazing, but held next to our other **ItemUpdater** implementations, it’s pretty crappy.  
+Now that we have implemented **BackstagePassesUpdater**, we delete the last bit of item-specific dead code from **DefaultUpdater**. In comparison to the mess that we began with, what we are left with is pretty amazing, but held next to our other **ItemUpdater** implementations, it's pretty crappy.  
 
 We reimplement **DefaultUpdater.updateQuality** per our new standards, introducing significant duplication with **ConjuredUpdater**.  We refactor to eliminate the duplication (reducing **ConjuredUpdater** to a single, one-line protected method).
 ### [Lesson #36: Inviting updateSellIn to the party](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2336)
@@ -168,7 +168,7 @@ The code base now appears to be clean.  All methods are compact and express thei
 1. **ItemUpdaterFactory**
 2. The list of constants in **GildedRose**
 
-If we were to add a new specialized item type, we would need to add both a new constant to **GildedRose** and a new case-clause to the switch statement in **ItemUpdaterFactory.createItemUpdater**.  That’s not DRY.
+If we were to add a new specialized item type, we would need to add both a new constant to **GildedRose** and a new case-clause to the switch statement in **ItemUpdaterFactory.createItemUpdater**.  That's not DRY.
 Java provides a mechanism to isolate this knowledge in a single entity, the **enum** construct:
 1. We create an **ItemType** enum with known types and **UNKNOWN**.
 2. We test-drive an **ItemType.forName** method that converts a string to an **ItemType**.
@@ -208,10 +208,10 @@ Since we have deleted **ItemUpdaterFactory**, we move its tests to **ItemTypeTes
 When we began, we had just two classes.  Now we have thirteen, which are too many for a single package.  The simplest re-packaging solution is to define a package for each known item type.  We re-package the tests as well.
 
 The Open-Closed Principle (OCP) states that software entities should be open for extension but closed to modification.  OCP is a Utopian ideal that we strive to approach.  This package structure gets us close.  History tells us that the most likely requirement change for Gilded Rose is the addition of a new custom-rules item type.  With this package organization, we can accomplish such a change by 
-1. Adding a new enum value to ItemType (yes, that’s a modification, but it’s a straightforward one) and
+1. Adding a new enum value to ItemType (yes, that's a modification, but it's a straightforward one) and
 2. Adding a new package.
 ### [Lesson #42: The "clarification" regarding Sulfuras: A new story](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2342)
-Back in Lesson #12, we determined that the “clarification” that Sulfuras quality was always 80 should not affect our code.  We further attested that if the Product Owner wanted the system to assure that Sulfuras quality were always 80, a new story would be needed.  Let us now say that the Product Owner has decided to add this new story.
+Back in Lesson #12, we determined that the "clarification" that Sulfuras quality was always 80 should not affect our code.  We further attested that if the Product Owner wanted the system to assure that Sulfuras quality were always 80, a new story would be needed.  Let us now say that the Product Owner has decided to add this new story.
 1. We write a failing test **GildedRoseSulfurasTest.sulfurasQualityIsAlways80**.
 2. We modify **SulfurasUpdater.updateQuality** to make the test pass.  The test **sulfurasMaintainsItsQuality** now fails.  This test is no longer valid, so we delete it.
 3. We refactor as necessary (i.e. we extract 80 to a constant and rename our test **sulfurasQualityIsAlwaysSetAmount**).
