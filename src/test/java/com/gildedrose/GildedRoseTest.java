@@ -31,7 +31,7 @@ public class GildedRoseTest {
 	}
 
 	private Item getLoneItem() {
-		assert app.items.length == 1 : "More than one item";
+		assert app.items.length == 1 : "Expecting exactly one item";
 		return getFirstItem();
 	}
 
