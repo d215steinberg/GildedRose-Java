@@ -117,22 +117,8 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	public void backstagePassesQualityIncreasesBy2MoreThan5DaysFromConcert() {
-		app = createAppWithSingleItem(BACKSTAGE_PASSES, 6, SAMPLE_QUALITY);
-		app.updateAtEndOfDay();
-		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY + 2));
-	}
-
-	@Test
 	public void backstagePassesQualityIncreasesBy3Within5DaysOfConcert() {
 		app = createAppWithSingleItem(BACKSTAGE_PASSES, 5, SAMPLE_QUALITY);
-		app.updateAtEndOfDay();
-		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY + 3));
-	}
-
-	@Test
-	public void backstagePassesQualityIncreasesBy3UpToConcertDate() {
-		app = createAppWithSingleItem(BACKSTAGE_PASSES, 1, SAMPLE_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY + 3));
 	}
