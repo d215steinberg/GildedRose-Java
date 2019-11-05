@@ -44,14 +44,14 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	public void qualityDecreasesByOneAtEndOfDay() {
+	public void qualityDecreasesBy1AtEndOfDay() {
 		app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 1));
 	}
 
 	@Test
-	public void qualityDecreasesByTwoAtEndOfDayOnceSellDateHasPassed() {
+	public void qualityDecreasesBy2AtEndOfDayOnceSellDateHasPassed() {
 		app = createAppWithSingleItem("foo", 0, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 2));
@@ -66,7 +66,7 @@ public class GildedRoseTest {
 	}
 
 	private Item getLoneItem() {
-		assert app.items.length == 1 : "More than one item";
+		assert app.items.length == 1 : "Expecting exactly one item";
 		return getFirstItem();
 	}
 
