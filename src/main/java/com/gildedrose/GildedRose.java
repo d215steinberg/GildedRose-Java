@@ -14,23 +14,21 @@ class GildedRose {
 
 	public void updateAtEndOfDay() {
 		for (Item item : items) {
-			updateQuality(item);
-			updateSellIn(item);
+			ItemUpdater itemUpdater = createItemUpdater(item.name);
+			updateQuality(itemUpdater, item);
+			updateSellIn(itemUpdater, item);
 		}
-	}
-
-	private void updateQuality(Item item) {
-		ItemUpdater itemUpdater = createItemUpdater(item.name);
-		itemUpdater.updateQuality(item);
 	}
 
 	private ItemUpdater createItemUpdater(String itemName) {
 		return itemUpdaterFactory.createItemUpdater(itemName);
 	}
 
-	private void updateSellIn(Item item) {
-		if (!item.name.equals(SULFURAS)) {
-			item.sellIn = item.sellIn - 1;
-		}
+	private void updateQuality(ItemUpdater itemUpdater, Item item) {
+		itemUpdater.updateQuality(item);
+	}
+
+	private void updateSellIn(ItemUpdater itemUpdater, Item item) {
+		itemUpdater.updateSellIn(item);
 	}
 }

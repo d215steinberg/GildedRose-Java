@@ -51,4 +51,11 @@ public class DefaultUpdater implements ItemUpdater {
 			}
 		}
 	}
+
+	@Override
+	public void updateSellIn(Item item) {
+		if (!item.name.equals(SULFURAS)) {
+			item.sellIn = item.sellIn - 1;
+		}
+	}
 }
