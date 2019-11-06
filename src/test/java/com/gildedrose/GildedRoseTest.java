@@ -9,89 +9,89 @@ import org.junit.Test;
 
 public class GildedRoseTest {
 
-	private static final int SAMPLE_SELLIN = 17;
-	private static final int SAMPLE_QUALITY = 19;
+	private static final int ARBITRARY_SELLIN = 17;
+	private static final int ARBITRARY_QUALITY = 19;
 	private GildedRose app;
 
 	@Test
 	public void itemHasSpecifiedType() {
-		app = createAppWithSingleItem("foo", SAMPLE_SELLIN, SAMPLE_QUALITY);
+		app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		assertThat(getLoneItem().name, is("foo"));
 	}
 
 	@Test
 	public void itemHasSpecifiedSellIn() {
-		app = createAppWithSingleItem("foo", SAMPLE_SELLIN, SAMPLE_QUALITY);
-		assertThat(getLoneItem().sellIn, is(SAMPLE_SELLIN));
+		app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+		assertThat(getLoneItem().sellIn, is(ARBITRARY_SELLIN));
 	}
 
 	@Test
 	public void itemHasSpecifiedQuality() {
-		app = createAppWithSingleItem("foo", SAMPLE_SELLIN, SAMPLE_QUALITY);
-		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY));
+		app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY));
 	}
 
 	@Test
 	public void typeRemainsUnchangedAtEndOfDay() {
-		app = createAppWithSingleItem("foo", SAMPLE_SELLIN, SAMPLE_QUALITY);
+		app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().name, is("foo"));
 	}
 
 	@Test
 	public void sellInDecreasesAtEndOfDay() {
-		app = createAppWithSingleItem("foo", SAMPLE_SELLIN, SAMPLE_QUALITY);
+		app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
-		assertThat(getLoneItem().sellIn, is(SAMPLE_SELLIN - 1));
+		assertThat(getLoneItem().sellIn, is(ARBITRARY_SELLIN - 1));
 	}
 
 	@Test
-	public void qualityDecreasesByOneAtEndOfDay() {
-		app = createAppWithSingleItem("foo", SAMPLE_SELLIN, SAMPLE_QUALITY);
+	public void qualityDecreasesBy1AtEndOfDay() {
+		app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
-		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY - 1));
+		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 1));
 	}
 
 	@Test
-	public void qualityDecreasesByTwoAtEndOfDayOnceSellDateHasPassed() {
-		app = createAppWithSingleItem("foo", 0, SAMPLE_QUALITY);
+	public void qualityDecreasesBy2AtEndOfDayOnceSellDateHasPassed() {
+		app = createAppWithSingleItem("foo", 0, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
-		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY - 2));
+		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 2));
 	}
 
 	@Test
 	public void qualityIsNeverNegative() {
-		app = createAppWithSingleItem("foo", SAMPLE_SELLIN, 0);
+		app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, 0);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(0));
 	}
 
 	@Test
 	public void agedBrieQualityIncreases() {
-		app = createAppWithSingleItem(AGED_BRIE, SAMPLE_SELLIN, SAMPLE_QUALITY);
+		app = createAppWithSingleItem(AGED_BRIE, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
-		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY + 1));
+		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 1));
 	}
 
 	@Test
 	public void qualityNeverExceeds50() {
-		app = createAppWithSingleItem(AGED_BRIE, SAMPLE_SELLIN, 50);
+		app = createAppWithSingleItem(AGED_BRIE, ARBITRARY_SELLIN, 50);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(50));
 	}
 
 	@Test
 	public void sulfurasNeverNeedsToBeSold() {
-		app = createAppWithSingleItem(SULFURAS, SAMPLE_SELLIN, SAMPLE_QUALITY);
+		app = createAppWithSingleItem(SULFURAS, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
-		assertThat(getLoneItem().sellIn, is(SAMPLE_SELLIN));
+		assertThat(getLoneItem().sellIn, is(ARBITRARY_SELLIN));
 	}
 
 	@Test
 	public void sulfurasMaintainsItsQuality() {
-		app = createAppWithSingleItem(SULFURAS, SAMPLE_SELLIN, SAMPLE_QUALITY);
+		app = createAppWithSingleItem(SULFURAS, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
-		assertThat(getLoneItem().quality, is(SAMPLE_QUALITY));
+		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY));
 	}
 
 	private GildedRose createAppWithSingleItem(String name, int sellIn, int quality) {
@@ -103,7 +103,7 @@ public class GildedRoseTest {
 	}
 
 	private Item getLoneItem() {
-		assert app.items.length == 1 : "More than one item";
+		assert app.items.length == 1 : "Expecting exactly one item";
 		return getFirstItem();
 	}
 
