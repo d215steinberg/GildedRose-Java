@@ -14,7 +14,7 @@ public class ConjuredUpdater extends DefaultUpdater {
 	}
 
 	private int getQualityDecrement(int sellIn) {
-		return sellIn > 0 ? 2 : 4;
+		return sellDateHasPassed(sellIn) ? 4 : 2;
 	}
 
 }

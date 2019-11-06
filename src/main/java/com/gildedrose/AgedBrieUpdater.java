@@ -13,7 +13,7 @@ public class AgedBrieUpdater extends DefaultUpdater {
 	}
 
 	private int getQualityIncrement(int sellIn) {
-		return sellIn > 0 ? 1 : 2;
+		return sellDateHasPassed(sellIn) ? 2 : 1;
 	}
 
 }

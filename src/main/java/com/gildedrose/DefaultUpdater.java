@@ -58,4 +58,8 @@ public class DefaultUpdater implements ItemUpdater {
 			item.sellIn = item.sellIn - 1;
 		}
 	}
+
+	protected boolean sellDateHasPassed(int sellIn) {
+		return sellIn <= 0;
+	}
 }
