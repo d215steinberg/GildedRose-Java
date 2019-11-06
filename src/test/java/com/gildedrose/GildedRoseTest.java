@@ -138,6 +138,13 @@ public class GildedRoseTest {
 	}
 
 	@Test
+	public void backstagePassesQualityIncreasesBy2MoreThan5DaysFromConcert() throws Exception {
+		app = createAppWithSingleItem(BACKSTAGE_PASSES, 6, ARBITRARY_QUALITY);
+		app.updateAtEndOfDay();
+		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 2));
+	}
+
+	@Test
 	public void backstagePassesQualityDoesNotExceed50Within10DaysOfConcert() {
 		app = createAppWithSingleItem(BACKSTAGE_PASSES, 10, 49);
 		app.updateAtEndOfDay();
@@ -147,6 +154,13 @@ public class GildedRoseTest {
 	@Test
 	public void backstagePassesQualityIncreasesBy3Within5DaysOfConcert() {
 		app = createAppWithSingleItem(BACKSTAGE_PASSES, 5, ARBITRARY_QUALITY);
+		app.updateAtEndOfDay();
+		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 3));
+	}
+
+	@Test
+	public void backstagePassesQualityIncreasesBy3UpToConcertDate() throws Exception {
+		app = createAppWithSingleItem(BACKSTAGE_PASSES, 1, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 3));
 	}
