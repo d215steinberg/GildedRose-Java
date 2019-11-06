@@ -1,15 +1,15 @@
 package com.gildedrose;
 
-import static com.gildedrose.GildedRose.AGED_BRIE;
-import static com.gildedrose.GildedRose.BACKSTAGE_PASSES;
-import static com.gildedrose.GildedRose.SULFURAS;
+import static com.gildedrose.ItemType.AGED_BRIE;
+import static com.gildedrose.ItemType.BACKSTAGE_PASSES;
+import static com.gildedrose.ItemType.SULFURAS;
 
 public class DefaultUpdater implements ItemUpdater {
 	@Override
 	public void updateQuality(Item item) {
-		if (!item.name.equals(AGED_BRIE) && !item.name.equals(BACKSTAGE_PASSES)) {
+		if (!item.name.equals(AGED_BRIE.name) && !item.name.equals(BACKSTAGE_PASSES.name)) {
 			if (item.quality > 0) {
-				if (!item.name.equals(SULFURAS)) {
+				if (!item.name.equals(SULFURAS.name)) {
 					item.quality = item.quality - 1;
 				}
 			}
@@ -17,7 +17,7 @@ public class DefaultUpdater implements ItemUpdater {
 			if (item.quality < 50) {
 				item.quality = item.quality + 1;
 
-				if (item.name.equals(BACKSTAGE_PASSES)) {
+				if (item.name.equals(BACKSTAGE_PASSES.name)) {
 					if (item.sellIn < 11) {
 						if (item.quality < 50) {
 							item.quality = item.quality + 1;
@@ -34,10 +34,10 @@ public class DefaultUpdater implements ItemUpdater {
 		}
 
 		if (item.sellIn <= 0) {
-			if (!item.name.equals(AGED_BRIE)) {
-				if (!item.name.equals(BACKSTAGE_PASSES)) {
+			if (!item.name.equals(AGED_BRIE.name)) {
+				if (!item.name.equals(BACKSTAGE_PASSES.name)) {
 					if (item.quality > 0) {
-						if (!item.name.equals(SULFURAS)) {
+						if (!item.name.equals(SULFURAS.name)) {
 							item.quality = item.quality - 1;
 						}
 					}
@@ -54,7 +54,7 @@ public class DefaultUpdater implements ItemUpdater {
 
 	@Override
 	public void updateSellIn(Item item) {
-		if (!item.name.equals(SULFURAS)) {
+		if (!item.name.equals(SULFURAS.name)) {
 			item.sellIn = item.sellIn - 1;
 		}
 	}

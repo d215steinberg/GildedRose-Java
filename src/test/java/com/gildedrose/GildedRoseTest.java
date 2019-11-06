@@ -1,9 +1,9 @@
 package com.gildedrose;
 
-import static com.gildedrose.GildedRose.AGED_BRIE;
-import static com.gildedrose.GildedRose.BACKSTAGE_PASSES;
-import static com.gildedrose.GildedRose.CONJURED;
-import static com.gildedrose.GildedRose.SULFURAS;
+import static com.gildedrose.ItemType.AGED_BRIE;
+import static com.gildedrose.ItemType.BACKSTAGE_PASSES;
+import static com.gildedrose.ItemType.CONJURED;
+import static com.gildedrose.ItemType.SULFURAS;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -77,133 +77,133 @@ public class GildedRoseTest {
 
 	@Test
 	public void agedBrieQualityIncreasesBy1() {
-		app = createAppWithSingleItem(AGED_BRIE, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+		app = createAppWithSingleItem(AGED_BRIE.name, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 1));
 	}
 
 	@Test
 	public void agedBrieQualityIncreasesBy2OnceSellDateHasPassed() {
-		app = createAppWithSingleItem(AGED_BRIE, 0, ARBITRARY_QUALITY);
+		app = createAppWithSingleItem(AGED_BRIE.name, 0, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 2));
 	}
 
 	@Test
 	public void agedBrieQualityNeverExceeds50() {
-		app = createAppWithSingleItem(AGED_BRIE, ARBITRARY_SELLIN, 50);
+		app = createAppWithSingleItem(AGED_BRIE.name, ARBITRARY_SELLIN, 50);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(50));
 	}
 
 	@Test
 	public void agedBrieQualityNeverExceeds50EvenOnceSellDateHasPassed() {
-		app = createAppWithSingleItem(AGED_BRIE, 0, 49);
+		app = createAppWithSingleItem(AGED_BRIE.name, 0, 49);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(50));
 	}
 
 	@Test
 	public void sulfurasNeverNeedsToBeSold() {
-		app = createAppWithSingleItem(SULFURAS, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+		app = createAppWithSingleItem(SULFURAS.name, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().sellIn, is(ARBITRARY_SELLIN));
 	}
 
 	@Test
 	public void sulfurasMaintainsItsQuality() {
-		app = createAppWithSingleItem(SULFURAS, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+		app = createAppWithSingleItem(SULFURAS.name, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY));
 	}
 
 	@Test
 	public void backstagePassesQualityIncreasesBy1MoreThan10DaysFromConcert() {
-		app = createAppWithSingleItem(BACKSTAGE_PASSES, 11, ARBITRARY_QUALITY);
+		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, 11, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 1));
 	}
 
 	@Test
 	public void backstagePassesQualityDoesNotExceed50MoreThan10DaysFromConcert() {
-		app = createAppWithSingleItem(BACKSTAGE_PASSES, 11, 50);
+		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, 11, 50);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(50));
 	}
 
 	@Test
 	public void backstagePassesQualityIncreasesBy2Within10DaysOfConcert() {
-		app = createAppWithSingleItem(BACKSTAGE_PASSES, 10, ARBITRARY_QUALITY);
+		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, 10, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 2));
 	}
 
 	@Test
 	public void backstagePassesQualityIncreasesBy2MoreThan5DaysFromConcert() {
-		app = createAppWithSingleItem(BACKSTAGE_PASSES, 6, ARBITRARY_QUALITY);
+		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, 6, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 2));
 	}
 
 	@Test
 	public void backstagePassesQualityDoesNotExceed50Within10DaysOfConcert() {
-		app = createAppWithSingleItem(BACKSTAGE_PASSES, 10, 49);
+		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, 10, 49);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(50));
 	}
 
 	@Test
 	public void backstagePassesQualityIncreasesBy3Within5DaysOfConcert() {
-		app = createAppWithSingleItem(BACKSTAGE_PASSES, 5, ARBITRARY_QUALITY);
+		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, 5, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 3));
 	}
 
 	@Test
 	public void backstagePassesQualityIncreasesBy3UpToConcertDate() {
-		app = createAppWithSingleItem(BACKSTAGE_PASSES, 1, ARBITRARY_QUALITY);
+		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, 1, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 3));
 	}
 
 	@Test
 	public void backstagePassesQualityDoesNotExceed50Within5DaysOfConcert() {
-		app = createAppWithSingleItem(BACKSTAGE_PASSES, 5, 48);
+		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, 5, 48);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(50));
 	}
 
 	@Test
 	public void backstagePassesQualityDropsToZeroOnceConcertHasPassed() {
-		app = createAppWithSingleItem(BACKSTAGE_PASSES, 0, ARBITRARY_QUALITY);
+		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, 0, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(0));
 	}
 
 	@Test
 	public void conjuredQualityDecreasesBy2() {
-		app = createAppWithSingleItem(CONJURED, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+		app = createAppWithSingleItem(CONJURED.name, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 2));
 	}
 
 	@Test
 	public void conjuredQualityDecreasesBy4OnceSellDateHasPassed() {
-		app = createAppWithSingleItem(CONJURED, 0, ARBITRARY_QUALITY);
+		app = createAppWithSingleItem(CONJURED.name, 0, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 4));
 	}
 
 	@Test
 	public void conjuredQualityIsNeverNegative() {
-		app = createAppWithSingleItem(CONJURED, ARBITRARY_SELLIN, 1);
+		app = createAppWithSingleItem(CONJURED.name, ARBITRARY_SELLIN, 1);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(0));
 	}
 
 	@Test
 	public void conjuredQualityIsNeverNegativeEvenOnceSellDateHasPassed() {
-		app = createAppWithSingleItem(CONJURED, 0, 3);
+		app = createAppWithSingleItem(CONJURED.name, 0, 3);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(0));
 	}
@@ -211,7 +211,7 @@ public class GildedRoseTest {
 	@Test
 	public void updatesQualityForAllItemsAtEndOfDay() {
 		Item fooItem = new Item("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-		Item agedBrieItem = new Item(AGED_BRIE, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+		Item agedBrieItem = new Item(AGED_BRIE.name, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		GildedRose app = new GildedRose(new Item[] { fooItem, agedBrieItem });
 
 		app.updateAtEndOfDay();
@@ -224,7 +224,7 @@ public class GildedRoseTest {
 	public void updatesSellInForAllItemsAtEndOfDay() {
 		Item fooItem = new Item("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		Item barItem = new Item("bar", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-		Item sulfurasItem = new Item(SULFURAS, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+		Item sulfurasItem = new Item(SULFURAS.name, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		GildedRose app = new GildedRose(new Item[] { fooItem, sulfurasItem, barItem });
 
 		app.updateAtEndOfDay();
