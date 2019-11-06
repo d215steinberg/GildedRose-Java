@@ -7,8 +7,13 @@ public enum ItemType {
 			return new AgedBrieUpdater();
 		}
 	},
-	SULFURAS("Sulfuras, Hand of Ragnaros"), BACKSTAGE_PASSES("Backstage passes to a TAFKAL80ETC concert"),
-	CONJURED("Conjured Mana Cake") {
+	SULFURAS("Sulfuras, Hand of Ragnaros") {
+		@Override
+		public ItemUpdater createItemUpdater() {
+			return new SulfurasUpdater();
+		}
+	},
+	BACKSTAGE_PASSES("Backstage passes to a TAFKAL80ETC concert"), CONJURED("Conjured Mana Cake") {
 		@Override
 		public ItemUpdater createItemUpdater() {
 			return new ConjuredUpdater();

@@ -2,6 +2,7 @@ package com.gildedrose;
 
 import static com.gildedrose.ItemType.AGED_BRIE;
 import static com.gildedrose.ItemType.CONJURED;
+import static com.gildedrose.ItemType.SULFURAS;
 import static com.gildedrose.ItemType.UNKNOWN;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
@@ -28,7 +29,11 @@ public class ItemTypeTest {
 	@Test
 	public void createsAgedBrieUpdaterForAgedBrieItemType() throws Exception {
 		assertThat(AGED_BRIE.createItemUpdater(), instanceOf(AgedBrieUpdater.class));
+	}
 
+	@Test
+	public void createsSulfurasUpdatorForSulfurasItemType() throws Exception {
+		assertThat(SULFURAS.createItemUpdater(), instanceOf(SulfurasUpdater.class));
 	}
 
 	@Test
