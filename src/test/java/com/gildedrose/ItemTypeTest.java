@@ -26,14 +26,14 @@ public class ItemTypeTest {
 	}
 
 	@Test
-	public void createsConjuredUpdaterForConjuredItemType() throws Exception {
-		assertThat(CONJURED.createItemUpdater(), instanceOf(ConjuredUpdater.class));
-	}
-
-	@Test
 	public void createsAgedBrieUpdaterForAgedBrieItemType() throws Exception {
 		assertThat(AGED_BRIE.createItemUpdater(), instanceOf(AgedBrieUpdater.class));
 
+	}
+
+	@Test
+	public void createsConjuredUpdaterForConjuredItemType() throws Exception {
+		assertThat(CONJURED.createItemUpdater(), instanceOf(ConjuredUpdater.class));
 	}
 
 }
