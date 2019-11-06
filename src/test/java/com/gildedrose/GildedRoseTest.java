@@ -47,14 +47,14 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	public void qualityDecreasesByOneAtEndOfDay() {
+	public void qualityDecreasesBy1AtEndOfDay() {
 		app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 1));
 	}
 
 	@Test
-	public void qualityDecreasesByTwoAtEndOfDayOnceSellDateHasPassed() {
+	public void qualityDecreasesBy2AtEndOfDayOnceSellDateHasPassed() {
 		app = createAppWithSingleItem("foo", 0, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 2));
