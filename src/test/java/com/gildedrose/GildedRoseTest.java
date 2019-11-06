@@ -190,7 +190,7 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	public void updatesQualityForAllItemsAtEndOfDay() throws Exception {
+	public void updatesQualityForAllItemsAtEndOfDay() {
 		Item fooItem = new Item("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		Item agedBrieItem = new Item(AGED_BRIE, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		GildedRose app = new GildedRose(new Item[] { fooItem, agedBrieItem });
@@ -202,7 +202,7 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	public void updatesSellInForAllItemsAtEndOfDay() throws Exception {
+	public void updatesSellInForAllItemsAtEndOfDay() {
 		Item fooItem = new Item("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		Item barItem = new Item("bar", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		Item sulfurasItem = new Item(SULFURAS, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
