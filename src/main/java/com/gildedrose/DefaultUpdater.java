@@ -14,18 +14,18 @@ public class DefaultUpdater implements ItemUpdater {
 				}
 			}
 		} else {
-			if (item.quality < 50) {
+			if (item.quality < MAX_QUALITY) {
 				item.quality = item.quality + 1;
 
 				if (item.name.equals(BACKSTAGE_PASSES.name)) {
 					if (item.sellIn < 11) {
-						if (item.quality < 50) {
+						if (item.quality < MAX_QUALITY) {
 							item.quality = item.quality + 1;
 						}
 					}
 
 					if (item.sellIn < 6) {
-						if (item.quality < 50) {
+						if (item.quality < MAX_QUALITY) {
 							item.quality = item.quality + 1;
 						}
 					}
@@ -45,7 +45,7 @@ public class DefaultUpdater implements ItemUpdater {
 					item.quality = 0;
 				}
 			} else {
-				if (item.quality < 50) {
+				if (item.quality < MAX_QUALITY) {
 					item.quality = item.quality + 1;
 				}
 			}

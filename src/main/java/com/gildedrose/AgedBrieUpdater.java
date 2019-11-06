@@ -9,7 +9,7 @@ public class AgedBrieUpdater extends DefaultUpdater {
 	}
 
 	private int increaseQuality(int quality, int sellIn) {
-		return min(quality + getQualityIncrement(sellIn), 50);
+		return min(quality + getQualityIncrement(sellIn), MAX_QUALITY);
 	}
 
 	private int getQualityIncrement(int sellIn) {

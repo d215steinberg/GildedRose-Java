@@ -4,6 +4,7 @@ import static com.gildedrose.ItemType.AGED_BRIE;
 import static com.gildedrose.ItemType.BACKSTAGE_PASSES;
 import static com.gildedrose.ItemType.CONJURED;
 import static com.gildedrose.ItemType.SULFURAS;
+import static com.gildedrose.ItemUpdater.MAX_QUALITY;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -91,16 +92,16 @@ public class GildedRoseTest {
 
 	@Test
 	public void agedBrieQualityNeverExceeds50() {
-		app = createAppWithSingleItem(AGED_BRIE.name, ARBITRARY_SELLIN, 50);
+		app = createAppWithSingleItem(AGED_BRIE.name, ARBITRARY_SELLIN, MAX_QUALITY);
 		app.updateAtEndOfDay();
-		assertThat(getLoneItem().quality, is(50));
+		assertThat(getLoneItem().quality, is(MAX_QUALITY));
 	}
 
 	@Test
 	public void agedBrieQualityNeverExceeds50EvenOnceSellDateHasPassed() {
-		app = createAppWithSingleItem(AGED_BRIE.name, 0, 49);
+		app = createAppWithSingleItem(AGED_BRIE.name, 0, MAX_QUALITY - 1);
 		app.updateAtEndOfDay();
-		assertThat(getLoneItem().quality, is(50));
+		assertThat(getLoneItem().quality, is(MAX_QUALITY));
 	}
 
 	@Test
@@ -126,9 +127,9 @@ public class GildedRoseTest {
 
 	@Test
 	public void backstagePassesQualityDoesNotExceed50MoreThan10DaysFromConcert() {
-		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, 11, 50);
+		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, 11, MAX_QUALITY);
 		app.updateAtEndOfDay();
-		assertThat(getLoneItem().quality, is(50));
+		assertThat(getLoneItem().quality, is(MAX_QUALITY));
 	}
 
 	@Test
@@ -147,9 +148,9 @@ public class GildedRoseTest {
 
 	@Test
 	public void backstagePassesQualityDoesNotExceed50Within10DaysOfConcert() {
-		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, 10, 49);
+		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, 10, MAX_QUALITY - 1);
 		app.updateAtEndOfDay();
-		assertThat(getLoneItem().quality, is(50));
+		assertThat(getLoneItem().quality, is(MAX_QUALITY));
 	}
 
 	@Test
@@ -168,9 +169,9 @@ public class GildedRoseTest {
 
 	@Test
 	public void backstagePassesQualityDoesNotExceed50Within5DaysOfConcert() {
-		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, 5, 48);
+		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, 5, MAX_QUALITY - 2);
 		app.updateAtEndOfDay();
-		assertThat(getLoneItem().quality, is(50));
+		assertThat(getLoneItem().quality, is(MAX_QUALITY));
 	}
 
 	@Test
