@@ -30,4 +30,10 @@ public class ItemTypeTest {
 		assertThat(CONJURED.createItemUpdater(), instanceOf(ConjuredUpdater.class));
 	}
 
+	@Test
+	public void createsAgedBrieUpdaterForAgedBrieItemType() throws Exception {
+		assertThat(AGED_BRIE.createItemUpdater(), instanceOf(AgedBrieUpdater.class));
+
+	}
+
 }

@@ -1,7 +1,13 @@
 package com.gildedrose;
 
 public enum ItemType {
-	AGED_BRIE("Aged Brie"), SULFURAS("Sulfuras, Hand of Ragnaros"), BACKSTAGE_PASSES("Backstage passes to a TAFKAL80ETC concert"),
+	AGED_BRIE("Aged Brie") {
+		@Override
+		public ItemUpdater createItemUpdater() {
+			return new AgedBrieUpdater();
+		}
+	},
+	SULFURAS("Sulfuras, Hand of Ragnaros"), BACKSTAGE_PASSES("Backstage passes to a TAFKAL80ETC concert"),
 	CONJURED("Conjured Mana Cake") {
 		@Override
 		public ItemUpdater createItemUpdater() {
