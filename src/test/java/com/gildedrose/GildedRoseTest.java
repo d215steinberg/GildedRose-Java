@@ -194,15 +194,15 @@ public class GildedRoseTest {
 	@Test
 	public void updatesSellInForAllItemsAtEndOfDay() throws Exception {
 		Item fooItem = new Item("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+		Item barItem = new Item("bar", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		Item sulfurasItem = new Item(SULFURAS, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-		Item agedBrieItem = new Item(AGED_BRIE, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-		GildedRose app = new GildedRose(new Item[] { fooItem, sulfurasItem, agedBrieItem });
+		GildedRose app = new GildedRose(new Item[] { fooItem, sulfurasItem, barItem });
 
 		app.updateAtEndOfDay();
 
 		assertThat(fooItem.sellIn, is(ARBITRARY_SELLIN - 1));
+		assertThat(barItem.sellIn, is(ARBITRARY_SELLIN - 1));
 		assertThat(sulfurasItem.sellIn, is(ARBITRARY_SELLIN));
-		assertThat(agedBrieItem.sellIn, is(ARBITRARY_SELLIN - 1));
 	}
 
 	private GildedRose createAppWithSingleItem(String name, int sellIn, int quality) {
