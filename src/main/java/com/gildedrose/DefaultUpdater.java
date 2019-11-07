@@ -9,11 +9,11 @@ public class DefaultUpdater implements ItemUpdater {
 		item.quality = decreaseQuality(item.quality, item.sellIn);
 	}
 
-	private int decreaseQuality(int quality, int sellIn) {
+	protected int decreaseQuality(int quality, int sellIn) {
 		return max(quality - getQualityDecrement(sellIn), 0);
 	}
 
-	private int getQualityDecrement(int sellIn) {
+	protected int getQualityDecrement(int sellIn) {
 		return sellDateHasPassed(sellIn) ? 2 : 1;
 	}
 
