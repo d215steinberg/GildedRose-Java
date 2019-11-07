@@ -1,17 +1,20 @@
 package com.gildedrose;
 
+import static com.gildedrose.ExpirationChecker.sellDateHasPassed;
+import static java.lang.Math.max;
+
 public class DefaultUpdater implements ItemUpdater {
 	@Override
 	public void updateQuality(Item item) {
-		if (item.quality > 0) {
-			item.quality = item.quality - 1;
-		}
+		item.quality = decreaseQuality(item.quality, item.sellIn);
+	}
 
-		if (item.sellIn <= 0) {
-			if (item.quality > 0) {
-				item.quality = item.quality - 1;
-			}
-		}
+	private int decreaseQuality(int quality, int sellIn) {
+		return max(quality - getQualityDecrement(sellIn), 0);
+	}
+
+	private int getQualityDecrement(int sellIn) {
+		return sellDateHasPassed(sellIn) ? 2 : 1;
 	}
 
 	@Override
