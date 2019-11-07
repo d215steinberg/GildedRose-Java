@@ -93,14 +93,14 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	public void agedBrieQualityNeverExceeds50() {
+	public void agedBrieQualityNeverExceedsMaximum() {
 		app = createAppWithSingleItem(AGED_BRIE.name, ARBITRARY_SELLIN, MAX_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(MAX_QUALITY));
 	}
 
 	@Test
-	public void agedBrieQualityNeverExceeds50EvenOnceSellDateHasPassed() {
+	public void agedBrieQualityNeverExceedsMaximumEvenOnceSellDateHasPassed() {
 		app = createAppWithSingleItem(AGED_BRIE.name, 0, MAX_QUALITY - 1);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(MAX_QUALITY));
@@ -121,42 +121,42 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	public void backstagePassesQualityIncreasesBy1MoreThan10DaysFromConcert() {
+	public void backstagePassesQualityIncreasesBy1BeyondDoubleAppreciationThreshold() {
 		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, DOUBLE_APPRECIATION_THRESHOLD + 1, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 1));
 	}
 
 	@Test
-	public void backstagePassesQualityDoesNotExceed50MoreThan10DaysFromConcert() {
+	public void backstagePassesQualityDoesNotExceedMaximumBeyondDoubleAppreciationThreshold() {
 		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, DOUBLE_APPRECIATION_THRESHOLD, MAX_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(MAX_QUALITY));
 	}
 
 	@Test
-	public void backstagePassesQualityIncreasesBy2Within10DaysOfConcert() {
+	public void backstagePassesQualityIncreasesBy2WithinDoubleAppreciationThreshold() {
 		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, DOUBLE_APPRECIATION_THRESHOLD, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 2));
 	}
 
 	@Test
-	public void backstagePassesQualityIncreasesBy2MoreThan5DaysFromConcert() {
+	public void backstagePassesQualityIncreasesBy2BeyondTripleAppreciationThreshold() {
 		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, TRIPLE_APPRECIATION_THRESHOLD + 1, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 2));
 	}
 
 	@Test
-	public void backstagePassesQualityDoesNotExceed50Within10DaysOfConcert() {
+	public void backstagePassesQualityDoesNotExceedMaximumWithinDoubleAppreciationThreshold() {
 		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, DOUBLE_APPRECIATION_THRESHOLD, MAX_QUALITY - 1);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(MAX_QUALITY));
 	}
 
 	@Test
-	public void backstagePassesQualityIncreasesBy3Within5DaysOfConcert() {
+	public void backstagePassesQualityIncreasesBy3WithinTripleAppreciationThreshold() {
 		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, TRIPLE_APPRECIATION_THRESHOLD, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 3));
@@ -170,7 +170,7 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	public void backstagePassesQualityDoesNotExceed50Within5DaysOfConcert() {
+	public void backstagePassesQualityDoesNotExceedMaximumWithinTripleAppreciationThreshold() {
 		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, TRIPLE_APPRECIATION_THRESHOLD, MAX_QUALITY - 2);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().quality, is(MAX_QUALITY));
