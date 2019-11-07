@@ -1,6 +1,7 @@
 package com.gildedrose;
 
 import static com.gildedrose.ItemType.AGED_BRIE;
+import static com.gildedrose.ItemType.BACKSTAGE_PASSES;
 import static com.gildedrose.ItemType.CONJURED;
 import static com.gildedrose.ItemType.SULFURAS;
 import static com.gildedrose.ItemType.UNKNOWN;
@@ -34,6 +35,11 @@ public class ItemTypeTest {
 	@Test
 	public void createsSulfurasUpdatorForSulfurasItemType() throws Exception {
 		assertThat(SULFURAS.createItemUpdater(), instanceOf(SulfurasUpdater.class));
+	}
+
+	@Test
+	public void createsBackstagePassesUpdaterForBackstagePassesItemType() throws Exception {
+		assertThat(BACKSTAGE_PASSES.createItemUpdater(), instanceOf(BackstagePassesUpdater.class));
 	}
 
 	@Test

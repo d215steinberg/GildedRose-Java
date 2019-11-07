@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import static com.gildedrose.ExpirationChecker.sellDateHasPassed;
 import static java.lang.Math.max;
 
 public class ConjuredUpdater extends DefaultUpdater {

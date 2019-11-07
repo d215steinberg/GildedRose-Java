@@ -4,7 +4,7 @@ import static com.gildedrose.ItemType.AGED_BRIE;
 import static com.gildedrose.ItemType.BACKSTAGE_PASSES;
 import static com.gildedrose.ItemType.CONJURED;
 import static com.gildedrose.ItemType.SULFURAS;
-import static com.gildedrose.ItemUpdater.MAX_QUALITY;
+import static com.gildedrose.QualityIncreaser.MAX_QUALITY;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
