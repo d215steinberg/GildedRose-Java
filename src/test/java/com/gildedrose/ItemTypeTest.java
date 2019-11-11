@@ -43,6 +43,11 @@ public class ItemTypeTest {
 	}
 
 	@Test
+	public void createsSulfurasInitializerForSulfurasItemType() throws Exception {
+		assertThat(SULFURAS.createItemInitialzer(), instanceOf(SulfurasInitializer.class));
+	}
+
+	@Test
 	public void createsBackstagePassesUpdaterForBackstagePassesItemType() throws Exception {
 		assertThat(BACKSTAGE_PASSES.createItemUpdater(), instanceOf(BackstagePassesUpdater.class));
 	}

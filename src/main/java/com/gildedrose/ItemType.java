@@ -12,6 +12,11 @@ public enum ItemType {
 		public ItemUpdater createItemUpdater() {
 			return new SulfurasUpdater();
 		}
+
+		@Override
+		public ItemInitializer createItemInitialzer() {
+			return new SulfurasInitializer();
+		}
 	},
 	BACKSTAGE_PASSES("Backstage passes to a TAFKAL80ETC concert") {
 		@Override
