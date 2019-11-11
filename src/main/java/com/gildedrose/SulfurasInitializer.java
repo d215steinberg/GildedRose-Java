@@ -4,8 +4,7 @@ public class SulfurasInitializer implements ItemInitializer {
 
 	@Override
 	public void initializeItem(Item item) {
-		// TODO Auto-generated method stub
-
+		item.quality = SulfurasUpdater.SULFURAS_QUALITY;
 	}
 
 }
