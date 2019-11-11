@@ -22,4 +22,5 @@ public class GildedRoseTest {
 	private Item getFirstItem() {
 		return app.items[0];
 	}
+
 }

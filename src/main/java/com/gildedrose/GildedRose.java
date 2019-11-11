@@ -2,10 +2,15 @@ package com.gildedrose;
 
 class GildedRose {
 	Item[] items;
-	private ItemUpdaterFactory itemUpdaterFactory = new ItemUpdaterFactory();
+	private ItemUpdaterFactory itemUpdaterFactory;
 
-	public GildedRose(Item[] items) {
+	GildedRose(Item[] items) {
+		this(items, new ItemUpdaterFactory());
+	}
+
+	public GildedRose(Item[] items, ItemUpdaterFactory itemUpdaterFactory) {
 		this.items = items;
+		this.itemUpdaterFactory = itemUpdaterFactory;
 	}
 
 	public void updateAtEndOfDay() {
