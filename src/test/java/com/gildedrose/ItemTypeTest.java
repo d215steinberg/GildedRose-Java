@@ -28,6 +28,11 @@ public class ItemTypeTest {
 	}
 
 	@Test
+	public void cretesDefaultInitializerForUnknownItemType() throws Exception {
+		assertThat(UNKNOWN.createItemInitialzer(), instanceOf(DefaultInitializer.class));
+	}
+
+	@Test
 	public void createsAgedBrieUpdaterForAgedBrieItemType() throws Exception {
 		assertThat(AGED_BRIE.createItemUpdater(), instanceOf(AgedBrieUpdater.class));
 	}

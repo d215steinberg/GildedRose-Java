@@ -50,4 +50,8 @@ public enum ItemType {
 	public ItemUpdater createItemUpdater() {
 		return new DefaultUpdater();
 	}
+
+	public ItemInitializer createItemInitialzer() {
+		return new DefaultInitializer();
+	}
 }

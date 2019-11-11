@@ -5,6 +5,7 @@ import static com.gildedrose.SulfurasUpdater.SULFURAS_QUALITY;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class GildedRoseSulfurasTest extends GildedRoseTest {
@@ -16,9 +17,16 @@ public class GildedRoseSulfurasTest extends GildedRoseTest {
 	}
 
 	@Test
-	public void sulfurasQualityIsAlwaysSetAmount() throws Exception {
+	public void sulfurasQualityIsAlwaysSetAmountAtEndOfDay() throws Exception {
 		app = createAppWithSingleItem(SULFURAS.name, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
+		assertThat(getLoneItem().quality, is(SULFURAS_QUALITY));
+	}
+
+	@Test
+	@Ignore
+	public void sulfurasQualityIsIntiallySetAmount() throws Exception {
+		app = createAppWithSingleItem(SULFURAS.name, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		assertThat(getLoneItem().quality, is(SULFURAS_QUALITY));
 	}
 
