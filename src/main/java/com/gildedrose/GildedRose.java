@@ -2,7 +2,6 @@ package com.gildedrose;
 
 class GildedRose {
 	Item[] items;
-	private ItemUpdaterFactory itemUpdaterFactory = new ItemUpdaterFactory();
 
 	public GildedRose(Item[] items) {
 		this.items = items;
@@ -17,7 +16,7 @@ class GildedRose {
 	}
 
 	private ItemUpdater createItemUpdater(String itemName) {
-		return itemUpdaterFactory.createItemUpdater(itemName);
+		return ItemType.forName(itemName).createItemUpdater();
 	}
 
 	private void updateQuality(ItemUpdater itemUpdater, Item item) {
