@@ -6,16 +6,19 @@ A lesson-by-lesson Java implementation of the Emily Bache's [Gilded Rose refacto
 2. Reveals intent
 3. No duplication (DRY)
 4. Fewest elements
+
 ### SOLID Principles
 - **Single Responsibility Principle (SRP)**
-- **Open-Closed Priniciple (OCP)**
+- **Open-Closed Principle (OCP)**
 - Liskov Substitution Principle (LSP)
 - Interface Segregation Principle (ISP)
 - Dependency Inversion Principle (DIP)
+
 ### TDD versus Legacy Rescue
 - Both driven by Four Rules of Simple Design
-- TDD: When refactoring, strive for perfection 
-- Legacy Rescue: "Good is too expensive.  I just want better (quickly)." (Belshee)
+- **TDD:** When refactoring, strive for perfection 
+- **Legacy Rescue:** "Good is too expensive.  I just want better (quickly)." (Belshee)
+
 ### Introduction to Gilded Rose kata
 [Starting codebase with requirements](https://github.com/d215steinberg/GildedRose-Java).
 ## Part II: Initiating Our Test Bed 
@@ -23,6 +26,7 @@ A lesson-by-lesson Java implementation of the Emily Bache's [Gilded Rose refacto
 The code base has two test classes:
 - [**GildedRoseTest.java**](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/src/test/java/com/gildedrose/GildedRoseTest.java)
 - [**TexttestFixture.java**](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/src/test/java/com/gildedrose/TexttestFixture.java)
+
 ### Lesson #2: How valuable is a non-automated test
 We run **TexttestFixture.java**.  
 We verify results manually (takes about a minute).  
@@ -30,6 +34,7 @@ We run test coverage (70.0% coverage of **GildedRose.java**).
 This test is not very useful:
 - 30% of code is not covered
 - Will need to verify results manually after every change
+
 ### [Lesson #3: A test is a spec](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%233)
 We split the initial **foo** test in **GildedRose.java** into two trivial but meaningful tests.
 ### [Lesson #4: Refactor tests.  DON'T WAIT!](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%234)
@@ -40,6 +45,7 @@ As we extract another helper method, we run into this conflict.  Java's **assert
 The test method is named **typeRemainsUnchangedAtEndOfDay** but the test calls **app.updateQuality**.  Are we performing end-of-day processing or are we just updating quality?  The former is true, so we rename **GildedRose.updateQuality** to **updateAtEndOfDay**.
 ### [Lesson #7: Know your tools](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%237)
 We replace the archaic **assertEquals** with **assertThat**.
+
 ## Part III: Characterizing the Code
 ### Lesson #8: From where can we glean the tests?
 We are lucky, as we have a concise and (apparently) complete requirements document.  More often than not, we are forced to glean the characterization tests from the source code.
@@ -51,12 +57,13 @@ Continuing with our fix from Lesson #9, we change the sample sell-in and quality
 We continue stepping through the specifications. When we get to **sulfurasNeverNeedsToBeSold**, we run into another failure.  This time the problem is that we are passing "Sulfuras" as the item name, while the real name is "Sulfuras, Hand of Ragnaros."  The simple fix is to copy the correct name to the test, but we know that we will run into this problem again.  Besides, copying strings violates the DRY principle.  We extract the type names to constants and use these constants in our tests.  We are able to perform this refactoring without complete test coverage because
 1. The refactoring is performed the the IDE and is therefore "safe"
 2. The refactoring provides immediately benefit to our characterization-testing process.
+
 ### [Lesson #12: Is a specification out of scope?](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2312)
 We write a passing test, **sulfurasMaintainsItsQuality**.  But this test seems to contradict another requirement:
 > Just for clarification, an item can never have its Quality increase above 50, however Sulfuras is a legendary item and as such its Quality is 80 and it never alters.
 
 The fact that our test passes reveals that the system currently does not assure that a Sulfuras item's quality is 80.  Perhaps an external system sets this quality as it inputs the item into our system.  If so, then this statement is not a requirement at all but rather, as was stated, a "clarification."  Perhaps the Product Owner envisions a mechanism in our system that assures this quality, but such a mechanism would require another story.
-###[Lesson #13: Checking test coverage](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2313)
+### [Lesson #13: Checking test coverage](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2313)
 We write tests for the Backstage Passes specifications.  We have now written tests for each bullet item in the requirements.  Now we check our coverage.  We still have an uncovered block of two lines and several uncovered branches.  We need a few more tests.
 ### [Lesson #14: The requirements are ambiguous.  Is the code correct?](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2314)
 The uncovered block of code represents the case where an Aged Brie item has passed its sell-by date.  Sure enough, we missed this case in our tests.  So what is the specification for this case?  The requirements read
