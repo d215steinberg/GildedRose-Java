@@ -205,6 +205,7 @@ To comply with the London school approach:
 2. We refactor the **GildedRose** constructor to allow injection of a factory.
 3. We wire up **GildedRoseMultiItemTest** with mock factories and updaters (**fooUpdater** and **barUpdater**) that correspond to "foo" and "bar" items.
 4. We modify the tests to define "foo" and "bar" items and verify that the corresponding updaters are called.
+
 ### [Lesson #40: Can we remove the factory?](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2340)
 In Lesson #29, we moved the essential functionality of **ItemUpdaterFactory** to the **ItemType** enum.  The factory now appears to be superfluous.  We in-line the factory call in **GildedRose** and remove the factory.
 
@@ -214,6 +215,7 @@ Back in Lesson #12, we determined that the "clarification" that Sulfuras quality
 1. We write a failing test **GildedRoseSulfurasTest.sulfurasQualityIsAlways80**.
 2. We modify **SulfurasUpdater.updateQuality** to make the test pass.  The test **sulfurasMaintainsItsQuality** now fails.  This test is no longer valid, so we delete it.
 3. We refactor as necessary (i.e. we extract 80 to a constant and rename our test **sulfurasQualityIsAlwaysSetAmount**).
+
 ### [Lesson #42: The product owner throws a curve](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2342)
 Is the test name **sulfurasQualityIsAlwaysSetAmount** truly accurate?  Not quite.  The test is only verifying that Sulfuras quality is 80 at the end of the day.  When a Sulfuras item has just been added, its quality is not necessarily 80.  Does this matter?  We ask the Product Owner, and he responds that yes, it does.
 So now, in addition to the strategy hierarchy (and associated factory) for **ItemUpdater**, we need another strategy hierarchy (and factory) for **ItemInitializer**.
