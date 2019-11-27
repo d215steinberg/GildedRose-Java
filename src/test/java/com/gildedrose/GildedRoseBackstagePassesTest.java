@@ -1,7 +1,7 @@
 package com.gildedrose;
 
-import static com.gildedrose.BackstagePassesQualityIncreaser.DOUBLE_APPRECIATION_THRESHOLD;
-import static com.gildedrose.BackstagePassesQualityIncreaser.TRIPLE_APPRECIATION_THRESHOLD;
+import static com.gildedrose.BackstagePassesUpdater.DOUBLE_APPRECIATION_THRESHOLD;
+import static com.gildedrose.BackstagePassesUpdater.TRIPLE_APPRECIATION_THRESHOLD;
 import static com.gildedrose.ItemType.BACKSTAGE_PASSES;
 import static com.gildedrose.QualityIncreaser.MAX_QUALITY;
 import static org.hamcrest.CoreMatchers.is;
