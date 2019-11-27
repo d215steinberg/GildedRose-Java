@@ -3,7 +3,18 @@ package com.gildedrose;
 import static com.gildedrose.ExpirationChecker.sellDateHasPassed;
 
 public class BackstagePassesUpdater extends DefaultUpdater {
-	private QualityIncreaser qualityIncreaser = new BackstagePassesQualityIncreaser();
+	private QualityIncreaser qualityIncreaser = new QualityIncreaser() {
+		@Override
+		protected int getQualityIncrement(int sellIn) {
+			if (sellIn <= 5) {
+				return 3;
+			} else if (sellIn <= 10) {
+				return 2;
+			} else {
+				return 1;
+			}
+		}
+	};
 
 	@Override
 	public void updateQuality(Item item) {
