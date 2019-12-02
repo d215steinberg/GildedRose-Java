@@ -34,6 +34,7 @@ We run test coverage (70.0% coverage of **GildedRose.java**).
 This test is not very useful:
 - 30% of code is not covered
 - We will need to verify results manually after every change
+
 Then again, a 70%-coverage, semi-manual test is better than no test at all.  We will keep this test around until we can render it obsolete. 
 ### [Lesson #3: A test is a spec](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%233)
 **GildedRoseTest** contains a single JUnit test.  We run it, and it fails.  We make it green by changing **fixme** to **foo**.
