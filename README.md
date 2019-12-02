@@ -107,8 +107,9 @@ We realize that our system demands a Strategy Pattern.  We go to the whiteboard 
 ### [Lesson #22: Baby steps toward strategy pattern](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2322)
 Progressing with baby steps, we move **GildedRose.updateQuality** to new class **DefaultUpdater** and extract interface **ItemUpdater**. For now, **GildedRose** hard-codes its use of **DefaultUpdater**.
 ### [Lesson #23: Introducing a factory](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2323)
-Choosing an **ItemUpdater** implementation is a new responsibility, so it requires a new class.  Charting are course with some more whiteboard UML, we create **ItemUpdaterFactory**.  For now, **ItemUpdaterFactory.createItemUpdater** just returns a **DefaultUpdater**.
+Choosing an **ItemUpdater** implementation is a new responsibility, so it requires a new class.  Charting are course with some more whiteboard UML, we create **ItemUpdaterFactory**.  
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/images/Lesson%20%2323.png)
+For now, **ItemUpdaterFactory.createItemUpdater** just returns a **DefaultUpdater**.
 ### [Lesson #24: Test-driving the factory](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2324)
 **ItemUpdaterFactory** is a new class, so we must test-drive its behavior.  We start by writing a (succeeding) test for the existing behavior: **createsDefaultUpdaterForUnknownItem**.
 ### [Lesson #25: All we need is better](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2325)
