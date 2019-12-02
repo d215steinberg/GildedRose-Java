@@ -39,6 +39,25 @@ Then again, a 70%-coverage, semi-manual test is better than no test at all.  We 
 **GildedRoseTest** contains a single JUnit test.  We run it, and it fails.  We make it green by changing **fixme** to **foo**.
 
 Clearly, the test name **foo** does not express the intent of the test.  What specification is the test expressing?  From **GildedRoseRequirements.txt**, we see requirements regarding the initial specification of **sellIn** and **quality** attributes ("All items have a ...") and requirements regarding what happens to these attributes at the end of the day.  Our **foo** test describes the **name** attribute in both of these contexts, so we split **foo** into two trivial but meaningful tests.
+
+```java
+@Test
+public void itemHasSpecifiedName() {
+	Item[] items = new Item[] { new Item("foo", 0, 0) };
+	GildedRose app = new GildedRose(items);
+	assertEquals("foo", app.items[0].name);
+}
+
+@Test
+public void nameRemainsUnchangedAtEndOfDay() {
+	Item[] items = new Item[] { new Item("foo", 0, 0) };
+	GildedRose app = new GildedRose(items);
+
+	app.updateQuality();
+
+	assertEquals("foo", app.items[0].name);
+}
+```
 ### [Lesson #4: Refactor tests.  DON'T WAIT!](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%234)
 We refactor the two tests, extracting common code to remove duplication and reveal intent.
 ### [Lesson #5: Should a method's name reflect its behavior or its purpose?](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%235)
