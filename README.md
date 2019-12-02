@@ -103,6 +103,8 @@ Since our unit test coverage is complete, **TexttestFixture.java** is no longer 
 We extract variables and methods, and we move code around.  Our code is cleaner than before, but not to the point where we can implement the new requirement.
 ### Lesson #21: Reflexive design: Nothing wrong with a bit of UML
 We realize that our system demands a Strategy Pattern.  We go to the whiteboard and sketch out a UML class diagram depicting an **ItemUpdater** interface implemented by **DefaultUpdater**, **AgedBrieUpdater**, **SulfurasUpdater**, **BackstagePassesUpdater** and **ConjuredUpdater**.
+
+``![](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/images/Lesson%20%2321.png)
 ### [Lesson #22: Baby steps toward strategy pattern](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2322)
 Progressing with baby steps, we move **GildedRose.updateQuality** to new class **DefaultUpdater** and extract interface **ItemUpdater**. For now, **GildedRose** hard-codes its use of **DefaultUpdater**.
 ### [Lesson #23: Introducing a factory](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2323)
