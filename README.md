@@ -33,10 +33,12 @@ We verify results manually (takes about a minute).
 We run test coverage (70.0% coverage of **GildedRose.java**).  
 This test is not very useful:
 - 30% of code is not covered
-- Will need to verify results manually after every change
-
+- We will need to verify results manually after every change
+Then again, a 70%-coverage, semi-manual test is better than no test at all.  We will keep this test around until we can render it obsolete. 
 ### [Lesson #3: A test is a spec](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%233)
-We split the initial **foo** test in **GildedRose.java** into two trivial but meaningful tests.
+**GildedRoseTest** contains a single JUnit test.  We run it, and it fails.  We make it green by changing **fixme** to **foo**.
+
+Clearly, the test name **foo** does not express the intent of the test.  What specification is the test expressing?  From **GildedRoseRequirements.txt**, we see requirements regarding the initial specification of **sellIn** and **quality** attributes ("All items have a ...") and requirements regarding what happens to these attributes at the end of the day.  Our **foo** test describes the **name** attribute in both of these contexts, so we split **foo** into two trivial but meaningful tests.
 ### [Lesson #4: Refactor tests.  DON'T WAIT!](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%234)
 We refactor the two tests, extracting common code to remove duplication and reveal intent.
 ### [Lesson #5: Should a method's name reflect its behavior or its purpose?](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%235)
@@ -76,7 +78,8 @@ We continue adding tests for our uncovered branches.  One such missed branch is 
 ### [Lesson #16: Completing branch coverage](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2316)
 We still have missed branches representing cases of Backstage Passes items approaching maximum quality.  We write tests for these cases.
 ### [Lesson #17: Line/branch coverage does not guarantee behavioral coverage](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2317)
-line and branch coverage are now complete (except for our dead branch).  But is the code truly test-covered?  Can we make a non-trivial change to the code that will leave the tests green?  If so, then we can inadvertently break the code while refactoring.  
+Line and branch coverage are now complete (except for our dead branch).  But is the code truly test-covered?  Can we make a non-trivial change to the code that will leave the tests green?  If so, then we can inadvertently break the code while refactoring. 
+ 
 "Mutation testing" tools such as Pitest help us to find these gaps in behavioral coverage.  
 
 We run Pitest and see that two lines survive the "changed conditional boundary" mutation.  Our Backstage Passes tests cover the upper bounds of the quality appreciation ranges (10 days and 5 days) but not lower bounds (6 days and 0 days).  We add tests for the lower bounds, and Pitest reports 100% coverage.  
