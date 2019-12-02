@@ -126,7 +126,22 @@ We have implemented our new functionality and made our code better in the proces
 
 In **GildedRose**, **updateQuality** is now squeeky-clean.  But **updateSellin** still has an ugly if-condition.
 
-We move **updateSellin** to **DefaultUpdater** and pull its signature up to the **ItemUpdater** interface.  We refactor **GildedRose** to create **itemUpdater** in **updateAtEndOfDay** and to pass it as a parameter to both **updateQuality** and **updateSellin**.  There remains some ugly code underneath (specifically in **DefaultUpdater**), but our top-level **GildedRose** is pristine.
+We move **updateSellin** to **DefaultUpdater** and pull its signature up to the **ItemUpdater** interface.  We refactor **GildedRose** to create **itemUpdater** in **updateAtEndOfDay** and to pass it as a parameter to both **updateQuality** and **updateSellin**.  But passing a parameter to a method just so that we can delegate a single call is excessive, so we inline our calls to these methods.  
+
+```java
+public void updateAtEndOfDay() { 
+    for (Item item : items) { 
+		ItemUpdater itemUpdater = createItemUpdater(item.name); 
+		itemUpdater.updateQuality(item); 
+		itemUpdater.updateSellIn(item); 
+	}  	
+} 
+ 
+private ItemUpdater createItemUpdater(String itemName) {  		
+    return itemUpdaterFactory.createItemUpdater(itemName); 
+} 
+```
+There remains some ugly code underneath (specifically in **DefaultUpdater**), but our top-level **GildedRose** is pristine.
 
 ### [Lesson #29: Doing it DRY with enum](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2329)
 As one last sanity check before declaring ourselves "done," let us assess the code base that we are leaving for the next developers tasked with a similar requirement, i.e. introducing a new specialized item type.  The developers will need to 
