@@ -76,7 +76,7 @@ We continue adding tests for our uncovered branches.  One such missed branch is 
 ### [Lesson #16: Completing branch coverage](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2316)
 We still have missed branches representing cases of Backstage Passes items approaching maximum quality.  We write tests for these cases.
 ### [Lesson #17: Line/branch coverage does not guarantee behavioral coverage](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2317)
-ne and branch coverage are now complete (except for our dead branch).  But is the code truly test-covered?  Can we make a non-trivial change to the code that will leave the tests green?  If so, then we can inadvertently break the code while refactoring.  
+line and branch coverage are now complete (except for our dead branch).  But is the code truly test-covered?  Can we make a non-trivial change to the code that will leave the tests green?  If so, then we can inadvertently break the code while refactoring.  
 "Mutation testing" tools such as Pitest help us to find these gaps in behavioral coverage.  
 
 We run Pitest and see that two lines survive the "changed conditional boundary" mutation.  Our Backstage Passes tests cover the upper bounds of the quality appreciation ranges (10 days and 5 days) but not lower bounds (6 days and 0 days).  We add tests for the lower bounds, and Pitest reports 100% coverage.  
@@ -106,7 +106,7 @@ We realize that our system demands a Strategy Pattern.  We go to the whiteboard 
 ### [Lesson #22: Baby steps toward strategy pattern](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2322)
 Progressing with baby steps, we move **GildedRose.updateQuality** to new class **DefaultUpdater** and extract interface **ItemUpdater**. For now, **GildedRose** hard-codes its use of **DefaultUpdater**.
 ### [Lesson #23: Introducing a factory](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2323)
-Choosing an **ItemUpdater** implementation is a new responsibility, so it requires a new class.  Charting are course with some more whiteboard UML, we create **ItemUpdaterFactory**.  For now, **ItemUpdaterFactory.createItemUpdater** just reurns a **DefaultUpdater**.
+Choosing an **ItemUpdater** implementation is a new responsibility, so it requires a new class.  Charting are course with some more whiteboard UML, we create **ItemUpdaterFactory**.  For now, **ItemUpdaterFactory.createItemUpdater** just returns a **DefaultUpdater**.
 ### [Lesson #24: Test-driving the factory](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2324)
 **ItemUpdaterFactory** is a new class, so we must test-drive its behavior.  We start by writing a (succeeding) test for the existing behavior: **createsDefaultUpdaterForUnknownItem**.
 ### [Lesson #25: All we need is better](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2325)
@@ -192,7 +192,7 @@ We realize that **DefaultUpdater** has been playing a dual role of
 
 We have gotten away with this dual responsibility (Single Responsibility Principle violation) up to this point, but now our sloppiness has been exposed. 
 
-When inheritance fails, we turn to delegation.  We create a "strategy within a strategy, defining abstract class **QualityIncreaser** extended by both **AgedBrieQualityIncreaser** and **BackstagePassesQualityIncreaser**.  These classes reference the utlity method **sellDateHasPassed**, which we move from **DefaultUpdater** to a new utility class **ExpirationChecker**.  The **MAX_QUALITY** constant is specific to quality increasing, so we move it from **ItemUpdater** to **QualityIncreaser**.
+When inheritance fails, we turn to delegation.  We create a "strategy within a strategy," defining abstract class **QualityIncreaser** extended by anonymous subclasses (since creating new classes **AgedBrieQualityIncreaser** and **BackstagePassesQualityIncreaser** would violate Simple Rule #4).  The **MAX_QUALITY** constant is specific to quality increasing, so we move it from **ItemUpdater** to **QualityIncreaser**.
 ### [Lesson #36: No magic numbers, even in test names](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2336)
 In **BackstagePassesQualityIncreaser**, we extract the quality appreciation thresholds, 5 and 10, to constants.  We modify the tests in **GildedRoseTest** to reference these constants.  But the test method names still contain these magic numbers (and the magic number of 50 for maximum quality), e.g. **backstagePassesQualityDoesNotExceed50MoreThan10DaysFromConcert**.
 
@@ -235,7 +235,7 @@ Back in Lesson #12, we determined that the "clarification" that Sulfuras quality
 Is the test name **sulfurasQualityIsAlwaysSetAmount** truly accurate?  Not quite.  The test is only verifying that Sulfuras quality is 80 at the end of the day.  When a Sulfuras item has just been added, its quality is not necessarily 80.  Does this matter?  We ask the Product Owner, and he responds that yes, it does.
 So now, in addition to the strategy hierarchy (and associated factory) for **ItemUpdater**, we need another strategy hierarchy (and factory) for **ItemInitializer**.
 1. We rename our test to **sulfurasQualityIsAlwaysSetAmountAtEndOfDay** and we add a failing test **sulfurasQualityIsAlwaysSetAmountInitially**.  We **@Ignore** this test, so that we can refactor on green.
-2. We extract a method **initializeItems** from the **GildedRose** constructor.  We implment this method to loop through the items, calling **initializeItem**, a no-op, for each.
+2. We extract a method **initializeItems** from the **GildedRose** constructor.  We implement this method to loop through the items, calling **initializeItem**, a no-op, for each.
 3. We create a class **DefaultInitializer** and copy **initializeItem** to this class (making int public).  We extract an interface **ItemInitializer**.
 4. We re-implement **GildedRose.initializeItem** to create an **ItemInitializer** (through method **createInitializer**) and to delegate to this initializer.  We initially implement **createInitializer** to create a **DefaultInitializer**. 
 5. We test-drive **ItemType.createInitializer** to create a **DefaultInitializer**.
