@@ -195,7 +195,9 @@ We realize that **DefaultUpdater** has been playing a dual role of
 
 We have gotten away with this dual responsibility (Single Responsibility Principle violation) up to this point, but now our sloppiness has been exposed. 
 
-When inheritance fails, we turn to delegation.  We create a "strategy within a strategy," defining abstract class **QualityIncreaser** extended by anonymous subclasses (since creating new classes **AgedBrieQualityIncreaser** and **BackstagePassesQualityIncreaser** would violate Simple Rule #4).  The **MAX_QUALITY** constant is specific to quality increasing, so we move it from **ItemUpdater** to **QualityIncreaser**.
+When inheritance fails, we turn to delegation.  We create a "strategy within a strategy," defining abstract class **QualityIncreaser** extended by anonymous subclasses (since creating new classes **AgedBrieQualityIncreaser** and **BackstagePassesQualityIncreaser** would violate Simple Rule #4).
+![](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/images/Lesson%20%2335.png)
+The **MAX_QUALITY** constant is specific to quality increasing, so we move it from **ItemUpdater** to **QualityIncreaser**.
 ### [Lesson #36: No magic numbers, even in test names](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2336)
 In **BackstagePassesQualityIncreaser**, we extract the quality appreciation thresholds, 5 and 10, to constants.  We modify the tests in **GildedRoseTest** to reference these constants.  But the test method names still contain these magic numbers (and the magic number of 50 for maximum quality), e.g. **backstagePassesQualityDoesNotExceed50MoreThan10DaysFromConcert**.
 
