@@ -45,5 +45,9 @@ public class DefaultUpdater implements ItemUpdater {
 	public void updateSellIn(Item item) {
 		item.sellIn = item.sellIn - 1;
 	}
+	
+	protected boolean sellDateHasPassed(int sellIn) {
+		return sellIn <= 0;
+	}
 
 }

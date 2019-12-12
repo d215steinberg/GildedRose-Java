@@ -1,7 +1,5 @@
 package com.gildedrose;
 
-import static com.gildedrose.ExpirationChecker.sellDateHasPassed;
-
 public class BackstagePassesUpdater extends DefaultUpdater {
 	private QualityIncreaser qualityIncreaser = new QualityIncreaser() {
 		@Override
