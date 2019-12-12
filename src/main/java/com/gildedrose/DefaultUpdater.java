@@ -1,6 +1,5 @@
 package com.gildedrose;
 
-import static com.gildedrose.ExpirationChecker.sellDateHasPassed;
 import static java.lang.Math.max;
 
 public class DefaultUpdater implements ItemUpdater {
@@ -20,6 +19,10 @@ public class DefaultUpdater implements ItemUpdater {
 	@Override
 	public void updateSellIn(Item item) {
 		item.sellIn--;
+	}
+
+	protected boolean sellDateHasPassed(int sellIn) {
+		return sellIn <= 0;
 	}
 
 }
