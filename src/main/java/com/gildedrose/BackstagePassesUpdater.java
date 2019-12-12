@@ -1,7 +1,5 @@
 package com.gildedrose;
 
-import static com.gildedrose.ExpirationChecker.sellDateHasPassed;
-
 public class BackstagePassesUpdater extends DefaultUpdater {
 	public static final int DOUBLE_APPRECIATION_THRESHOLD = 10;
 	public static final int TRIPLE_APPRECIATION_THRESHOLD = 5;
