@@ -119,8 +119,6 @@ public void updateAtEndOfDay() {
 All tests still run green because all tests assume a single item.  We add a couple of tests specifying multi-item behavior.  The tests initially fail.  We restore the loop in our code.  The tests pass.
 ### [Lesson #19: Adding a failing test for the new requirement](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2319)
 Now that we have fully characterized the existing behavior of the system, we can write a failing test for our new requirement.  We will not be able to make this test pass without some refactoring, so we **@Ignore** the test for time being.
-
-Since our unit test coverage is complete, **TexttestFixture.java** is no longer needed.  We delete it.
 ## Part IV: Essential Refactoring
 ### [Lesson #20: Refactoring: The low-hanging fruit](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2320)
 We extract variables and methods, and we move code around.  Our code is cleaner than before, but not to the point where we can implement the new requirement.
@@ -147,6 +145,8 @@ We have missed some edge cases, so we write a new test, **conjuredQualityDecreas
 We have more edge cases to address (e.g. preventing negative quality).  But TDD demands that at every green juncture we look for refactoring opportunities.  In particular, we assure that our code satisfies the DRY (Don't Repeat Yourself) principle.  The concept of decrementing quality appears twice in our code, so we extract it.  
 
 We then write the test for our next edge case, **conjuredQualityIsNeverNegative**.  We make the test pass and then refactor as necessary.  Finally, we write our last test, **conjuredQualityIsNeverNegativeEvenOnceSellDateHasPassed**, which passes off the bat.
+
+We run **TexttestFixture**, and we manually verify that all tests (especially the last one) pass.  We can now delete this test file, as it is redundant.
 ### [Lesson #28: Inviting updateSellIn to the party](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2328)
 We have implemented our new functionality and made our code better in the process.  That means that we can call our story "done."  But let us take one quick scan to see whether we have missed any low-hanging fruit.
 
