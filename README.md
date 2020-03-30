@@ -91,6 +91,16 @@ private Item getFirstItem() {
 ```
 ### [Lesson #6: If test name does not match test flow, then one of them is wrong](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%236)
 The test method is named **typeRemainsUnchangedAtEndOfDay** but the test calls **app.updateQuality**.  Are we performing end-of-day processing or are we just updating quality?  The former is true, so we rename **GildedRose.updateQuality** to **updateAtEndOfDay**.
+
+```java
+@Test
+public void nameRemainsUnchangedAtEndOfDay() {
+	app = createAppWithSingleItem("foo", 0, 0);
+	app.updateAtEndOfDay();
+	assertEquals("foo", getLoneItem().name);
+}
+```
+We have only written two tests, and our gained understanding is already driving the refactoring of our code!
 ### [Lesson #7: Know your tools](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%237)
 We replace the archaic **assertEquals** with **assertThat**.
 
