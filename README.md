@@ -61,6 +61,21 @@ public void nameRemainsUnchangedAtEndOfDay() {
 ```
 ### [Lesson #4: Refactor tests.  DON'T WAIT!](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%234)
 We refactor the two tests, extracting common code to remove duplication and reveal intent.
+
+```java
+@Test
+public void itemHasSpecifiedName() {
+	GildedRose app = createAppWithSingleItem("foo", 0, 0);
+	assertEquals("foo", app.items[0].name);
+}
+
+@Test
+public void nameRemainsUnchangedAtEndOfDay() {
+	GildedRose app = createAppWithSingleItem("foo", 0, 0);
+	app.updateQuality();
+	assertEquals("foo", app.items[0].name);
+}
+```
 ### [Lesson #5: Should a method's name reflect its behavior or its purpose?](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%235)
 As we extract another helper method, we run into this conflict.  Java's **assert** mechanism allows us to do both.
 ### [Lesson #6: If test name does not match test flow, then one of them is wrong](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%236)
