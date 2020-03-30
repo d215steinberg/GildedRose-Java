@@ -16,7 +16,7 @@ public class GildedRoseTest {
 	private GildedRose app;
 
 	@Test
-	public void itemHasSpecifiedType() {
+	public void itemHasSpecifiedName() {
 		app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		assertThat(getLoneItem().name, is("foo"));
 	}
@@ -34,7 +34,7 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	public void typeRemainsUnchangedAtEndOfDay() {
+	public void nameRemainsUnchangedAtEndOfDay() {
 		app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().name, is("foo"));
