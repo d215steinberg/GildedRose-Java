@@ -10,13 +10,13 @@ public class GildedRoseTest {
 	private GildedRose app;
 
 	@Test
-	public void itemHasSpecifiedType() {
+	public void itemHasSpecifiedName() {
 		app = createAppWithSingleItem("foo", 0, 0);
 		assertThat(getLoneItem().name, is("foo"));
 	}
 
 	@Test
-	public void typeRemainsUnchangedAtEndOfDay() {
+	public void nameRemainsUnchangedAtEndOfDay() {
 		app = createAppWithSingleItem("foo", 0, 0);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().name, is("foo"));
