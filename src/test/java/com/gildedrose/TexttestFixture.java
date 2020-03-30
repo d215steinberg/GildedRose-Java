@@ -22,7 +22,6 @@ public class TexttestFixture {
 			days = Integer.parseInt(args[0]) + 1;
 		}
 
-<<<<<<< HEAD
 		for (int i = 0; i < days; i++) {
 			System.out.println("-------- day " + i + " --------");
 			System.out.println("name, sellIn, quality");
@@ -33,17 +32,5 @@ public class TexttestFixture {
 			app.updateAtEndOfDay();
 		}
 	}
-=======
-        for (int i = 0; i < days; i++) {
-            System.out.println("-------- day " + i + " --------");
-            System.out.println("name, sellIn, quality");
-            for (Item item : items) {
-                System.out.println(item);
-            }
-            System.out.println();
-            app.updateAtEndOfDay();
-        }
-    }
->>>>>>> Lesson#6
 
 }
