@@ -104,6 +104,20 @@ We have only written two tests, and our gained understanding is already driving 
 ### [Lesson #7: Know your tools](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%237)
 We replace the archaic **assertEquals** with **assertThat**.
 
+```java
+@Test
+public void itemHasSpecifiedName() {
+	app = createAppWithSingleItem("foo", 0, 0);
+	assertThat(getLoneItem().name, is("foo"));
+}
+
+@Test
+public void nameRemainsUnchangedAtEndOfDay() {
+	app = createAppWithSingleItem("foo", 0, 0);
+	app.updateAtEndOfDay();
+	assertThat(getLoneItem().name, is("foo"));
+}
+```
 ## Part III: Characterizing the Code
 ### Lesson #8: From where can we glean the tests?
 We are lucky, as we have a concise and (apparently) complete requirements document.  More often than not, we are forced to glean the characterization tests from the source code.
