@@ -78,6 +78,17 @@ public void nameRemainsUnchangedAtEndOfDay() {
 ```
 ### [Lesson #5: Should a method's name reflect its behavior or its purpose?](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%235)
 As we extract another helper method, we run into this conflict.  Java's **assert** mechanism allows us to do both.
+
+```java
+private Item getLoneItem() {
+	assert app.items.length == 1 : "Expecting exactly one item";
+	return getFirstItem();
+}
+
+private Item getFirstItem() {
+	return app.items[0];
+}
+```
 ### [Lesson #6: If test name does not match test flow, then one of them is wrong](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%236)
 The test method is named **typeRemainsUnchangedAtEndOfDay** but the test calls **app.updateQuality**.  Are we performing end-of-day processing or are we just updating quality?  The former is true, so we rename **GildedRose.updateQuality** to **updateAtEndOfDay**.
 ### [Lesson #7: Know your tools](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%237)
