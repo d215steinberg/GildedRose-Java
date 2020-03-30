@@ -7,13 +7,13 @@ import org.junit.Test;
 public class GildedRoseTest {
 
 	@Test
-	public void itemHasSpecifiedType() {
+	public void itemHasSpecifiedName() {
 		GildedRose app = createAppWithSingleItem("foo", 0, 0);
 		assertEquals("foo", app.items[0].name);
 	}
 
 	@Test
-	public void typeRemainsUnchangedAtEndOfDay() {
+	public void nameRemainsUnchangedAtEndOfDay() {
 		GildedRose app = createAppWithSingleItem("foo", 0, 0);
 		app.updateQuality();
 		assertEquals("foo", app.items[0].name);
