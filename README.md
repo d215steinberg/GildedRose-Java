@@ -187,6 +187,7 @@ For now, **ItemUpdaterFactory.createItemUpdater** just returns a **DefaultUpdate
 We are now faced with a choice.  We have four **ItemUpdater** implementations to create.  Which should we create first?  We could present arguments for each option, but in this case we should create **ConjuredUpdater** first.  Why?  *Because that is all we need to do.*
 
 We test-drive the creation of **ConjuredUpdater** by **ItemUpdaterFactory**.  For now, **ConjuredUpdater** simply extends **DefaultUpdater**.
+## Part V: Implementing the change
 ### [Lesson #26: Implementing the new functionality](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2326)
 We now un-ignore our failing Conjured test (**conjuredQualityDecreasesBy2**) in **GildedRoseTest**.  We then implement **ConjuredUpdater.updateQuality** to make the test pass.
 
@@ -240,7 +241,7 @@ We refactor as follows:
 
 NOTE: Java 8 supports [a cleaner implementation of **ItemType.forName** using streams and lambdas](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%2329-Java8/src/main/java/com/gildedrose/ItemType.java).  That implementation can be found [here](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%2329-Java8/src/main/java/com/gildedrose/ItemType.java).  For compatibility with older versions of Java (from Java 5 on -- Java 7 will be supported until July 2022), I have left [this implementation](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%2329-Java8/src/main/java/com/gildedrose/ItemType.java) on a dead branch.
 
-## Part V: Finishing the Job
+## Part VI: Finishing the Job
 ### [Lesson #30: We want more!](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2330)
 At this point, we can deliver our code and claim completion of our story.  But this is a refactoring kata, and we are on a role.  Just as we have created **ConjuredUpdater**, we can create updaters (all of which will extend **DefaultUpdater**) for the other special items.  We start with **AgedBrieUpdater**, whose creation we test-drive from **ItemUpdaterFactory**.
 
@@ -277,7 +278,7 @@ In **BackstagePassesQualityIncreaser**, we extract the quality appreciation thre
 We rename the test methods to be magic-number neutral, e.g. **backstagePassesQualityDoesNotExceedMaximumUpToDoubleAppreciationThreshold**.
 ### [Lesson #37: My have our standards increased!](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2337)
 Now that we have implemented **BackstagePassesUpdater**, we delete the last bit of item-specific dead code from **DefaultUpdater**. In comparison to the mess that we began with, what we are left with is pretty amazing, but held next to our other **ItemUpdater** implementations, it's pretty crappy.  
-## Part VI: Outstanding Issues
+## Part VII: Outstanding Issues
 ### [Lesson #38: Do we need to move the tests?](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2338)
 The short answer is no.  We extracted the strategy (**ItemUpdater**) classes for maintainability, not for reuse, so **GildedRose** still qualifies as a "unit."
 
