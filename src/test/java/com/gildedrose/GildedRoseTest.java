@@ -6,7 +6,7 @@ import static com.gildedrose.ItemType.CONJURED;
 import static com.gildedrose.ItemType.SULFURAS;
 import static com.gildedrose.ItemUpdater.MAX_QUALITY;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.Test;
 
