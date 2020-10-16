@@ -4,7 +4,7 @@ import static com.gildedrose.GildedRose.AGED_BRIE;
 import static com.gildedrose.GildedRose.BACKSTAGE_PASSES;
 import static com.gildedrose.GildedRose.SULFURAS;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.Test;
 
