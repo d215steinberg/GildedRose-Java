@@ -1,13 +1,13 @@
 package com.gildedrose;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.Test;
 
 public class GildedRoseDefaultTest extends GildedRoseTest {
 	@Test
-	public void itemHasSpecifiedType() {
+	public void itemHasSpecifiedName() {
 		app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		assertThat(getLoneItem().name, is("foo"));
 	}
@@ -25,7 +25,7 @@ public class GildedRoseDefaultTest extends GildedRoseTest {
 	}
 
 	@Test
-	public void typeRemainsUnchangedAtEndOfDay() {
+	public void nameRemainsUnchangedAtEndOfDay() {
 		app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
 		assertThat(getLoneItem().name, is("foo"));
