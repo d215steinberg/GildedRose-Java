@@ -5,7 +5,7 @@ import static com.gildedrose.BackstagePassesUpdater.TRIPLE_APPRECIATION_THRESHOL
 import static com.gildedrose.ItemType.BACKSTAGE_PASSES;
 import static com.gildedrose.QualityIncreaser.MAX_QUALITY;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.Test;
 
