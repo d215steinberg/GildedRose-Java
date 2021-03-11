@@ -16,7 +16,7 @@ public class ItemTypeTest {
 	}
 
 	@Test
-	public void createsKnownItemTypeForUnknownName() throws Exception {
+	public void createsKnownItemTypeForKnownName() throws Exception {
 		assertThat(ItemType.forName(AGED_BRIE.name), is(AGED_BRIE));
 	}
 
