@@ -168,7 +168,22 @@ public void updateAtEndOfDay() {
 ```
 All tests still run green because all tests assume a single item.  We add a couple of tests specifying multi-item behavior.  The tests initially fail.  We restore the loop in our code.  The tests pass.
 ### [Lesson #19: Adding a failing test for the new requirement](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2319)
-Now that we have fully characterized the existing behavior of the system, we can write a failing test for our new requirement.  We will not be able to make this test pass without some refactoring, so we **@Ignore** the test for time being.
+Now that we have fully characterized the existing behavior of the system, we can write a failing test for our new requirement.  
+
+```java
+@Test
+public void conjuredQualityDecreasesBy2() {
+	app = createAppWithSingleItem(CONJURED, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+	app.updateAtEndOfDay();
+	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 2));
+}
+```
+Of course, we need to define a **CONJURED** constant in **GildedRose.java**.
+
+```java
+public static final String CONJURED = "Conjured";
+```
+We will not be able to make this test pass without some refactoring, so we **@Ignore** the test for time being.
 ## Part IV: Essential Refactoring
 ### [Lesson #20: Refactoring: The low-hanging fruit](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2320)
 We extract variables and methods, and we move code around.  Our code is cleaner than before, but not to the point where we can implement the new requirement.
