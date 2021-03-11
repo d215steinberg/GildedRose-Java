@@ -181,7 +181,7 @@ public void conjuredQualityDecreasesBy2() {
 Of course, we need to define a **CONJURED** constant in **GildedRose.java**.
 
 ```java
-public static final String CONJURED = "Conjured";
+static final String CONJURED = "Conjured";
 ```
 We will not be able to make this test pass without some refactoring, so we **@Ignore** the test for time being.
 ## Part IV: Essential Refactoring
