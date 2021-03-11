@@ -212,7 +212,23 @@ We have more edge cases to address (e.g. preventing negative quality).  But TDD 
 
 We then write the test for our next edge case, **conjuredQualityIsNeverNegative**.  We make the test pass and then refactor as necessary.  Finally, we write our last test, **conjuredQualityIsNeverNegativeEvenOnceSellDateHasPassed**, which passes off the bat.
 
-We run **TexttestFixture**, and we manually verify that all tests (especially the last one) pass.  We can now delete this test file, as it is redundant.
+We run **TexttestFixture**.  The **Conjured** case still fails!
+
+```
+Conjured Mana Cake, 2, 5
+```
+We realize that we have defined the **CONJURED** constant incorrectly, so we fix it.
+
+```java
+static final String CONJURED = "Conjured Mana Cake";
+```
+Good thing we kept that test around!  We now run the test again,  and we manually verify that all tests (especially 
+the last one) pass.  
+
+```
+Conjured Mana Cake, 2, 4
+```
+We can now delete this test file, as it is redundant.
 ### [Lesson #28: Inviting updateSellIn to the party](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2328)
 We have implemented our new functionality and made our code better in the process.  That means that we can call our story "done."  But let us take one quick scan to see whether we have missed any low-hanging fruit.
 
