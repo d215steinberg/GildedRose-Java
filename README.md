@@ -122,7 +122,15 @@ public void nameRemainsUnchangedAtEndOfDay() {
 ### Lesson #8: From where can we glean the tests?
 We are lucky, as we have a concise and (apparently) complete requirements document.  More often than not, we are forced to glean the characterization tests from the source code.
 ### [Lesson #9: Failing characterization tests are learning opportunities](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%239)
-We step through the specifications in **GildedRoseRequirements.txt**, capturing each in a test method.  When we get to **qualityDecreasesAtEndOfDay**, our test surprisingly fails.  We realize that we were using 0 has a sample sell-in value, an unwise choice since a sell-in value of 0 has a special meaning.  We change our sample value, and the test succeeds.
+We step through the specifications in **GildedRoseRequirements.txt**, capturing each in a test method.  When we get to **qualityDecreasesAtEndOfDay**, our test surprisingly fails. 
+```java
+``` 
+We realize that we were using 0 has a sample sell-in value, an unwise choice since a sell-in value of 0 has a special meaning.  We change our sample value, and the test succeeds.
+```java
+```
+The **sell-in = 0** case actually represents our next requirement, so we keep that test as well (with the appropriate name and assertion).
+```java
+```
 ### [Lesson #10: Test data must express intent as well](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2310)
 Continuing with our fix from Lesson #9, we change the sample sell-in and quality values in all of tests from 0 to more generic values (17 and 19, respectively).  But the tests still do not convey the fact that these are arbitrary sample values, so we extract them as constants, **ARBITRARY_SELLIN** and **ARBITRARY_QUALITY**.
 ### [Lesson #11: Safe refactoring does not have to wait](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2311)
