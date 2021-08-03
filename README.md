@@ -168,6 +168,13 @@ public void qualityDecreasesBy2AtEndOfDayOnceSellDateHasPassed() {
 ```
 ### [Lesson #10: Test data must express intent as well](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2310)
 Continuing with our fix from Lesson #9, we change the sample sell-in and quality values in all of tests from 0 to more generic values (17 and 19, respectively).  But the tests still do not convey the fact that these are arbitrary sample values, so we extract them as constants, **ARBITRARY_SELLIN** and **ARBITRARY_QUALITY**.
+
+```java
+private static final int ARBITRARY_SELLIN = 17;
+private static final int ARBITRARY_QUALITY = 19;
+```
+```java
+```
 ### [Lesson #11: Safe refactoring does not have to wait](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2311)
 We continue stepping through the specifications. When we get to **sulfurasNeverNeedsToBeSold**, we run into another failure.  This time the problem is that we are passing "Sulfuras" as the item name, while the real name is "Sulfuras, Hand of Ragnaros."  The simple fix is to copy the correct name to the test, but we know that we will run into this problem again.  Besides, copying strings violates the DRY principle.  We extract the type names to constants and use these constants in our tests.  We are able to perform this refactoring without complete test coverage because
 1. The refactoring is performed the the IDE and is therefore "safe"
