@@ -132,9 +132,9 @@ public void qualityDecreasesAtEndOfDay() {
 	assertThat(getLoneItem().quality, is(18));
 }
 ```
-
 ```diff
-- FAILS
+- Expected: is <18>
+-    but: was <17>
 ```
 We realize that we were using 0 has a sample sell-in value, an unwise choice since a sell-in value of 0 has a special meaning.  We change our sample value, and the test succeeds.
 
