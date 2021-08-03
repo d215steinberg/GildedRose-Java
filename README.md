@@ -146,6 +146,9 @@ public void qualityDecreasesAtEndOfDay() {
 	assertThat(getLoneItem().quality, is(18));
 }
 ```
+```
++ GREEN
+```
 The **sell-in = 0** case actually represents our next requirement, so we keep that test as well (with the appropriate name and assertion).
 
 ```java
