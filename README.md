@@ -174,6 +174,19 @@ private static final int ARBITRARY_SELLIN = 17;
 private static final int ARBITRARY_QUALITY = 19;
 ```
 ```java
+@Test
+public void qualityDecreasesBy1AtEndOfDay() {
+	app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+	app.updateAtEndOfDay();
+	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 1));
+}
+
+@Test
+public void qualityDecreasesBy2AtEndOfDayOnceSellDateHasPassed() {
+	app = createAppWithSingleItem("foo", 0, ARBITRARY_QUALITY);
+	app.updateAtEndOfDay();
+	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 2));
+}
 ```
 ### [Lesson #11: Safe refactoring does not have to wait](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2311)
 We continue stepping through the specifications. When we get to **sulfurasNeverNeedsToBeSold**, we run into another failure.  This time the problem is that we are passing "Sulfuras" as the item name, while the real name is "Sulfuras, Hand of Ragnaros."  The simple fix is to copy the correct name to the test, but we know that we will run into this problem again.  Besides, copying strings violates the DRY principle.  We extract the type names to constants and use these constants in our tests.  We are able to perform this refactoring without complete test coverage because
