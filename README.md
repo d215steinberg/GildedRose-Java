@@ -58,14 +58,6 @@ public void nameRemainsUnchangedAtEndOfDay() {
 
 	assertEquals("foo", app.items[0].name);
 }
-
-private GildedRose createAppWithSingleItem(String name, int sellIn, int quality) {
-	return new GildedRose(createSingleItemArray(name, sellIn, quality));
-}
-
-private Item[] createSingleItemArray(String name, int sellIn, int quality) {
-	return new Item[] { new Item(name, sellIn, quality) };
-}
 ```
 ### [Lesson #4: Refactor tests.  DON'T WAIT!](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%234)
 We refactor the two tests, extracting common code to remove duplication and reveal intent.
@@ -82,6 +74,14 @@ public void nameRemainsUnchangedAtEndOfDay() {
 	GildedRose app = createAppWithSingleItem("foo", 0, 0);
 	app.updateQuality();
 	assertEquals("foo", app.items[0].name);
+}
+
+private GildedRose createAppWithSingleItem(String name, int sellIn, int quality) {
+	return new GildedRose(createSingleItemArray(name, sellIn, quality));
+}
+
+private Item[] createSingleItemArray(String name, int sellIn, int quality) {
+	return new Item[] { new Item(name, sellIn, quality) };
 }
 ```
 ### [Lesson #5: Should a method's name reflect its behavior or its purpose?](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%235)
