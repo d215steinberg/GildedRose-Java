@@ -127,7 +127,7 @@ We step through the specifications in **GildedRoseRequirements.txt**, capturing 
 ```java
 @Test
 public void qualityDecreasesAtEndOfDay() {
-    app = createAppWithSingleItem("foo", 0, 19);
+	app = createAppWithSingleItem("foo", 0, 19);
 	app.updateAtEndOfDay();
 	assertThat(getLoneItem().quality, is(18));
 }
@@ -141,7 +141,7 @@ We realize that we were using 0 has a sample sell-in value, an unwise choice sin
 ```java
 @Test
 public void qualityDecreasesAtEndOfDay() {
-    app = createAppWithSingleItem("foo", 17, 19);
+	app = createAppWithSingleItem("foo", 17, 19);
 	app.updateAtEndOfDay();
 	assertThat(getLoneItem().quality, is(18));
 }
@@ -154,7 +154,7 @@ The **sell-in = 0** case actually represents our next requirement, so we keep th
 ```java
 @Test
 public void qualityDecreasesBy1AtEndOfDay() {
-    app = createAppWithSingleItem("foo", 17, 19);
+	app = createAppWithSingleItem("foo", 17, 19);
 	app.updateAtEndOfDay();
 	assertThat(getLoneItem().quality, is(18));
 }
