@@ -345,7 +345,9 @@ But this test seems to contradict another requirement:
 
 The fact that our test passes reveals that the system currently does not assure that a Sulfuras item's quality is 80.  Perhaps an external system sets this quality as it inputs the item into our system.  If so, then this statement is not a requirement at all but rather, as was stated, a "clarification."  Perhaps the Product Owner envisions a mechanism in our system that assures this quality, but such a mechanism would require another story.
 ### [Lesson #13: Checking test coverage](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2313)
-We write tests for the Backstage Passes specifications.  We have now written tests for each bullet item in the requirements.  Now we check our coverage.  We still have an uncovered block of two lines and several uncovered branches.  We need a few more tests.
+We write tests for the Backstage Passes specifications.  We have now written tests for each bullet item in the requirements.  Now we check our coverage.  
+![](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/images/Coverage-Lesson%2313.png)
+We still have an uncovered block of two lines and several uncovered branches.  We need a few more tests.
 ### [Lesson #14: The requirements are ambiguous.  Is the code correct?](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2314)
 The uncovered block of code represents the case where an Aged Brie item has passed its sell-by date.  Sure enough, we missed this case in our tests.  So what is the specification for this case?  The requirements read
 > - Once the sell by date has passed, Quality degrades twice as fast
