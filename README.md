@@ -113,7 +113,7 @@ private Item[] createSingleItemArray(String name, int sellIn, int quality) {
 }
 ```
 ### [Lesson #5: Should a method's name reflect its behavior or its purpose?](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%235)
-As we extract another helper method.
+We extract another helper method.
 
 ```java
 @Test
