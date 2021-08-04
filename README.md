@@ -189,7 +189,15 @@ public void qualityDecreasesBy2AtEndOfDayOnceSellDateHasPassed() {
 }
 ```
 ### [Lesson #11: Safe refactoring does not have to wait](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2311)
-We continue stepping through the specifications. When we get to **sulfurasNeverNeedsToBeSold**, we run into another failure.  This time the problem is that we are passing "Sulfuras" as the item name, while the real name is "Sulfuras, Hand of Ragnaros."  The simple fix is to copy the correct name to the test, but we know that we will run into this problem again.  Besides, copying strings violates the DRY principle.  We extract the type names to constants and use these constants in our tests.  We are able to perform this refactoring without complete test coverage because
+We continue stepping through the specifications. When we get to **sulfurasNeverNeedsToBeSold**, we run into another failure.
+
+```java
+```
+This time the problem is that we are passing "Sulfuras" as the item name, while the real name is "Sulfuras, Hand of Ragnaros."  The simple fix is to copy the correct name to the test, but we know that we will run into this problem again.  Besides, copying strings violates the DRY principle.  We extract the type names to constants and use these constants in our tests.  
+
+```java
+```
+We are able to perform this refactoring without complete test coverage because
 1. The refactoring is performed the the IDE and is therefore "safe"
 2. The refactoring provides immediately benefit to our characterization-testing process.
 
