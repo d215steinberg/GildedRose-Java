@@ -220,7 +220,21 @@ static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concer
 and use these constants in our tests.  
 
 ```java
+import static com.gildedrose.GildedRose.AGED_BRIE;
+import static com.gildedrose.GildedRose.SULFURAS;
 ```
+```java
+@Test
+public void sulfurasNeverNeedsToBeSold() {
+	app = createAppWithSingleItem(SULFURAS, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+	app.updateAtEndOfDay();
+	assertThat(getLoneItem().sellIn, is(ARBITRARY_SELLIN));
+}
+```
+```diff
++ GREEN
+```
+
 We are able to perform this refactoring without complete test coverage because
 1. The refactoring is performed the the IDE and is therefore "safe"
 2. The refactoring provides immediately benefit to our characterization-testing process.
