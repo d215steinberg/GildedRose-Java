@@ -192,6 +192,12 @@ public void qualityDecreasesBy2AtEndOfDayOnceSellDateHasPassed() {
 We continue stepping through the specifications. When we get to **sulfurasNeverNeedsToBeSold**, we run into another failure.
 
 ```java
+@Test
+public void sulfurasNeverNeedsToBeSold() {
+	app = createAppWithSingleItem("Sulfuras", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+	app.updateAtEndOfDay();
+	assertThat(getLoneItem().sellIn, is(ARBITRARY_SELLIN));
+}
 ```
 This time the problem is that we are passing "Sulfuras" as the item name, while the real name is "Sulfuras, Hand of Ragnaros."  The simple fix is to copy the correct name to the test, but we know that we will run into this problem again.  Besides, copying strings violates the DRY principle.  We extract the type names to constants and use these constants in our tests.  
 
