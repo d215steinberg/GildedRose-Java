@@ -211,6 +211,11 @@ static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
 static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
 ```
 ```java
+		if (!items[i].name.equals(AGED_BRIE) && !items[i].name.equals(BACKSTAGE_PASSES)) {
+			if (items[i].quality > 0) {
+				if (!items[i].name.equals(SULFURAS)) {
+					items[i].quality = items[i].quality - 1;
+				}
 ```
 and use these constants in our tests.  
 
