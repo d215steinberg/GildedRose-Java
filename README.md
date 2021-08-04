@@ -185,7 +185,7 @@ public void nameRemainsUnchangedAtEndOfDay() {
 	assertEquals("foo", getLoneItem().name);
 }
 ```
-We have only written two tests, and our gained understanding is already driving the refactoring of our code!
+We have written only two tests, and our gained understanding is already driving the refactoring of our code!
 ### [Lesson #7: Make global changes before copy/pasting](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%237)
 Hamcrest's **assertThat** is more expressive and more flexible that the old JUnit assertions.  A global change in assertion style is easiest when we have only two tests.
 
@@ -234,7 +234,12 @@ public void qualityDecreasesAtEndOfDay() {
 ```diff
 + GREEN
 ```
-The **sell-in = 0** case actually represents our next requirement, so we keep that test as well (with the appropriate name and assertion).
+The **sell-in = 0** case actually represents our next requirement, 
+
+```
+- Once the sell by date has passed, Quality degrades twice as fast
+```
+so we keep that test as well (with the appropriate name and assertion).
 
 ```java
 @Test
