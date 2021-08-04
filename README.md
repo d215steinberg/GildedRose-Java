@@ -113,17 +113,34 @@ private Item[] createSingleItemArray(String name, int sellIn, int quality) {
 }
 ```
 ### [Lesson #5: Should a method's name reflect its behavior or its purpose?](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%235)
-As we extract another helper method, we run into this conflict.  Java's **assert** mechanism allows us to do both.
+As we extract another helper method.
 
 ```java
-private Item getLoneItem() {
+@Test
+public void nameRemainsUnchangedAtEndOfDay() {
+	GildedRose app = createAppWithSingleItem("foo", 0, 0);
+	app.updateQuality();
+	assertEquals("foo", getLoneItem(app).name);
+}
+
+private Item getLoneItem(GildedRose app) {
+	return app.items[0];
+}
+```
+**getLoneItem** accurately describes the purpose of this method, but **getFirstItem** more accurately reflects its behavior.  Which expression of intent is more important?  Java's **assert** mechanism allows us to express both the purpose and the behavior.
+
+```java
+private Item getLoneItem(GildedRose app) {
 	assert app.items.length == 1 : "Expecting exactly one item";
 	return getFirstItem();
 }
 
-private Item getFirstItem() {
+private Item getFirstItem(GildedRose app) {
 	return app.items[0];
 }
+```
+Declaring the local **GildedRose app** in each test and passing it **getLoneItem** is repetitive.  We extract it to a field.
+```java
 ```
 ### [Lesson #6: If test name does not match test flow, then one of them is wrong](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%236)
 The test method is named **typeRemainsUnchangedAtEndOfDay** but the test calls **app.updateQuality**.  Are we performing end-of-day processing or are we just updating quality?  The former is true, so we rename **GildedRose.updateQuality** to **updateAtEndOfDay**.
