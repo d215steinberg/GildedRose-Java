@@ -199,7 +199,15 @@ public void sulfurasNeverNeedsToBeSold() {
 	assertThat(getLoneItem().sellIn, is(ARBITRARY_SELLIN));
 }
 ```
-This time the problem is that we are passing "Sulfuras" as the item name, while the real name is "Sulfuras, Hand of Ragnaros."  The simple fix is to copy the correct name to the test, but we know that we will run into this problem again.  Besides, copying strings violates the DRY principle.  We extract the type names to constants and use these constants in our tests.  
+```diff
+- Expected: is <17>
+-      but: was <16>
+```
+This time the problem is that we are passing "Sulfuras" as the item name, while the real name is "Sulfuras, Hand of Ragnaros."  The simple fix is to copy the correct name to the test, but we know that we will run into this problem again.  Besides, copying strings violates the DRY principle.  We extract the type names to constants 
+
+```java
+```
+and use these constants in our tests.  
 
 ```java
 ```
