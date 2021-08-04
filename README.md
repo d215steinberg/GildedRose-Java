@@ -140,7 +140,39 @@ private Item getFirstItem(GildedRose app) {
 }
 ```
 Declaring the local **GildedRose app** in each test and passing it **getLoneItem** is repetitive.  We extract it to a field.
+
 ```java
+private GildedRose app;
+
+@Test
+public void itemHasSpecifiedName() {
+	app = createAppWithSingleItem("foo", 0, 0);
+	assertEquals("foo", getLoneItem().name);
+}
+
+@Test
+public void nameRemainsUnchangedAtEndOfDay() {
+	app = createAppWithSingleItem("foo", 0, 0);
+	app.updateQuality();
+	assertEquals("foo", getLoneItem().name);
+}
+
+private GildedRose createAppWithSingleItem(String name, int sellIn, int quality) {
+	return new GildedRose(createSingleItemArray(name, sellIn, quality));
+}
+
+private Item[] createSingleItemArray(String name, int sellIn, int quality) {
+	return new Item[] { new Item(name, sellIn, quality) };
+}
+
+private Item getLoneItem() {
+	assert app.items.length == 1 : "Expecting exactly one item";
+	return getFirstItem();
+}
+
+private Item getFirstItem() {
+	return app.items[0];
+}
 ```
 ### [Lesson #6: If test name does not match test flow, then one of them is wrong](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%236)
 The test method is named **typeRemainsUnchangedAtEndOfDay** but the test calls **app.updateQuality**.  Are we performing end-of-day processing or are we just updating quality?  The former is true, so we rename **GildedRose.updateQuality** to **updateAtEndOfDay**.
