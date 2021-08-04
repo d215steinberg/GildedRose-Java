@@ -206,6 +206,9 @@ public void sulfurasNeverNeedsToBeSold() {
 This time the problem is that we are passing "Sulfuras" as the item name, while the real name is "Sulfuras, Hand of Ragnaros."  The simple fix is to copy the correct name to the test, but we know that we will run into this problem again.  Besides, copying strings violates the DRY principle.  We extract the type names to constants 
 
 ```java
+static final String AGED_BRIE = "Aged Brie";
+static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
+static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
 ```
 and use these constants in our tests.  
 
