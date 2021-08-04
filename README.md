@@ -186,8 +186,8 @@ public void nameRemainsUnchangedAtEndOfDay() {
 }
 ```
 We have only written two tests, and our gained understanding is already driving the refactoring of our code!
-### [Lesson #7: Know your tools](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%237)
-We replace the archaic **assertEquals** with **assertThat**.
+### [Lesson #7: Make global changes before copy/pasting](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%237)
+Hamcrest's **assertThat** is more expressive and more flexible that the old JUnit assertions.  A global change in assertion style is easiest when we have only two tests.
 
 ```java
 @Test
