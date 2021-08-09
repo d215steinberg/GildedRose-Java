@@ -522,6 +522,36 @@ But this can never happen.  The existence of this dead branch is certainly a sme
 We still have missed branches representing cases of Backstage Passes items approaching maximum quality.  
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/images/Coverage-Lesson%2316.png)
 We write tests for these cases.
+
+```java
+@Test
+public void backstagePassesQualityIncreasesBy2Within10DaysOfConcert() {
+	app = createAppWithSingleItem(BACKSTAGE_PASSES, 10, ARBITRARY_QUALITY);
+	app.updateAtEndOfDay();
+	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 2));
+}
+
+@Test
+public void backstagePassesQualityDoesNotExceed50Within10DaysOfConcert() {
+	app = createAppWithSingleItem(BACKSTAGE_PASSES, 10, 49);
+	app.updateAtEndOfDay();
+	assertThat(getLoneItem().quality, is(50));
+}
+
+@Test
+public void backstagePassesQualityIncreasesBy3Within5DaysOfConcert() {
+	app = createAppWithSingleItem(BACKSTAGE_PASSES, 5, ARBITRARY_QUALITY);
+	app.updateAtEndOfDay();
+	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 3));
+}
+
+@Test
+public void backstagePassesQualityDoesNotExceed50Within5DaysOfConcert() {
+	app = createAppWithSingleItem(BACKSTAGE_PASSES, 5, 48);
+	app.updateAtEndOfDay();
+	assertThat(getLoneItem().quality, is(50));
+}
+```
 ### [Lesson #17: Line/branch coverage does not guarantee behavioral coverage](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2317)
 Line and branch coverage are now complete (except for our dead branch).  But is the code truly test-covered?  Can we make a non-trivial change to the code that will leave the tests green?  If so, then we can inadvertently break the code while refactoring. 
  
