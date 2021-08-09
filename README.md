@@ -207,7 +207,42 @@ public void nameRemainsUnchangedAtEndOfDay() {
 ### Lesson #8: From where can we glean the tests?
 We are lucky, as we have a concise and (apparently) complete requirements document.  More often than not, we are forced to glean the characterization tests from the source code.
 ### [Lesson #9: Failing characterization tests are learning opportunities](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%239)
-We step through the specifications in **GildedRoseRequirements.txt**, capturing each in a test method.  When we get to **qualityDecreasesAtEndOfDay**, our test surprisingly fails. 
+We step through the specifications in **GildedRoseRequirements.txt**, capturing each in a test method.  
+
+```java
+@Test
+public void itemHasSpecifiedName() {
+	app = createAppWithSingleItem("foo", 0, 0);
+	assertThat(getLoneItem().name, is("foo"));
+}
+
+@Test
+public void itemHasSpecifiedSellIn() {
+	app = createAppWithSingleItem("foo", 17, 0);
+	assertThat(getLoneItem().sellIn, is(17));
+}
+
+@Test
+public void itemHasSpecifiedQuality() {
+	app = createAppWithSingleItem("foo", 0, 19);
+	assertThat(getLoneItem().quality, is(19));
+}
+
+@Test
+public void nameRemainsUnchangedAtEndOfDay() {
+	app = createAppWithSingleItem("foo", 0, 0);
+	app.updateAtEndOfDay();
+	assertThat(getLoneItem().name, is("foo"));
+}
+
+@Test
+public void sellInDecreasesAtEndOfDay() {
+	app = createAppWithSingleItem("foo", 17, 0);
+	app.updateAtEndOfDay();
+	assertThat(getLoneItem().sellIn, is(16));
+}
+```
+When we get to **qualityDecreasesAtEndOfDay**, our test surprisingly fails. 
 
 ```java
 @Test
