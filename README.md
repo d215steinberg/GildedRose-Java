@@ -519,7 +519,9 @@ Finally we come across a missed branch representing the case of a Sulfuras item 
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/images/Coverage-Lesson%2315b.png)
 But this can never happen.  The existence of this dead branch is certainly a smell that we will want to eliminate by refactoring.  But we can go ahead and refactor without covering this branch.
 ### [Lesson #16: Completing branch coverage](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2316)
-We still have missed branches representing cases of Backstage Passes items approaching maximum quality.  We write tests for these cases.
+We still have missed branches representing cases of Backstage Passes items approaching maximum quality.  
+![](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/images/Coverage-Lesson%2316.png)
+We write tests for these cases.
 ### [Lesson #17: Line/branch coverage does not guarantee behavioral coverage](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2317)
 Line and branch coverage are now complete (except for our dead branch).  But is the code truly test-covered?  Can we make a non-trivial change to the code that will leave the tests green?  If so, then we can inadvertently break the code while refactoring. 
  
