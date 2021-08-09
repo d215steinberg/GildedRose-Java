@@ -492,7 +492,7 @@ One such missed branch is for an Aged Brie item whose sell date has passed and i
 
 ```java
 @Test
-	public void agedBrieQualityNeverExceeds50() {
+public void agedBrieQualityNeverExceeds50() {
 	app = createAppWithSingleItem(AGED_BRIE, ARBITRARY_SELLIN, 50);
 	app.updateAtEndOfDay();
 	assertThat(getLoneItem().quality, is(50));
