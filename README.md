@@ -374,6 +374,20 @@ import static com.gildedrose.GildedRose.SULFURAS;
 ```
 ```java
 @Test
+public void agedBrieQualityIncreases() {
+	app = createAppWithSingleItem(AGED_BRIE, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+	app.updateAtEndOfDay();
+	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 1));
+}
+
+@Test
+public void qualityNeverExceeds50() {
+	app = createAppWithSingleItem(AGED_BRIE, ARBITRARY_SELLIN, 50);
+	app.updateAtEndOfDay();
+	assertThat(getLoneItem().quality, is(50));
+}
+
+@Test
 public void sulfurasNeverNeedsToBeSold() {
 	app = createAppWithSingleItem(SULFURAS, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 	app.updateAtEndOfDay();
