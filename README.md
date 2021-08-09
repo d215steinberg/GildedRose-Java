@@ -521,6 +521,7 @@ But this can never happen.  The existence of this dead branch is certainly a sme
 ### [Lesson #16: Completing branch coverage](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2316)
 We still have missed branches representing cases of Backstage Passes items approaching maximum quality.  
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/images/Coverage-Lesson%2316.png)
+
 We write tests for these cases.
 
 ```java
