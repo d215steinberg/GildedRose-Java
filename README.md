@@ -314,7 +314,31 @@ public void qualityDecreasesBy2AtEndOfDayOnceSellDateHasPassed() {
 }
 ```
 ### [Lesson #11: Safe refactoring does not have to wait](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2311)
-We continue stepping through the specifications. When we get to **sulfurasNeverNeedsToBeSold**, we run into another failure.
+We continue stepping through the specifications. 
+
+```java
+@Test
+public void qualityIsNeverNegative() {
+	app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, 0);
+	app.updateAtEndOfDay();
+	assertThat(getLoneItem().quality, is(0));
+}
+
+@Test
+public void agedBrieQualityIncreases() {
+	app = createAppWithSingleItem("Aged Brie", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+	app.updateAtEndOfDay();
+	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 1));
+}
+
+@Test
+public void qualityNeverExceeds50() {
+	app = createAppWithSingleItem("Aged Brie", ARBITRARY_SELLIN, 50);
+	app.updateAtEndOfDay();
+	assertThat(getLoneItem().quality, is(50));
+}
+```
+When we get to **sulfurasNeverNeedsToBeSold**, we run into another failure.
 
 ```java
 @Test
