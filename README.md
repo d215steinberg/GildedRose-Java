@@ -1,4 +1,4 @@
-### [Lesson #13: Checking test coverage](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2313)
+### Lesson #13: Checking test coverage
 We write tests for the Backstage Passes specifications.  
 
 ```java
