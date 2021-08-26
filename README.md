@@ -15,4 +15,4 @@ public void nameRemainsUnchangedAtEndOfDay() {
 	assertThat(getLoneItem().name, is("foo"));
 }
 ```
-### Go to [Lesson #8](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%238)
+### Go to [Part III: Characterizing the Dode, Lesson #8](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%238)
