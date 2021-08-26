@@ -1,4 +1,4 @@
-### [Lesson #17: Line/branch coverage does not guarantee behavioral coverage](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2317)
+### Lesson #17: Line/branch coverage does not guarantee behavioral coverage
 Line and branch coverage are now complete (except for our dead branch).  But is the code truly test-covered?  Can we make a non-trivial change to the code that will leave the tests green?  If so, then we can inadvertently break the code while refactoring. 
  
 "Mutation testing" tools such as Pitest help us to find these gaps in behavioral coverage.  
