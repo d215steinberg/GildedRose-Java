@@ -15,5 +15,4 @@ Of course, we need to define a **CONJURED** constant in **GildedRose.java**.
 static final String CONJURED = "Conjured";
 ```
 We will not be able to make this test pass without some refactoring, so we **@Ignore** the test for time being.
-## Part IV: Essential Refactoring
 ### [Go to Lesson #20](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2320)
