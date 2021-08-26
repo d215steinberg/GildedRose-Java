@@ -1,4 +1,4 @@
-### [Lesson #14: The requirements are ambiguous.  Is the code correct?](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2314)
+### Lesson #14: The requirements are ambiguous.  Is the code correct?
 The uncovered (pink) block of code represents the case where an Aged Brie item has passed its sell-by date.  Sure enough, we missed this case in our tests.  So what is the specification for this case?  The requirements read
 > - Once the sell by date has passed, Quality degrades twice as fast
 > - "Aged Brie" actually increases in Quality the older it gets
