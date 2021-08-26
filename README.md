@@ -22,7 +22,7 @@ A lesson-by-lesson Java implementation of the Emily Bache's [Gilded Rose refacto
 ### Introduction to Gilded Rose kata
 [Starting codebase with requirements](https://github.com/d215steinberg/GildedRose-Java).
 
-### [Go to Lesson #1](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%231)
+### [Go to Part II: Initiating Our Test Bed, Lesson #1](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%231)
 
 ## Part II: Initiating Our Test Bed 
 ### Lesson #1: Where do we begin?
