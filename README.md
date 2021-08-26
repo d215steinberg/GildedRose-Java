@@ -1,4 +1,4 @@
-### [Lesson #9: Failing characterization tests are learning opportunities](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%239)
+### Lesson #9: Failing characterization tests are learning opportunities
 We step through the specifications in **GildedRoseRequirements.txt**, capturing each in a test method.  
 
 ```java
