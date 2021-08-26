@@ -1,4 +1,4 @@
-### Lesson #6: If test name does not match test flow, then one of them is wrong]
+### Lesson #6: If test name does not match test flow, then one of them is wrong
 The test method is named **typeRemainsUnchangedAtEndOfDay** but the test calls **app.updateQuality**.  Are we performing end-of-day processing or are we just updating quality?  The former is true, so we rename **GildedRose.updateQuality** to **updateAtEndOfDay**.
 
 ```java
