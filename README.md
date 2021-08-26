@@ -1,4 +1,4 @@
-### [Lesson #15: Dead code does not require coverage](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2315)
+### Lesson #15: Dead code does not require coverage
 We continue adding tests for our uncovered (yellow) branches.  
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/images/Coverage-Lesson%2315a.png)
 One such missed branch is for an Aged Brie item whose sell date has passed and is approaching the maximum quality (at this point it makes sense to rename the test **qualityNeverExceeds50** to **agedBrieQualityNeverExceeds50**).  
