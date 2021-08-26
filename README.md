@@ -1,4 +1,4 @@
-### [Lesson #12: Is a specification out of scope?](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2312)
+### Lesson #12: Is a specification out of scope?
 We write a passing test, **sulfurasMaintainsItsQuality**.  
 
 ```java
