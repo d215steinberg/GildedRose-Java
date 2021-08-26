@@ -1,4 +1,4 @@
-### [Lesson #11: Safe refactoring does not have to wait](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2311)
+### Lesson #11: Safe refactoring does not have to wait
 We continue stepping through the specifications. 
 
 ```java
