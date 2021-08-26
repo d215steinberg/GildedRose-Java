@@ -1,4 +1,4 @@
-### [Lesson #7: Make global changes before copy/pasting](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%237)
+### Lesson #7: Make global changes before copy/pasting
 Hamcrest's **assertThat** is more expressive and more flexible that the old JUnit assertions.  A global change in assertion style is easiest when we have only two tests.
 
 ```java
