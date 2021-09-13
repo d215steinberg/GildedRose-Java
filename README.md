@@ -40,6 +40,6 @@ public void backstagePassesQualityIncreasesBy3UpToConcertDate() {
 	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 3));
 }
 ```
-Pitest now reports 100% coverage. 
+Pitest now reports 100% mutation coverage. 
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%2317/images/mutation-coverage-summary-Lesson%2317b.jpg) 
 ### [Go to Lesson #18](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2318) 
