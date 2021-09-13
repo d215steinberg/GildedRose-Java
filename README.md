@@ -5,13 +5,13 @@ Time to refactor.  Where do we begin?  Perhaps there is a frequently used expres
 ```java
 public void updateAtEndOfDay() {
     for (int i = 0; i < items.length; i++) {
-		Item item = items[i];
-		if (!item.name.equals(AGED_BRIE) && !item.name.equals(BACKSTAGE_PASSES)) {
-			if (item.quality > 0) {
-				if (!item.name.equals(SULFURAS)) {
-					item.quality = item.quality - 1;
-				}
-	        	...
+        Item item = items[i];
+        if (!item.name.equals(AGED_BRIE) && !item.name.equals(BACKSTAGE_PASSES)) {
+            if (item.quality > 0) {
+                if (!item.name.equals(SULFURAS)) {
+                    item.quality = item.quality - 1;
+                }
+                ...
 ```
 Note that this simple, local refactoring serves both to express intent (Simple Design Rule #2) and to remove duplication (Simple Design Rule #3). 
 
@@ -19,9 +19,9 @@ The loop variable **i** is now used only once.  We can eliminate it entirely (Si
 
 ```java
 public void updateAtEndOfDay() {
-	for (Item item : items) {
-		if (!item.name.equals(AGED_BRIE) && !item.name.equals(BACKSTAGE_PASSES)) {
-			...
+    for (Item item : items) {
+        if (!item.name.equals(AGED_BRIE) && !item.name.equals(BACKSTAGE_PASSES)) {
+            ...
 ```
 
 > Some IDEs, such as IntelliJ from JetBrains, will suggest the conversion of the indexed for-loop to the for-each loop right off the bat.  IntelliJ will also suggest the simplification of the expression **item.quality - item.quality** to **0** (Line 54).  Your IDEs suggested refactorings are the lowest of the low-hanging fruit.
