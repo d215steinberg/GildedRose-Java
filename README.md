@@ -4,7 +4,7 @@ Time to refactor.  Where do we begin?  Perhaps there is a frequently used expres
 
 ```java
 public void updateAtEndOfDay() {
-	for (int i = 0; i < items.length; i++) {
+    for (int i = 0; i < items.length; i++) {
 		Item item = items[i];
 		if (!item.name.equals(AGED_BRIE) && !item.name.equals(BACKSTAGE_PASSES)) {
 			if (item.quality > 0) {
