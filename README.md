@@ -15,7 +15,7 @@ public void updateAtEndOfDay() {
 ```
 Note that this simple, local refactoring serves both to express intent (Simple Design Rule #2) and to remove duplication (Simple Design Rule #3). 
 
-The loop variable **i** is now used only in Line 7.  We can eliminate it entirely (Simple Design Rule #4) by converting our loop to a for-each loop.
+The loop variable **i** is now used only once.  We can eliminate it entirely (Simple Design Rule #4) by converting our loop to a for-each loop.
 
 ```java
 public void updateAtEndOfDay() {
@@ -29,7 +29,7 @@ public void updateAtEndOfDay() {
 As a general rule, nesting obfuscates intent, so eliminating a layer of nesting elucidates intent.  We can easily eliminate one layer of nesting by extracting the insides of the for-loop.
 
  ```java
- public void updateAtEndOfDay() {
+public void updateAtEndOfDay() {
 	for (Item item : items) {
 		updateAtEndOfDay(item);
 	}
@@ -37,37 +37,37 @@ As a general rule, nesting obfuscates intent, so eliminating a layer of nesting 
 
 private void updateAtEndOfDay(Item item) {
 	if (!item.name.equals(AGED_BRIE) && !item.name.equals(BACKSTAGE_PASSES)) {
-	   ...
+		... 
  ```
 Now let us examine the structure of the inner **updateAtEndOfDay**.  The initial 25-line block of code manipulates **item.quality**.  A 3-line block of code then manipulates **item.sellIn**. 
 The final 17-line block of code conditionally manipulates **item.quality**.
 
 ```java
 private void updateAtEndOfDay(Item item) {
-	/* Manipulate item.quality */
+    /* Manipulate item.quality */
 
-	if (!item.name.equals(SUFURAS)) {
-		item.sellIn = item.sellIn - 1;
-	}
+    if (!item.name.equals(SUFURAS)) {
+        item.sellIn = item.sellIn - 1;
+    }
 
-	if (item.sellIn < 0) {
-		/* Manipulate item.quality */
-	}
+    if (item.sellIn < 0) {
+        /* Manipulate item.quality */
+    }
 }
 ```
 We would like to separate the updating of **quality** from the updating of **sellIn**.  We can accomplish this separation by adjusting the condition on the second update-quality block.
 
 ```java
 private void updateAtEndOfDay(Item item) {
-	/* Manipulate item.quality */
+    /* Manipulate item.quality */
 
-	if (item.sellIn <= 0) {
-		/* Manipulate item.quality */
-	}
+    if (item.sellIn <= 0) {
+        /* Manipulate item.quality */
+    }
 
-	if (!item.name.equals(SUFURAS)) {
-		item.sellIn = item.sellIn - 1;
-	}
+    if (!item.name.equals(SUFURAS)) {
+        item.sellIn = item.sellIn - 1;
+    }
 }
 ```
 Of course, this refactoring is too complex to be handled by the IDE.  We must perform it manually.  But our test coverage eliminates the risk.  
@@ -76,55 +76,55 @@ We can now extract the update-sellin block to a method.
 
 ```java
 private void updateAtEndOfDay(Item item) {
-	/* Manipulate item.quality */
+    /* Manipulate item.quality */
 
-	if (item.sellIn <= 0) {
-		/* Manipulate item.quality */
-	}
+    if (item.sellIn <= 0) {
+        /* Manipulate item.quality */
+    }
 
-	updateSellIn(item);
+    updateSellIn(item);
 }
 
 private void updateSellIn(Item item) {
-	if (!item.name.equals(SUFURAS)) {
-		item.sellIn = item.sellIn - 1;
-	}
+    if (!item.name.equals(SUFURAS)) {
+        item.sellIn = item.sellIn - 1;
+    }
 }
 ```
 Then we can move the call to **updateSellIn** to the outer **updateAtEndOfDay** method.
 
 ```java
 public void updateAtEndOfDay() {
-	for (Item item : items) {
-		updateAtEndOfDay(item);
-		updateSellIn(item);
-	}
+    for (Item item : items) {
+        updateAtEndOfDay(item);
+        updateSellIn(item);
+    }
 }
 
 private void updateAtEndOfDay(Item item) {
-	...
+    ...
 }
 
 private void updateSellIn(Item item) {
-	...
+    ...
 }
 ```
 Since the inner **updateAtEndOfDay** is now only updating quality, we can rename it accordingly.
 
 ```java
 public void updateAtEndOfDay() {
-	for (Item item : items) {
-		updateQuality(item);
-		updateSellIn(item);
-	}
+    for (Item item : items) {
+        updateQuality(item);
+        updateSellIn(item);
+    }
 }
 
 private void updateQuality(Item item) {
-	...
+    ...
 }
 
 private void updateSellIn(Item item) {
-	...
+    ...
 }
 ```
 Our code is cleaner than before, but not to the point where we can implement the new requirement.
