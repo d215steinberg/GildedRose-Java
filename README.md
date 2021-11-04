@@ -33,7 +33,7 @@ public enum ItemType {
 ```diff
 + GREEN
 ```
-Unlike **ConjuredUpdater**, we do not need to test-drive AgedBrieUpdater, since the tests already exist.  We simply implement **AgedBrieUpdater** as cleanly as possible without breaking the tests.  We accomplish this by imitating our pattern from **ConjuredUpdater**.
+Unlike **ConjuredUpdater**, we do not need to test-drive **AgedBrieUpdater**, since the tests already exist.  We simply implement **AgedBrieUpdater** as cleanly as possible without breaking the tests.  We accomplish this by imitating our pattern from **ConjuredUpdater**.
 ```java
 public class AgedBrieUpdater extends DefaultUpdater { 
     @Override 
