@@ -9,6 +9,10 @@ public void createsConjuredUpdaterForConjuredItem() throws Exception {
     assertThat(itemUpdaterFactory.createItemUpdater(CONJURED), instanceOf(ConjuredUpdater.class));
 }
 ```
+```diff
+- Expected: an instance of com.gildedrose.ConjuredUpdater
+-    but: <com.gildedrose.DefaultUpdater@1b26f7b2> is a com.gildedrose.DefaultUpdater
+```
 ```java
 public class ItemUpdaterFactory { 
     public ItemUpdater createItemUpdater(String itemName) {
@@ -25,5 +29,8 @@ public class ItemUpdaterFactory {
 public class ConjuredUpdater extends DefaultUpdater {
 
 }
+```
+```diff
++ GREEN
 ```
 ### [Go to Part V: Implementing the Change, Lesson #26](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2326)
