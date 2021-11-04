@@ -4,7 +4,6 @@ We now un-ignore our failing Conjured test (**conjuredQualityDecreasesBy2**) in 
 
 ```java
 @Test
-
 public void conjuredQualityDecreasesBy2() {
     app = createAppWithSingleItem(CONJURED, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
     app.updateAtEndOfDay();
@@ -13,7 +12,7 @@ public void conjuredQualityDecreasesBy2() {
 ```
 ```diff
 - Expected: is <17>
-     but: was <18>
+-    but: was <18>
 ```
 We then implement **ConjuredUpdater.updateQuality** to make the test pass.
 
@@ -40,7 +39,7 @@ public void conjuredQualityDecreasesBy4OnceSellDateHasPassed() {
 ```
 ```diff
 - Expected: is <15>
-     but: was <17>
+-    but: was <17>
 ```
 ```java
 public class ConjuredUpdater extends DefaultUpdater {
