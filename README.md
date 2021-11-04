@@ -172,6 +172,9 @@ public enum ItemType {
     ...
 }
 ```
+```diff
++ GREEN
+```
 7. We remove the constant declarations in **GildedRose** and replace all references to these constants with references to **ItemType** values (e.g. **GildedRose.AGED_BRIE** becomes **ItemType.AGED_BRIE.name**).
 ```java
 import static com.gildedrose.ItemType.*;
