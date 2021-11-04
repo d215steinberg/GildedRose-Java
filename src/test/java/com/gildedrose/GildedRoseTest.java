@@ -124,13 +124,6 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	public void backstagePassesQualityDoesNotExceed50MoreThan10DaysFromConcert() {
-		app = createAppWithSingleItem(BACKSTAGE_PASSES, 11, 50);
-		app.updateAtEndOfDay();
-		assertThat(getLoneItem().quality, is(50));
-	}
-
-	@Test
 	public void backstagePassesQualityIncreasesBy2Within10DaysOfConcert() {
 		app = createAppWithSingleItem(BACKSTAGE_PASSES, 10, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
