@@ -13,6 +13,9 @@ public class AgedBrieUpdater extends DefaultUpdater {
     ...
 }
 ```
+```diff
++ GREEN
+```
 The use of the magic number not only impeded expression of intent.  It also violated the DRY principle, as it appears elsewhere as well, both in test code (**GildedRoseTest**) and in production code (**DefaultUpdater**).  We want to replace these instances with the constant **MAX_QUALITY**, but a reference to **AgedBrieUpdater.MAX_QUALITY** (even if disguised by a static import) would look wrong.  We pull the constant definition up to the **ItemUpdater** interface.
 ```java
 public interface ItemUpdater {
@@ -20,6 +23,9 @@ public interface ItemUpdater {
     void updateQuality(Item item);
     void updateSellIn(Item item);
 }
+```
+```diff
++ GREEN
 ```
 Now we update the other uses of the magic number 50 to reference **MAX_QUALITY**.  Note that our test code also uses **49** and **48**, which can now be **MAX_QUALITY - 1** and **MAX_QUALITY - 2**, respectively.
 ```java
@@ -92,5 +98,8 @@ public class GildedRoseTest {
     }
     ...
 }
+```
+```diff
++ GREEN
 ```
 ### [Go to Lesson #32](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2332)
