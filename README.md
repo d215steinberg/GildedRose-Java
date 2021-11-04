@@ -27,4 +27,7 @@ public class AgedBrieUpdater extends DefaultUpdater {
     }
 }
 ```
+```diff
++ GREEN
+```
 ### [Go to Lesson #33](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2333)
