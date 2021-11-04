@@ -10,6 +10,14 @@ public void createsConjuredUpdaterForConjuredItem() throws Exception {
 }
 ```
 ```diff
+- Won't compile, since ConjuredUpdater does not exist
+```
+```java
+public class ConjuredUpdater extends DefaultUpdater {
+
+}
+```
+```diff
 - Expected: an instance of com.gildedrose.ConjuredUpdater
 -    but: <com.gildedrose.DefaultUpdater@1b26f7b2> is a com.gildedrose.DefaultUpdater
 ```
@@ -23,11 +31,6 @@ public class ItemUpdaterFactory {
             return new DefaultUpdater();
         }
     }
-}
-```
-```java
-public class ConjuredUpdater extends DefaultUpdater {
-
 }
 ```
 ```diff
