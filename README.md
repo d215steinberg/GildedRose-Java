@@ -19,7 +19,7 @@ private void updateSellIn(Item item) {
 ```java
 public interface ItemUpdater {
     void updateQuality(Item item);
-	void updateSellIn(Item item);
+    void updateSellIn(Item item);
 }
 ```
 ```java
