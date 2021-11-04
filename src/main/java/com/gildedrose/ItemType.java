@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import java.util.Arrays;
+
 public enum ItemType {
 	AGED_BRIE("Aged Brie") {
 		@Override
@@ -27,14 +29,12 @@ public enum ItemType {
 		this(null);
 	}
 
-	public static ItemType forName(String name) {
-		for (ItemType itemType : ItemType.values()) {
-			if (name.equals(itemType.name)) {
-				return itemType;
-			}
-		}
-		return UNKNOWN;
-	}
+    public static ItemType forName(String name) {
+        return Arrays.stream(ItemType.values())
+                .filter(itemType -> name.equals(itemType.name))
+                .findFirst()
+                .orElse(UNKNOWN);
+    }
 
 	public ItemUpdater createItemUpdater() {
 		return new DefaultUpdater();
