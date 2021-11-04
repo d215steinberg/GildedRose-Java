@@ -128,13 +128,6 @@ public class GildedRoseTest {
 	}
 
 	@Test
-	public void backstagePassesQualityDoesNotExceedMaximumBeyondDoubleAppreciationThreshold() {
-		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, DOUBLE_APPRECIATION_THRESHOLD, MAX_QUALITY);
-		app.updateAtEndOfDay();
-		assertThat(getLoneItem().quality, is(MAX_QUALITY));
-	}
-
-	@Test
 	public void backstagePassesQualityIncreasesBy2WithinDoubleAppreciationThreshold() {
 		app = createAppWithSingleItem(BACKSTAGE_PASSES.name, DOUBLE_APPRECIATION_THRESHOLD, ARBITRARY_QUALITY);
 		app.updateAtEndOfDay();
