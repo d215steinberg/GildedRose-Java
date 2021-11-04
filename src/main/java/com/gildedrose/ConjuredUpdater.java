@@ -4,7 +4,11 @@ public class ConjuredUpdater extends DefaultUpdater {
 
 	@Override
 	public void updateQuality(Item item) {
-		item.quality -= 2;
+		if (item.sellIn > 0) {
+			item.quality -= 2;
+		} else {
+			item.quality -= 4;
+		}
 	}
 
 }
