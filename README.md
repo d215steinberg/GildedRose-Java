@@ -33,6 +33,9 @@ public enum ItemType {
     ...
 }
 ```
+```diff
++ GREEN
+```
 We implement **SulfurasUpdater.updateQuality** and **SulfurasUpdater.updateSellin** as no-ops, and all tests pass.
 ```java
 public class SulfurasUpdater extends DefaultUpdater {
