@@ -23,7 +23,8 @@ public enum ItemType {
             return new SulfurasUpdater();
         }
     },
-    BACKSTAGE_PASSES("Backstage passes to a TAFKAL80ETC concert"), CONJURED("Conjured Mana Cake") {
+    BACKSTAGE_PASSES("Backstage passes to a TAFKAL80ETC concert"), 
+    CONJURED("Conjured Mana Cake") {
         @Override
         public ItemUpdater createItemUpdater() {
             return new ConjuredUpdater();
