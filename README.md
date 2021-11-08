@@ -42,12 +42,10 @@ We implement **SulfurasUpdater.updateQuality** and **SulfurasUpdater.updateSelli
 public class SulfurasUpdater extends DefaultUpdater {
     @Override 
     public void updateQuality(Item item) {
-        
     }
     
     @Override 
     public void updateSellIn(Item item) {
-        
     }
 }
 ```
