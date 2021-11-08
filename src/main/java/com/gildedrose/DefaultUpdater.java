@@ -43,7 +43,7 @@ public class DefaultUpdater implements ItemUpdater {
 
 	@Override
 	public void updateSellIn(Item item) {
-		item.sellIn = item.sellIn - 1;
+		item.sellIn--;
 	}
 	
 	protected boolean sellDateHasPassed(int sellIn) {
