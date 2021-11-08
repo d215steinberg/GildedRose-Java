@@ -17,13 +17,13 @@ public class BackstagePassesUpdater extends DefaultUpdater {
         }
     };
 
-	@Override
-	public void updateQuality(Item item) {
-		item.quality = sellDateHasPassed(item.sellIn) ? 0 : increaseQuality(item.quality, item.sellIn);
-	}
+    @Override
+    public void updateQuality(Item item) {
+        item.quality = sellDateHasPassed(item.sellIn) ? 0 : increaseQuality(item.quality, item.sellIn);
+    }
 
-	private int increaseQuality(int quality, int sellIn) {
-		return qualityIncreaser.increaseQuality(quality, sellIn);
-	}
+    private int increaseQuality(int quality, int sellIn) {
+        return qualityIncreaser.increaseQuality(quality, sellIn);
+    }
 
 }
