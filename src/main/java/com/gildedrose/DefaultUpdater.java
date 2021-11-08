@@ -8,7 +8,7 @@ public class DefaultUpdater implements ItemUpdater {
 		item.quality = decreaseQuality(item.quality, item.sellIn);
 	}
 
-	protected int decreaseQuality(int quality, int sellIn) {
+    private int decreaseQuality(int quality, int sellIn) {
 		return max(quality - getQualityDecrement(sellIn), 0);
 	}
 
