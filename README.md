@@ -3,7 +3,7 @@ We test-drive the creation of **SulfurasUpdater** from **ItemType**.
 ```java
 @Test
 public void createsSulfurasUpdatorForSulfurasItemType() throws Exception {
-	assertThat(SULFURAS.createItemUpdater(), instanceOf(SulfurasUpdater.class));
+    assertThat(SULFURAS.createItemUpdater(), instanceOf(SulfurasUpdater.class));
 }
 ```
 ```diff
