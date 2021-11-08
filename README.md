@@ -101,4 +101,14 @@ public class DefaultUpdater implements ItemUpdater {
 ```diff
 + GREEN
 ```
+We can simplify **updateSellIn** just a bit more by using the decrement operator.
+```java
+@Override
+public void updateSellIn(Item item) {
+    item.sellIn--;
+}
+```
+```diff
++ GREEN
+```
 ### [Go to Lesson #35](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2335)
