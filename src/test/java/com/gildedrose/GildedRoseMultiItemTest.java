@@ -11,42 +11,42 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class GildedRoseMultiItemTest extends GildedRoseTest {
-	@Mock
-	private ItemUpdater fooUpdater;
-	@Mock
-	private ItemUpdater barUpdater;
-	@Mock
-	private ItemUpdaterFactory itemUpdaterFactory;
+    @Mock
+    private ItemUpdater fooUpdater;
+    @Mock
+    private ItemUpdater barUpdater;
+    @Mock
+    private ItemUpdaterFactory itemUpdaterFactory;
 
-	private Item fooItem;
-	private Item barItem;
-	private GildedRose app;
+    private Item fooItem;
+    private Item barItem;
+    private GildedRose app;
 
-	@Before
-	public void setUp() {
-		fooItem = new Item("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-		barItem = new Item("bar", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+    @Before
+    public void setUp() {
+        fooItem = new Item("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+        barItem = new Item("bar", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
 
-		when(itemUpdaterFactory.createItemUpdater("foo")).thenReturn(fooUpdater);
-		when(itemUpdaterFactory.createItemUpdater("bar")).thenReturn(barUpdater);
+        when(itemUpdaterFactory.createItemUpdater("foo")).thenReturn(fooUpdater);
+        when(itemUpdaterFactory.createItemUpdater("bar")).thenReturn(barUpdater);
 
-		app = new GildedRose(new Item[] { fooItem, barItem }, itemUpdaterFactory);
-	}
+        app = new GildedRose(new Item[]{fooItem, barItem}, itemUpdaterFactory);
+    }
 
-	@Test
-	public void updatesQualityForAllItemsAtEndOfDay() {
-		app.updateAtEndOfDay();
+    @Test
+    public void updatesQualityForAllItemsAtEndOfDay() {
+        app.updateAtEndOfDay();
 
-		verify(fooUpdater).updateQuality(fooItem);
-		verify(barUpdater).updateQuality(barItem);
-	}
+        verify(fooUpdater).updateQuality(fooItem);
+        verify(barUpdater).updateQuality(barItem);
+    }
 
-	@Test
-	public void updatesSellInForAllItemsAtEndOfDay() {
-		app.updateAtEndOfDay();
+    @Test
+    public void updatesSellInForAllItemsAtEndOfDay() {
+        app.updateAtEndOfDay();
 
-		verify(fooUpdater).updateSellIn(fooItem);
-		verify(barUpdater).updateSellIn(barItem);
-	}
+        verify(fooUpdater).updateSellIn(fooItem);
+        verify(barUpdater).updateSellIn(barItem);
+    }
 
 }
