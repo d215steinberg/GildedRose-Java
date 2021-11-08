@@ -23,5 +23,5 @@ public class ItemUpdaterFactoryTest {
 	@Test
 	public void createsConjuredUpdaterForConjuredItem() throws Exception {
 		assertThat(itemUpdaterFactory.createItemUpdater(CONJURED.name), instanceOf(ConjuredUpdater.class));
-	}
+    }
 }

@@ -18,11 +18,11 @@ public enum ItemType {
 	BACKSTAGE_PASSES("Backstage passes to a TAFKAL80ETC concert") {
 		@Override
 		public ItemUpdater createItemUpdater() {
-			return new BackstagePassesUpdater();
-		}
-	},
-	CONJURED("Conjured Mana Cake") {
-		@Override
+            return new BackstagePassesUpdater();
+        }
+    },
+    CONJURED("Conjured Mana Cake") {
+        @Override
 		public ItemUpdater createItemUpdater() {
 			return new ConjuredUpdater();
 		}
