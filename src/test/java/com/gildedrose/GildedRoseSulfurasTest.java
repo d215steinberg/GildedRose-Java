@@ -8,24 +8,24 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import org.junit.Test;
 
 public class GildedRoseSulfurasTest extends GildedRoseTest {
-	@Test
-	public void sulfurasNeverNeedsToBeSold() {
-		app = createAppWithSingleItem(SULFURAS.name, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-		app.updateAtEndOfDay();
-		assertThat(getLoneItem().sellIn, is(ARBITRARY_SELLIN));
-	}
+    @Test
+    public void sulfurasNeverNeedsToBeSold() {
+        app = createAppWithSingleItem(SULFURAS.name, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+        app.updateAtEndOfDay();
+        assertThat(getLoneItem().sellIn, is(ARBITRARY_SELLIN));
+    }
 
-	@Test
-	public void sulfurasQualityIsAlwaysSetAmountAtEndOfDay() throws Exception {
-		app = createAppWithSingleItem(SULFURAS.name, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-		app.updateAtEndOfDay();
-		assertThat(getLoneItem().quality, is(SULFURAS_QUALITY));
-	}
+    @Test
+    public void sulfurasQualityIsAlwaysSetAmountAtEndOfDay() throws Exception {
+        app = createAppWithSingleItem(SULFURAS.name, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+        app.updateAtEndOfDay();
+        assertThat(getLoneItem().quality, is(SULFURAS_QUALITY));
+    }
 
-	@Test
-	public void sulfurasQualityIsIntiallySetAmount() throws Exception {
-		app = createAppWithSingleItem(SULFURAS.name, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-		assertThat(getLoneItem().quality, is(SULFURAS_QUALITY));
-	}
+    @Test
+    public void sulfurasQualityIsAlwaysSetAmountInitially() throws Exception {
+        app = createAppWithSingleItem(SULFURAS.name, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+        assertThat(getLoneItem().quality, is(SULFURAS_QUALITY));
+    }
 
 }

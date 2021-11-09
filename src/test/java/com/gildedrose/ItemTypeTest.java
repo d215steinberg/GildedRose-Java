@@ -12,49 +12,48 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import org.junit.Test;
 
 public class ItemTypeTest {
-	@Test
-	public void createsUnknownItemTypeForUnknownName() throws Exception {
-		assertThat(ItemType.forName("foo"), is(UNKNOWN));
-	}
+    @Test
+    public void createsUnknownItemTypeForUnknownName() throws Exception {
+        assertThat(ItemType.forName("foo"), is(UNKNOWN));
+    }
 
-	@Test
-	public void createsKnownItemTypeForKnownName() throws Exception {
-		assertThat(ItemType.forName(AGED_BRIE.name), is(AGED_BRIE));
-	}
+    @Test
+    public void createsKnownItemTypeForKnownName() throws Exception {
+        assertThat(ItemType.forName(AGED_BRIE.name), is(AGED_BRIE));
+    }
 
-	@Test
-	public void createsDefaultUpdaterForUnknownItemType() throws Exception {
-		assertThat(UNKNOWN.createItemUpdater(), instanceOf(DefaultUpdater.class));
-	}
+    @Test
+    public void createsDefaultUpdaterForUnknownItemType() throws Exception {
+        assertThat(UNKNOWN.createItemUpdater(), instanceOf(DefaultUpdater.class));
+    }
 
-	@Test
-	public void cretesDefaultInitializerForUnknownItemType() throws Exception {
-		assertThat(UNKNOWN.createItemInitialzer(), instanceOf(DefaultInitializer.class));
-	}
+    @Test
+    public void createsAgedBrieUpdaterForAgedBrieItemType() throws Exception {
+        assertThat(AGED_BRIE.createItemUpdater(), instanceOf(AgedBrieUpdater.class));
+    }
 
-	@Test
-	public void createsAgedBrieUpdaterForAgedBrieItemType() throws Exception {
-		assertThat(AGED_BRIE.createItemUpdater(), instanceOf(AgedBrieUpdater.class));
-	}
+    @Test
+    public void createsSulfurasUpdatorForSulfurasItemType() throws Exception {
+        assertThat(SULFURAS.createItemUpdater(), instanceOf(SulfurasUpdater.class));
+    }
 
-	@Test
-	public void createsSulfurasUpdatorForSulfurasItemType() throws Exception {
-		assertThat(SULFURAS.createItemUpdater(), instanceOf(SulfurasUpdater.class));
-	}
+    @Test
+    public void createsBackstagePassesUpdaterForBackstagePassesItemType() throws Exception {
+        assertThat(BACKSTAGE_PASSES.createItemUpdater(), instanceOf(BackstagePassesUpdater.class));
+    }
 
-	@Test
-	public void createsSulfurasInitializerForSulfurasItemType() throws Exception {
-		assertThat(SULFURAS.createItemInitialzer(), instanceOf(SulfurasInitializer.class));
-	}
+    @Test
+    public void createsConjuredUpdaterForConjuredItemType() throws Exception {
+        assertThat(CONJURED.createItemUpdater(), instanceOf(ConjuredUpdater.class));
+    }
 
-	@Test
-	public void createsBackstagePassesUpdaterForBackstagePassesItemType() throws Exception {
-		assertThat(BACKSTAGE_PASSES.createItemUpdater(), instanceOf(BackstagePassesUpdater.class));
-	}
+    @Test
+    public void createsDefaultInitializerForUnknownItemType() {
+        assertThat(UNKNOWN.createItemInitializer(), instanceOf(DefaultInitializer.class));
+    }
 
-	@Test
-	public void createsConjuredUpdaterForConjuredItemType() throws Exception {
-		assertThat(CONJURED.createItemUpdater(), instanceOf(ConjuredUpdater.class));
-	}
-
+    @Test
+    public void createsSulfurasInitializerForSulfurasItemType() {
+        assertThat(SULFURAS.createItemInitializer(), instanceOf(SulfurasInitializer.class));
+    }
 }
