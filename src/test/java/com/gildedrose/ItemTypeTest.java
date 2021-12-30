@@ -10,30 +10,30 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import org.junit.Test;
 
 public class ItemTypeTest {
-	@Test
-	public void createsUnknownItemTypeForUnknownName() throws Exception {
-		assertThat(ItemType.forName("foo"), is(UNKNOWN));
-	}
+    @Test
+    public void createsUnknownItemTypeForUnknownName() throws Exception {
+        assertThat(ItemType.forName("foo"), is(UNKNOWN));
+    }
 
-	@Test
-	public void createsKnownItemTypeForKnownName() throws Exception {
-		assertThat(ItemType.forName(AGED_BRIE.name), is(AGED_BRIE));
-	}
+    @Test
+    public void createsKnownItemTypeForKnownName() throws Exception {
+        assertThat(ItemType.forName(AGED_BRIE.name), is(AGED_BRIE));
+    }
 
-	@Test
-	public void createsDefaultUpdaterForUnknownItemType() throws Exception {
-		assertThat(UNKNOWN.createItemUpdater(), instanceOf(DefaultUpdater.class));
-	}
+    @Test
+    public void createsDefaultUpdaterForUnknownItemType() throws Exception {
+        assertThat(UNKNOWN.createItemUpdater(), instanceOf(DefaultUpdater.class));
+    }
 
-	@Test
-	public void createsAgedBrieUpdaterForAgedBrieItemType() throws Exception {
-		assertThat(AGED_BRIE.createItemUpdater(), instanceOf(AgedBrieUpdater.class));
+    @Test
+    public void createsAgedBrieUpdaterForAgedBrieItemType() throws Exception {
+        assertThat(AGED_BRIE.createItemUpdater(), instanceOf(AgedBrieUpdater.class));
 
-	}
+    }
 
-	@Test
-	public void createsConjuredUpdaterForConjuredItemType() throws Exception {
-		assertThat(CONJURED.createItemUpdater(), instanceOf(ConjuredUpdater.class));
-	}
+    @Test
+    public void createsConjuredUpdaterForConjuredItemType() throws Exception {
+        assertThat(CONJURED.createItemUpdater(), instanceOf(ConjuredUpdater.class));
+    }
 
 }
