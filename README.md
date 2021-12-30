@@ -7,9 +7,9 @@ static final String CONJURED = "Conjured";
 ```java
 @Test
 public void conjuredQualityDecreasesBy2() {
-	app = createAppWithSingleItem(CONJURED, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 2));
+    app = createAppWithSingleItem(CONJURED, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 2));
 }
 ```
 ```diff
@@ -21,9 +21,9 @@ We will not be able to make this test pass without some refactoring, so we **@Ig
 @Test
 @Ignore
 public void conjuredQualityDecreasesBy2() {
-	app = createAppWithSingleItem(CONJURED, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 2));
+    app = createAppWithSingleItem(CONJURED, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 2));
 }
 ```
 ```diff
