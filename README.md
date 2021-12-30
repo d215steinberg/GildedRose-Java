@@ -4,34 +4,33 @@ We step through the specifications in **GildedRoseRequirements.txt**, capturing 
 ```java
 @Test
 public void itemHasSpecifiedName() {
-	app = createAppWithSingleItem("foo", 0, 0);
-	assertThat(getLoneItem().name, is("foo"));
+    app = createAppWithSingleItem("foo", 0, 0);
+    assertThat(getLoneItem().name, is("foo"));
 }
 
 @Test
 public void itemHasSpecifiedSellIn() {
-	app = createAppWithSingleItem("foo", 17, 0);
-	assertThat(getLoneItem().sellIn, is(17));
+    app = createAppWithSingleItem("foo", 17, 0);
+    assertThat(getLoneItem().sellIn, is(17));
 }
 
 @Test
 public void itemHasSpecifiedQuality() {
-	app = createAppWithSingleItem("foo", 0, 19);
-	assertThat(getLoneItem().quality, is(19));
+    app = createAppWithSingleItem("foo", 0, 19);
+    assertThat(getLoneItem().quality, is(19));
 }
 
 @Test
-public void nameRemainsUnchangedAtEndOfDay() {
-	app = createAppWithSingleItem("foo", 0, 0);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().name, is("foo"));
+public void nameRemainsUnchangedAtEndOfDay() {  app = createAppWithSingleItem("foo", 0, 0);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().name, is("foo"));
 }
 
 @Test
 public void sellInDecreasesAtEndOfDay() {
-	app = createAppWithSingleItem("foo", 17, 0);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().sellIn, is(16));
+    app = createAppWithSingleItem("foo", 17, 0);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().sellIn, is(16));
 }
 ```
 When we get to **qualityDecreasesAtEndOfDay**, our test surprisingly fails. 
@@ -39,9 +38,9 @@ When we get to **qualityDecreasesAtEndOfDay**, our test surprisingly fails.
 ```java
 @Test
 public void qualityDecreasesAtEndOfDay() {
-	app = createAppWithSingleItem("foo", 0, 19);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(18));
+    app = createAppWithSingleItem("foo", 0, 19);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(18));
 }
 ```
 ```diff
@@ -53,9 +52,9 @@ We realize that we were using 0 has a sample sell-in value, an unwise choice sin
 ```java
 @Test
 public void qualityDecreasesAtEndOfDay() {
-	app = createAppWithSingleItem("foo", 17, 19);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(18));
+    app = createAppWithSingleItem("foo", 17, 19);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(18));
 }
 ```
 ```diff
@@ -71,16 +70,16 @@ so we keep that test as well (with the appropriate name and assertion).
 ```java
 @Test
 public void qualityDecreasesBy1AtEndOfDay() {
-	app = createAppWithSingleItem("foo", 17, 19);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(18));
+    app = createAppWithSingleItem("foo", 17, 19);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(18));
 }
 
 @Test
 public void qualityDecreasesBy2AtEndOfDayOnceSellDateHasPassed() {
-	app = createAppWithSingleItem("foo", 0, 19);		
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(17));
+    app = createAppWithSingleItem("foo", 0, 19);		
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(17));
 }
 ```
 ### [Go to Lesson #10](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2310)
