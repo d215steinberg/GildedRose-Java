@@ -1,6 +1,6 @@
 ### Lesson #40: Can we remove the factory?
 In Lesson #29, we moved the essential functionality of **ItemUpdaterFactory** to the **ItemType** enum.  The factory now appears to be superfluous.  We in-line the factory call in **GildedRose** and remove the factory.
-![](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/images/Lesson%20%2340.png)
+![](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%2340/images/Lesson%20%2340.png)
 ```java
 
 class GildedRose {
