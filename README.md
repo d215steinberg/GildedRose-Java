@@ -4,9 +4,9 @@ The test method is named **typeRemainsUnchangedAtEndOfDay** but the test calls *
 ```java
 @Test
 public void nameRemainsUnchangedAtEndOfDay() {
-	app = createAppWithSingleItem("foo", 0, 0);
-	app.updateAtEndOfDay();
-	assertEquals("foo", getLoneItem().name);
+    app = createAppWithSingleItem("foo", 0, 0);
+    app.updateAtEndOfDay();
+    assertEquals("foo", getLoneItem().name);
 }
 ```
 We have written only two tests, and our gained understanding is already driving the refactoring of our code!
