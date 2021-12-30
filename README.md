@@ -8,9 +8,9 @@ So when the sell-by date has passed for Aged Brie, does quality continue to incr
 ```java
 @Test
 public void agedBrieQualityIncreasesBy1EvenOnceSellDateHasPassed() {
-	app = createAppWithSingleItem(AGED_BRIE, 0, ARBITRARY_QUALITY);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 1));
+    app = createAppWithSingleItem(AGED_BRIE, 0, ARBITRARY_QUALITY);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 1));
 }
 ```
 ```diff
@@ -22,9 +22,9 @@ We guessed wrong.
 ```java
 @Test
 public void agedBrieQualityIncreasesBy2OnceSellDateHasPassed() {
-	app = createAppWithSingleItem(AGED_BRIE, 0, ARBITRARY_QUALITY);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 2));
+    app = createAppWithSingleItem(AGED_BRIE, 0, ARBITRARY_QUALITY);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 2));
 }
 ```
 ```diff
