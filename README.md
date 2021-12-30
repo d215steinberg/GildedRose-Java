@@ -1,6 +1,6 @@
 ### Lesson #16: Completing branch coverage
 We still have missed branches representing cases of Backstage Passes items approaching maximum quality.  
-![](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/images/Coverage-Lesson%2316.png)
+![](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%2316/images/Coverage-Lesson%2316.png)
 
 We write tests for these cases.
 
