@@ -4,23 +4,23 @@ We continue stepping through the specifications.
 ```java
 @Test
 public void qualityIsNeverNegative() {
-	app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, 0);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(0));
+    app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, 0);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(0));
 }
 
 @Test
 public void agedBrieQualityIncreases() {
-	app = createAppWithSingleItem("Aged Brie", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 1));
+    app = createAppWithSingleItem("Aged Brie", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 1));
 }
 
 @Test
 public void qualityNeverExceeds50() {
-	app = createAppWithSingleItem("Aged Brie", ARBITRARY_SELLIN, 50);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(50));
+    app = createAppWithSingleItem("Aged Brie", ARBITRARY_SELLIN, 50);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(50));
 }
 ```
 When we get to **sulfurasNeverNeedsToBeSold**, we run into another failure.
@@ -28,9 +28,9 @@ When we get to **sulfurasNeverNeedsToBeSold**, we run into another failure.
 ```java
 @Test
 public void sulfurasNeverNeedsToBeSold() {
-	app = createAppWithSingleItem("Sulfuras", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().sellIn, is(ARBITRARY_SELLIN));
+    app = createAppWithSingleItem("Sulfuras", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().sellIn, is(ARBITRARY_SELLIN));
 }
 ```
 ```diff
@@ -43,13 +43,21 @@ This time the problem is that we are passing "Sulfuras" as the item name, while 
 static final String AGED_BRIE = "Aged Brie";
 static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
 static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
-```
-```java
-		if (!items[i].name.equals(AGED_BRIE) && !items[i].name.equals(BACKSTAGE_PASSES)) {
-			if (items[i].quality > 0) {
-				if (!items[i].name.equals(SULFURAS)) {
-					items[i].quality = items[i].quality - 1;
-				}
+...
+public void updateAtEndOfDay() {
+    for (int i = 0; i < items.length; i++) {
+        if (!items[i].name.equals(AGED_BRIE) && !items[i].name.equals(BACKSTAGE_PASSES)) {
+            if (items[i].quality > 0) {
+                if (!items[i].name.equals(SULFURAS)) {
+                    items[i].quality = items[i].quality - 1;
+                }
+            }
+        } else {
+            ...
+        }
+        ...
+    }
+}    
 ```
 and use these constants in our tests.  
 
@@ -60,23 +68,23 @@ import static com.gildedrose.GildedRose.SULFURAS;
 ```java
 @Test
 public void agedBrieQualityIncreases() {
-	app = createAppWithSingleItem(AGED_BRIE, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 1));
+    app = createAppWithSingleItem(AGED_BRIE, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 1));
 }
 
 @Test
 public void qualityNeverExceeds50() {
-	app = createAppWithSingleItem(AGED_BRIE, ARBITRARY_SELLIN, 50);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(50));
+    app = createAppWithSingleItem(AGED_BRIE, ARBITRARY_SELLIN, 50);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(50));
 }
 
 @Test
 public void sulfurasNeverNeedsToBeSold() {
-	app = createAppWithSingleItem(SULFURAS, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().sellIn, is(ARBITRARY_SELLIN));
+    app = createAppWithSingleItem(SULFURAS, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().sellIn, is(ARBITRARY_SELLIN));
 }
 ```
 ```diff
