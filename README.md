@@ -7,30 +7,30 @@ We write tests for these cases.
 ```java
 @Test
 public void backstagePassesQualityIncreasesBy2Within10DaysOfConcert() {
-	app = createAppWithSingleItem(BACKSTAGE_PASSES, 10, ARBITRARY_QUALITY);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 2));
+    app = createAppWithSingleItem(BACKSTAGE_PASSES, 10, ARBITRARY_QUALITY);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 2));
 }
 
 @Test
 public void backstagePassesQualityDoesNotExceed50Within10DaysOfConcert() {
-	app = createAppWithSingleItem(BACKSTAGE_PASSES, 10, 49);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(50));
+    app = createAppWithSingleItem(BACKSTAGE_PASSES, 10, 49);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(50));
 }
 
 @Test
 public void backstagePassesQualityIncreasesBy3Within5DaysOfConcert() {
-	app = createAppWithSingleItem(BACKSTAGE_PASSES, 5, ARBITRARY_QUALITY);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 3));
+    app = createAppWithSingleItem(BACKSTAGE_PASSES, 5, ARBITRARY_QUALITY);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 3));
 }
 
 @Test
 public void backstagePassesQualityDoesNotExceed50Within5DaysOfConcert() {
-	app = createAppWithSingleItem(BACKSTAGE_PASSES, 5, 48);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(50));
+    app = createAppWithSingleItem(BACKSTAGE_PASSES, 5, 48);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(50));
 }
 ```
 ### [Go to Lesson #17](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2317)
