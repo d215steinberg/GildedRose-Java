@@ -5,9 +5,9 @@ We comment out the main loop in our code:
 
 ```java
 public void updateAtEndOfDay() {
-//	for (int i = 0; i < items.length; i++) {
-	int i = 0; // new line
-	   ... 
+//  for (int i = 0; i < items.length; i++) {
+        int i = 0; // new line
+            ... 
 //  } end-for
 }
 ```
@@ -16,14 +16,14 @@ All tests still run green because all tests assume a single item.  We add a coup
 ```java
 @Test
 public void updatesQualityForAllItemsAtEndOfDay() {
-	Item fooItem = new Item("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-	Item agedBrieItem = new Item(AGED_BRIE, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-	GildedRose app = new GildedRose(new Item[] { fooItem, agedBrieItem });
+    Item fooItem = new Item("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+    Item agedBrieItem = new Item(AGED_BRIE, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+    GildedRose app = new GildedRose(new Item[] { fooItem, agedBrieItem });
 
-	app.updateAtEndOfDay();
+    app.updateAtEndOfDay();
 
-	assertThat(fooItem.quality, is(ARBITRARY_QUALITY - 1));
-	assertThat(agedBrieItem.quality, is(ARBITRARY_QUALITY + 1));
+    assertThat(fooItem.quality, is(ARBITRARY_QUALITY - 1));
+    assertThat(agedBrieItem.quality, is(ARBITRARY_QUALITY + 1));
 }
 ```
 ```diff
@@ -33,16 +33,15 @@ public void updatesQualityForAllItemsAtEndOfDay() {
 ```java	
 @Test
 public void updatesSellInForAllItemsAtEndOfDay() {
-	Item fooItem = new Item("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-	Item barItem = new Item("bar", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-	Item sulfurasItem = new Item(SULFURAS, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-	GildedRose app = new GildedRose(new Item[] { fooItem, sulfurasItem, barItem });
+    Item fooItem = new Item("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);    	Item barItem = new Item("bar", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+    Item sulfurasItem = new Item(SULFURAS, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+    GildedRose app = new GildedRose(new Item[] { fooItem, sulfurasItem, barItem });
 
-	app.updateAtEndOfDay();
+    app.updateAtEndOfDay();
 
-	assertThat(fooItem.sellIn, is(ARBITRARY_SELLIN - 1));
-	assertThat(barItem.sellIn, is(ARBITRARY_SELLIN - 1));
-	assertThat(sulfurasItem.sellIn, is(ARBITRARY_SELLIN));
+    assertThat(fooItem.sellIn, is(ARBITRARY_SELLIN - 1));   
+    assertThat(barItem.sellIn, is(ARBITRARY_SELLIN - 1));
+    assertThat(sulfurasItem.sellIn, is(ARBITRARY_SELLIN));
 }
 ```
 ```diff
