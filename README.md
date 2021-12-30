@@ -3,7 +3,7 @@ We are now up to **BackstagePassesUpdater**, whose creation we test-drive from *
 ```java
 @Test
 public void createsBackstagePassesUpdaterForBackstagePassesItemType() throws Exception {
-	assertThat(BACKSTAGE_PASSES.createItemUpdater(), instanceOf(BackstagePassesUpdater.class));
+    assertThat(BACKSTAGE_PASSES.createItemUpdater(), instanceOf(BackstagePassesUpdater.class));
 }
 ```
 ```diff
