@@ -4,10 +4,10 @@
 ```java
 @Test
 public void foo() {
-	Item[] items = new Item[] { new Item("foo", 0, 0) };
-	GildedRose app = new GildedRose(items);
-	app.updateQuality();
-	assertEquals("fixme", app.items[0].name);
+    Item[] items = new Item[] { new Item("foo", 0, 0) };
+    GildedRose app = new GildedRose(items);
+    app.updateQuality();
+    assertEquals("fixme", app.items[0].name);
 }
 ```
 We run it, and it fails.  
@@ -20,10 +20,10 @@ We make it green by changing **fixme** to **foo**.
 ```java
 @Test
 public void foo() {
-	Item[] items = new Item[] { new Item("foo", 0, 0) };
-	GildedRose app = new GildedRose(items);
-	app.updateQuality();
-	assertEquals("foo", app.items[0].name);
+    Item[] items = new Item[] { new Item("foo", 0, 0) };
+    GildedRose app = new GildedRose(items);
+    app.updateQuality();
+    assertEquals("foo", app.items[0].name);
 }
 ```
 ```diff
@@ -34,19 +34,19 @@ Clearly, the test name **foo** does not express the intent of the test.  What sp
 ```java
 @Test
 public void itemHasSpecifiedName() {
-	Item[] items = new Item[] { new Item("foo", 0, 0) };
-	GildedRose app = new GildedRose(items);
-	assertEquals("foo", app.items[0].name);
+    Item[] items = new Item[] { new Item("foo", 0, 0) };
+    GildedRose app = new GildedRose(items);
+    assertEquals("foo", app.items[0].name);
 }
 
 @Test
 public void nameRemainsUnchangedAtEndOfDay() {
-	Item[] items = new Item[] { new Item("foo", 0, 0) };
-	GildedRose app = new GildedRose(items);
+    Item[] items = new Item[] { new Item("foo", 0, 0) };
+    GildedRose app = new GildedRose(items);
 
-	app.updateQuality();
+    app.updateQuality();
 
-	assertEquals("foo", app.items[0].name);
+    assertEquals("foo", app.items[0].name);
 }
 ```
 ### [Go to Lesson #4](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%234)
