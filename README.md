@@ -8,16 +8,16 @@ private static final int ARBITRARY_QUALITY = 19;
 ```java
 @Test
 public void qualityDecreasesBy1AtEndOfDay() {
-	app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 1));
+    app = createAppWithSingleItem("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 1));
 }
 
 @Test
 public void qualityDecreasesBy2AtEndOfDayOnceSellDateHasPassed() {
-	app = createAppWithSingleItem("foo", 0, ARBITRARY_QUALITY);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 2));
+    app = createAppWithSingleItem("foo", 0, ARBITRARY_QUALITY);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 2));
 }
 ```
 ### [Go to Lesson #11](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2311)
