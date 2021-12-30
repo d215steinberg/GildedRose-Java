@@ -4,9 +4,9 @@ We write a passing test, **sulfurasMaintainsItsQuality**.
 ```java
 @Test
 public void sulfurasMaintainsItsQuality() {
-	app = createAppWithSingleItem(SULFURAS, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
-	app.updateAtEndOfDay();
-	assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY));
+    app = createAppWithSingleItem(SULFURAS, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+    app.updateAtEndOfDay();
+    assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY));
 }
 ```
 But this test seems to contradict another requirement:
