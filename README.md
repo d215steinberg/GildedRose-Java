@@ -29,7 +29,19 @@ public void foo() {
 ```diff
 + GREEN
 ```
-Clearly, the test name **foo** does not express the intent of the test.  What specification is the test expressing?  From **GildedRoseRequirements.txt**, we see requirements regarding the initial specification of **sellIn** and **quality** attributes ("All items have a ...") and requirements regarding what happens to these attributes at the end of the day.  Our **foo** test describes the **name** attribute in both of these contexts, so we split **foo** into two trivial but meaningful tests.
+Clearly, the test name **foo** does not express the intent of the test.  What specification is the test expressing?
+From **GildedRoseRequirements.txt**, we see requirements regarding the initial specification of **sellIn** and
+**quality** attributes 
+```
+- All items have a SellIn value which denotes the number of days we have to sell the item
+- All items have a Quality value which denotes how valuable the item is
+```
+and requirements regarding what happens to these attributes at the end of the day.
+```
+- At the end of each day our system lowers both values for every item
+  ...
+```
+Our **foo** test describes the **name** attribute in both of these contexts, so we split **foo** into two trivial but meaningful tests.
 
 ```java
 @Test
