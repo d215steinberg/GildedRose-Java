@@ -34,7 +34,7 @@ Bob Martin taught us the [SOLID Principles](https://blog.cleancoder.com/uncle-bo
 of Object-Oriented Design.  The first two of these principles are especially
 relevant to this kata:
 - **Single Responsibility Principle (SRP)** -- A class does one and only one thing
-- **Open-Closed Principle (OCP)** -- A class is open to extension and closed to modification 
+- **Open-Closed Principle (OCP)** -- A module is open to extension and closed to modification 
 - Liskov Substitution Principle (LSP)
 - Interface Segregation Principle (ISP)
 - Dependency Inversion Principle (DIP)
