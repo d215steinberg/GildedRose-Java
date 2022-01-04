@@ -26,7 +26,7 @@ Backstage passes to a TAFKAL80ETC concert, 4, 50
 Conjured Mana Cake, 2, 5
 ```
 We run test coverage.  IntelliJ reports 78% line coverage in **GildedRose.java**.
-![](http://github.com/d215steinberg/GildedRose-Java/blob/Lesson%232/images/Coverage-Lesson%232-IntelliJ)
+![](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%232/images/Coverage-Lesson%232-IntelliJ.png)
 This test is not very useful:
 - 30% of code is not covered
 - We will need to verify results manually after every change
