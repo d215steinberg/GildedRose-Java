@@ -15,4 +15,6 @@ public void nameRemainsUnchangedAtEndOfDay() {
     assertThat(getLoneItem().name, is("foo"));
 }
 ```
-### Go to [Part III: Characterizing the Dode, Lesson #8](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%238)
+We have just expended considerable effort writing and refactoring only two tests.  Our investment allows us to now add
+new tests rapidly.
+### Go to [Part III: Characterizing the Code, Lesson #8](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%238)
