@@ -30,11 +30,11 @@ public void itemHasSpecifiedQuality() {
 ```
 ```java
 @Test
-public void nameRemainsUnchangedAtEndOfDay() {  app = createAppWithSingleItem("foo", 0, 0);
+public void nameRemainsUnchangedAtEndOfDay() {  
+    app = createAppWithSingleItem("foo", 0, 0);
     app.updateAtEndOfDay();
     assertThat(getLoneItem().name, is("foo"));
 }
-
 ```
 ```
     - At the end of each day our system lowers both values for every item
