@@ -47,6 +47,16 @@ The difference lies in the goals of refactoring.
 - In **Legacy Rescue**, you can't afford perfection.  In the words of [Arlo Belshee](https://www.digdeeproots.com/articles/get-to-obvious-nonsense/), "Good is too expensive.  I just want better (quickly)." 
 
 ### Introduction to Gilded Rose kata
-[Starting codebase with requirements](https://github.com/d215steinberg/GildedRose-Java).
+The Gilded Rose Kata begins with a [requirements specification](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/GildedRoseRequirements.txt)
+and a [gnarly, one-method codebase](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/src/main/java/com/gildedrose/GildedRose.java)
+that looks all too familiar to developers.  The requirements specification includes one new requirement
+to be implemented:
+```
+We have recently signed a supplier of conjured items. This requires an update to our system:
+
+	- "Conjured" items degrade in Quality twice as fast as normal items
+```
+The requirement appears simple.  Yet the code is so obfuscated that we dare not change it for fear of breaking something.
+So our adventure begins.
 
 ### [Go to Part II: Initiating Our Test Bed, Lesson #1](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%231)
