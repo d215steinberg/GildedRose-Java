@@ -7,35 +7,46 @@ public void itemHasSpecifiedName() {
     app = createAppWithSingleItem("foo", 0, 0);
     assertThat(getLoneItem().name, is("foo"));
 }
-
+```
+```
+    - All items have a SellIn value which denotes the number of days we have to sell the item
+```
+```java
 @Test
 public void itemHasSpecifiedSellIn() {
     app = createAppWithSingleItem("foo", 17, 0);
     assertThat(getLoneItem().sellIn, is(17));
 }
-
+```
+```
+    - All items have a Quality value which denotes how valuable the item is
+```
+```java
 @Test
 public void itemHasSpecifiedQuality() {
     app = createAppWithSingleItem("foo", 0, 19);
     assertThat(getLoneItem().quality, is(19));
 }
-
+```
+```java
 @Test
 public void nameRemainsUnchangedAtEndOfDay() {  app = createAppWithSingleItem("foo", 0, 0);
     app.updateAtEndOfDay();
     assertThat(getLoneItem().name, is("foo"));
 }
 
+```
+```
+    - At the end of each day our system lowers both values for every item
+```
+```java
 @Test
 public void sellInDecreasesAtEndOfDay() {
     app = createAppWithSingleItem("foo", 17, 0);
     app.updateAtEndOfDay();
     assertThat(getLoneItem().sellIn, is(16));
 }
-```
-When we get to **qualityDecreasesAtEndOfDay**, our test surprisingly fails. 
 
-```java
 @Test
 public void qualityDecreasesAtEndOfDay() {
     app = createAppWithSingleItem("foo", 0, 19);
@@ -43,6 +54,7 @@ public void qualityDecreasesAtEndOfDay() {
     assertThat(getLoneItem().quality, is(18));
 }
 ```
+This last test surprisingly fails.
 ```diff
 - Expected: is <18>
 -    but: was <17>
@@ -61,9 +73,8 @@ public void qualityDecreasesAtEndOfDay() {
 + GREEN
 ```
 The **sell-in = 0** case actually represents our next requirement, 
-
 ```
-- Once the sell by date has passed, Quality degrades twice as fast
+    - Once the sell by date has passed, Quality degrades twice as fast
 ```
 so we keep that test as well (with the appropriate name and assertion).
 
