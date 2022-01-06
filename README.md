@@ -4,9 +4,14 @@ As one last sanity check before declaring ourselves "done," let us assess the co
 2. Add a new constant to **GildedRose**
 3. Add a new case to the switch statement in **ItemUpdaterFactory**
 
-(1) is a simple extension, a beautiful realization of the Open-Closed Principle.  (2) and (3) serve to wire the extension into the code base.  But does this "wiring" need to live in two places?  Stated otherwise, the *knowledge* of the various specialized item types lives in two classes, a clear violation of DRY.  Java provides a mechanism to isolate this knowledge in a single entity, the **enum** construct.
+(1) is a simple extension, a beautiful realization of the Open-Closed Principle.  (2) and (3) serve to wire the
+extension into the code base.  But does this "wiring" need to live in two places?  Stated otherwise, the *knowledge* of
+the various specialized item types lives in two classes, a clear violation of DRY.  Java provides a mechanism to isolate
+this knowledge in a single entity, the **enum** construct.
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%2329/images/Lesson%20%2329.png)
-(NOTE:  In the "real world," since the refactoring this knowledge to an **enum** is non-trivial, the decision to implement it immediately should be left to the team.  If time pressure demands, the team may choose to deliver the code as-is and create a *high-priority* story to pay off the technical debt that they have created.)
+(NOTE:  In the "real world," since the refactoring of this knowledge to an **enum** is non-trivial, the decision to
+implement it immediately should be left to the team.  If time pressure demands, the team may choose to deliver the code
+as-is and create a *high-priority* story to pay off the technical debt that they have incurred.)
 
 We refactor as follows:
 1. We create an **ItemType** enum with known types and **UNKNOWN**.  The **name** values of the known types are set using the **GildedRose** constants (for now).
