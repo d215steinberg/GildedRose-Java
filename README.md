@@ -37,7 +37,11 @@ public class DefaultUpdater implements ItemUpdater {
     }
 }
 ```
-We now have duplicate code in **Gilded Rose**, as both **updateQuatity** and **updateSellIn** create **itemUpdater**.  We refactor **GildedRose** to create **itemUpdater** in **updateAtEndOfDay** and to pass it as a parameter to both **updateQuality** and **updateSellin**.  
+All of our tests remain green,
+```diff
++ GREEN
+```
+but we now have duplicate code in **Gilded Rose**, as both **updateQuatity** and **updateSellIn** create **itemUpdater**.  We refactor **GildedRose** to create **itemUpdater** in **updateAtEndOfDay** and to pass it as a parameter to both **updateQuality** and **updateSellin**.  
 ```java
 public void updateAtEndOfDay() {
     for (Item item : items) {
@@ -59,6 +63,9 @@ private void updateSellIn(Item item, ItemUpdater itemUpdater) {
     itemUpdater.updateSellIn(item);
 }
 ```
+```diff
++ GREEN
+```
 But passing a parameter to a method just so that we can delegate a single call is excessive, so we inline our calls to these methods.
 ```java
 public void updateAtEndOfDay() { 
@@ -72,6 +79,9 @@ public void updateAtEndOfDay() {
 private ItemUpdater createItemUpdater(String itemName) {  		
     return itemUpdaterFactory.createItemUpdater(itemName); 
 } 
+```
+```diff
++ GREEN
 ```
 There remains some ugly code underneath (specifically in **DefaultUpdater**), but our top-level **GildedRose** is pristine.
 
