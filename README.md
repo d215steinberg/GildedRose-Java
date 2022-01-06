@@ -16,7 +16,7 @@ public class AgedBrieUpdater extends DefaultUpdater {
 ```diff
 + GREEN
 ```
-The use of the magic number not only impeded expression of intent.  It also violated the DRY principle, as it appears
+The use of the magic number not only impeded expression of intent.  It also violated (and continues to violate) the DRY principle, as it appears
 elsewhere as well, both in test code (**GildedRoseTest**) and in production code (**DefaultUpdater**).  We want to
 replace these instances with the constant **MAX_QUALITY**, but a reference to **AgedBrieUpdater.MAX_QUALITY** (even if
 disguised by a static import) would look wrong.  We pull the constant definition up to the **ItemUpdater** interface.
