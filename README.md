@@ -1,5 +1,5 @@
 ### Lesson #22: Baby steps toward strategy pattern
-We refactor toward our strategy pattern with baby steps, being sure to keep our tests green at all times.
+We now refactor toward our strategy pattern with baby steps, being sure to keep our tests green at all times.
 We begin by moving **GildedRose.updateQuality** to new class **DefaultUpdater** and extract interface **ItemUpdater**. 
 For now, **GildedRose** hard-codes its use of **DefaultUpdater**.
 
