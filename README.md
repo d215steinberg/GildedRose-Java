@@ -1,6 +1,8 @@
 ## Part V: Implementing the change
 ### Lesson #26: Implementing the new functionality
-We now un-ignore our failing Conjured test (**conjuredQualityDecreasesBy2**) in **GildedRoseTest**.  
+We are finally ready to implement our change by means of TDD.  Recall that we wrote our first failing test back in
+[Lesson #19](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2319).
+We now un-ignore that test.  
 
 ```java
 @Test
@@ -15,7 +17,6 @@ public void conjuredQualityDecreasesBy2() {
 -    but: was <18>
 ```
 We then implement **ConjuredUpdater.updateQuality** to make the test pass.
-
 ```java
 public class ConjuredUpdater extends DefaultUpdater {
     @Override 
@@ -27,8 +28,7 @@ public class ConjuredUpdater extends DefaultUpdater {
 ```diff
 + GREEN
 ```
-We have missed some edge cases, so we write a new test, **conjuredQualityDecreasesBy4OnceSellDateHasPassed**, and we make that pass as well.
-
+We have missed some edge cases, so we write a new test, 
 ```java
 @Test
 public void conjuredQualityDecreasesBy4OnceSellDateHasPassed() {
@@ -41,6 +41,7 @@ public void conjuredQualityDecreasesBy4OnceSellDateHasPassed() {
 - Expected: is <15>
 -    but: was <17>
 ```
+and we make that pass as well.
 ```java
 public class ConjuredUpdater extends DefaultUpdater {
     @Override 
