@@ -1,5 +1,9 @@
 ### Lesson #19: Adding a failing test for the new requirement
-Now that we have fully characterized the existing behavior of the system, we can write a failing test for our new requirement.  Of course, we need to define a **CONJURED** constant in **GildedRose.java**.
+Now that we have fully characterized the existing behavior of the system, we can write a failing test for our new requirement.  
+```
+    - "Conjured" items degrade in Quality twice as fast as normal items
+```
+Of course, we need to define a **CONJURED** constant in **GildedRose.java**.
 
 ```java
 static final String CONJURED = "Conjured";
