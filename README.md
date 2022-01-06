@@ -24,7 +24,8 @@ public void sulfurasMaintainsItsQuality() {
 ```
 But this test seems to contradict another requirement:
 ```
-    - Just for clarification, an item can never have its Quality increase above 50, however Sulfuras is a legendary item and as such its Quality is 80 and it never alters.
+Just for clarification, an item can never have its Quality increase above 50, however "Sulfuras" is a
+legendary item and as such its Quality is 80 and it never alters.
 ```
 
 The fact that our test passes reveals that the system currently does not assure that a Sulfuras item's quality is 80.
