@@ -1,7 +1,9 @@
 ### Lesson #14: The requirements are ambiguous.  Is the code correct?
 The uncovered (pink) block of code represents the case where an Aged Brie item has passed its sell-by date.  Sure enough, we missed this case in our tests.  So what is the specification for this case?  The requirements read
-> - Once the sell by date has passed, Quality degrades twice as fast
-> - "Aged Brie" actually increases in Quality the older it gets
+```
+    - Once the sell by date has passed, Quality degrades twice as fast
+    - "Aged Brie" actually increases in Quality the older it gets
+```
 
 So when the sell-by date has passed for Aged Brie, does quality continue to increase by 1, or does it increase by two?  How should we handle such an ambiguity?  The correct answer is "we ask the product owner."  But if the product owner is not available, we make a best guess.  
 
