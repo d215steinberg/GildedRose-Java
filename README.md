@@ -11,8 +11,10 @@ public void updateAtEndOfDay() {
 //  } end-for
 }
 ```
-All tests still run green because all tests assume a single item.  We add a couple of tests specifying multi-item behavior.  The tests initially fail.  
-
+```diff
++ GREEN
+```
+Our tests still run green because all tests assume a single item.  We add a couple of tests specifying multi-item behavior.  The tests initially fail.  
 ```java
 @Test
 public void updatesQualityForAllItemsAtEndOfDay() {
@@ -49,7 +51,6 @@ public void updatesSellInForAllItemsAtEndOfDay() {
 -     but: was <17>
 ```
 We restore the loop in our code.  The tests pass.
-
 ```diff
 + GREEN
 ```
