@@ -28,7 +28,8 @@ public class ConjuredUpdater extends DefaultUpdater {
 ```diff
 + GREEN
 ```
-We have missed some edge cases, so we write a new test, 
+We have missed some edge cases.  Since Conjured quality degrades twice as fast, it must decrease by 4 once the sell date
+has past.  We write a new test, 
 ```java
 @Test
 public void conjuredQualityDecreasesBy4OnceSellDateHasPassed() {
