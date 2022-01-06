@@ -27,7 +27,23 @@ public void conjuredQualityIsNeverNegative() {
 - Expected: is <0>
 -    but: was <-2>
 ```
-We make the test pass and then refactor as necessary.  
+We make the test pass 
+```java
+public class ConjuredUpdater extends DefaultUpdater {
+    @Override
+    public void updateQuality(Item item) {
+        item.quality = max(item.quality - getQualityDecrement(item.sellIn), 0);
+    }
+
+    private int getQualityDecrement(int sellIn) {
+        return sellIn > 0 ? 2 : 4;
+    }
+}
+```
+```diff
++ GREEN
+```
+and then refactor to express intent.  
 ```java
 public class ConjuredUpdater extends DefaultUpdater { 
     @Override 
@@ -47,7 +63,7 @@ public class ConjuredUpdater extends DefaultUpdater {
 ```diff
 + GREEN
 ```
-Finally, we write our last test, **conjuredQualityIsNeverNegativeEvenOnceSellDateHasPassed**, which passes off the bat.
+Finally, we write our last test, 
 ```java
 @Test
 public void conjuredQualityIsNeverNegativeEvenOnceSellDateHasPassed() {
@@ -56,22 +72,20 @@ public void conjuredQualityIsNeverNegativeEvenOnceSellDateHasPassed() {
     assertThat(getLoneItem().quality, is(0));
 }
 ```
+which passes off the bat.
 ```diff
 + GREEN
 ```
-We run **TexttestFixture**.  The **Conjured** case still fails!
-
+As a final check, we run **TexttestFixture**.  The **Conjured** case still fails!
 ```
 Conjured Mana Cake, 2, 5
 ```
 We realize that we have defined the **CONJURED** constant incorrectly, so we fix it.
-
 ```java
 static final String CONJURED = "Conjured Mana Cake";
 ```
 Good thing we kept that test around!  We now run the test again,  and we manually verify that all tests (especially 
 the last one) pass.  
-
 ```
 Conjured Mana Cake, 2, 4
 ```
