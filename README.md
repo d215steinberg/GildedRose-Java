@@ -1,7 +1,7 @@
 ### Lesson #31: Magic Numbers
 Our tests are green, so it's refactoring time.
 
-50 is a magic number representing the maximum quantity.  The repetition of this number across both our projection and test code constitutes a duplication of knowledge (violation of DRY), and a change to the maximum quality would require multiple changes to the code.  Furthermore, the raw use of the magic number obfuscates the code's intent.  We extract the number 50 in **AgedBrieUpdater** to a constant **MAX_QUALITY**.  
+50 is a magic number representing the maximum quantity.  The raw use of this magic number obfuscates the code's intent.  We extract the number 50 in **AgedBrieUpdater** to a constant **MAX_QUALITY**.  
 ```java
 public class AgedBrieUpdater extends DefaultUpdater {
     public static int MAX_QUALITY = 50;
@@ -16,7 +16,10 @@ public class AgedBrieUpdater extends DefaultUpdater {
 ```diff
 + GREEN
 ```
-The use of the magic number not only impeded expression of intent.  It also violated the DRY principle, as it appears elsewhere as well, both in test code (**GildedRoseTest**) and in production code (**DefaultUpdater**).  We want to replace these instances with the constant **MAX_QUALITY**, but a reference to **AgedBrieUpdater.MAX_QUALITY** (even if disguised by a static import) would look wrong.  We pull the constant definition up to the **ItemUpdater** interface.
+The use of the magic number not only impeded expression of intent.  It also violated the DRY principle, as it appears
+elsewhere as well, both in test code (**GildedRoseTest**) and in production code (**DefaultUpdater**).  We want to
+replace these instances with the constant **MAX_QUALITY**, but a reference to **AgedBrieUpdater.MAX_QUALITY** (even if
+disguised by a static import) would look wrong.  We pull the constant definition up to the **ItemUpdater** interface.
 ```java
 public interface ItemUpdater {
     int MAX_QUALITY = 50;
