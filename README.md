@@ -1,5 +1,7 @@
 ### Lesson #34: The power of doing nothing
-We test-drive the creation of **SulfurasUpdater** from **ItemType**.
+Time for Sulfuras.  This one should be relatively easy.
+
+As we did for Conjured and Aged Brie, we test-drive the creation of **SulfurasUpdater** from **ItemType**.
 ```java
 @Test
 public void createsSulfurasUpdatorForSulfurasItemType() throws Exception {
@@ -37,7 +39,8 @@ public enum ItemType {
 ```diff
 + GREEN
 ```
-We implement **SulfurasUpdater.updateQuality** and **SulfurasUpdater.updateSellin** as no-ops, and all tests pass.
+For Sulfuras, **quality**  and **sellIn** never change, so we implement **SulfurasUpdater.updateQuality** and
+**SulfurasUpdater.updateSellin** as no-ops.
 ```java
 public class SulfurasUpdater extends DefaultUpdater {
     @Override 
@@ -49,6 +52,7 @@ public class SulfurasUpdater extends DefaultUpdater {
     }
 }
 ```
+All the tests pass.
 ```diff
 + GREEN
 ```
