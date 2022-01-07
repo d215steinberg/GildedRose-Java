@@ -1,7 +1,7 @@
 # GildedRose-Java
 A lesson-by-lesson Java implementation of the [Gilded Rose refactoring kata](https://github.com/NotMyself/GildedRose), 
-introduced in 2011 by Terry Hughes and popularized 
-[in numerous languages](https://github.com/emilybache/GildedRose-Refactoring-Kata) by Emily Bache.
+introduced in 2011 by [Terry Hughes and Bobby Johnson using C#](https://github.com/NotMyself/GildedRose) and popularized 
+[in numerous languages by Emily Bache](https://github.com/emilybache/GildedRose-Refactoring-Kata).
 ## System Requirements
 - Java 8 or above
 - JUnit 4 (Emily Bache's Java version uses JUnit 5, which
