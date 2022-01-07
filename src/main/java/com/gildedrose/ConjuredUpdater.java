@@ -4,7 +4,7 @@ public class ConjuredUpdater extends DefaultUpdater {
 
     @Override
     protected int getQualityDecrement(int sellIn) {
-        return sellDateHasPassed(sellIn) ? 4 : 2;
+        return super.getQualityDecrement(sellIn) * 2;
     }
 
 }
