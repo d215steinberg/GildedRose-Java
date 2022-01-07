@@ -65,7 +65,7 @@ public interface ItemInitializer {
     void initializeItem(Item item);
 }
 ```
-4. We re-implement **GildedRose.initializeItem** to create an **ItemInitializer** (through method **createInitializer**) and to delegate to this initializer.  We initially implement **createInitializer** to create a **DefaultInitializer**. 
+4. We re-implement **GildedRose.initializeItem** to create an **ItemInitializer** (through method **createItemInitializer**) and to delegate to this initializer.  We initially implement **createItemInitializer** to create a **DefaultInitializer**. 
 ```java
 public GildedRose(Item[] items) {
     this.items = initializeItems(items);
