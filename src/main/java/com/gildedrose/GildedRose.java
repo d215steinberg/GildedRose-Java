@@ -4,11 +4,11 @@ class GildedRose {
     Item[] items;
     private ItemUpdaterFactory itemUpdaterFactory;
 
-    GildedRose(Item[] items) {
+    public GildedRose(Item[] items) {
         this(items, new ItemUpdaterFactory());
     }
 
-    public GildedRose(Item[] items, ItemUpdaterFactory itemUpdaterFactory) {
+    GildedRose(Item[] items, ItemUpdaterFactory itemUpdaterFactory) {
         this.items = items;
         this.itemUpdaterFactory = itemUpdaterFactory;
     }
