@@ -13,7 +13,20 @@ public void sulfurasQualityIsAlways80() throws Exception {
 - Expected: is <80>
 -    but: was <19>
 ```
-2. We modify **SulfurasUpdater.updateQuality** to make the test pass.  The test **sulfurasMaintainsItsQuality** now fails.  This test is no longer valid, so we delete it.
+2. We modify **SulfurasUpdater.updateQuality** to make the test pass.
+```java
+public class SulfurasUpdater extends DefaultUpdater {
+    @Override
+    public void updateQuality(Item item) {
+        item.quality = 80;
+    }
+
+    @Override
+    public void updateSellIn(Item item) {
+    }
+}
+```
+The test **sulfurasMaintainsItsQuality** now fails.  
 ```diff
 - Expected: is <19>
 -    but: was <80>
