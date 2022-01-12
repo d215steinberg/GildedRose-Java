@@ -25,7 +25,7 @@ Backstage passes to a TAFKAL80ETC concert, 9, 50
 Backstage passes to a TAFKAL80ETC concert, 4, 50
 Conjured Mana Cake, 2, 5
 ```
-We run test coverage.  IntelliJ reports 78% line coverage in **GildedRose.java**.
+We run test coverage.  IntelliJ reports 78% line coverage and 58% branch coverage in **GildedRose.java**.
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%232/images/Coverage-Lesson%232-IntelliJ.png)
 Eclipse reports 70.0% instruction coverage.
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%232/images/Coverage-Lesson%232-Eclipse.png)
