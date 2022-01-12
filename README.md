@@ -27,7 +27,7 @@ Conjured Mana Cake, 2, 5
 ```
 We run test coverage.  IntelliJ reports 78% line coverage and 58% branch coverage in **GildedRose.java**.
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%232/images/Coverage-Lesson%232-IntelliJ.png)
-Eclipse reports 70.0% instruction coverage.
+Eclipse reports 70.0% (bytecode) instruction coverage.
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%232/images/Coverage-Lesson%232-Eclipse.png)
 
 This test is not very useful for two reasons:
