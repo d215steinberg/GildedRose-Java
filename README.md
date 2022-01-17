@@ -35,7 +35,8 @@ public void updatesQualityForAllItemsAtEndOfDay() {
 ```java	
 @Test
 public void updatesSellInForAllItemsAtEndOfDay() {
-    Item fooItem = new Item("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);    	Item barItem = new Item("bar", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+    Item fooItem = new Item("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);    	
+    Item barItem = new Item("bar", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
     Item sulfurasItem = new Item(SULFURAS, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
     GildedRose app = new GildedRose(new Item[] { fooItem, sulfurasItem, barItem });
 
