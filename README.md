@@ -27,7 +27,7 @@ private Item getFirstItem(GildedRose app) {
     return app.items[0];
 }
 ```
-Declaring the local **GildedRose app** in each test and passing it **getLoneItem** is repetitive.  We extract it to a field.
+Declaring the local **GildedRose app** in each test and passing it to **getLoneItem** is repetitive.  We extract it to a field.
 
 ```java
 private GildedRose app;
