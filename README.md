@@ -8,7 +8,7 @@ We run Pitest and see that, although line coverage is 100%, mutation coverage is
 
 Drilling in, we see that two lines survive the "changed conditional boundary" mutation.  
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%2317/images/mutation-coverage-Lesson%2317.jpg)
-Our Backstage Passes tests cover the upper bounds of the quality appreciation ranges (10 days and 5 days) but not lower bounds (6 days and 0 days).  We add tests for the lower bounds.
+Our Backstage Passes tests cover the upper bounds of the quality appreciation ranges (10 days and 5 days) but not the lower bounds (6 days and 0 days).  We add tests for the lower bounds.
 
 ```java
 @Test
