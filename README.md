@@ -1,6 +1,10 @@
 ### Lesson #42: The product owner throws a curve
-Is the test name **sulfurasQualityIsAlwaysSetAmount** truly accurate?  Not quite.  The test is only verifying that Sulfuras quality is 80 at the end of the day.  When a Sulfuras item has just been added, its quality is not necessarily 80.  Does this matter?  We ask the Product Owner, and he responds that yes, it does.
-So now, in addition to the strategy hierarchy (and associated factory method in **ItemType**) for **ItemUpdater**, we need another strategy hierarchy (and factory method) for **ItemInitializer**.
+Is the test name **sulfurasQualityIsAlwaysSetAmount** truly accurate?  Not quite.  The test is only verifying that
+Sulfuras quality is 80 at the end of the day.  When a Sulfuras item has just been added, its quality is not necessarily 80.
+Does this matter?  We ask the Product Owner, and he responds that yes, it does, and he creates a new story in the
+Product Backlog.  
+
+When we get to implementing this story, we have a design pattern to imitate.  In addition to the strategy hierarchy (and associated factory method in **ItemType**) for **ItemUpdater**, we need another strategy hierarchy (and factory method) for **ItemInitializer**.
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%2342/images/Lesson%20%2342.png)
 1. We rename our test to **sulfurasQualityIsAlwaysSetAmountAtEndOfDay** and we add a failing test **sulfurasQualityIsAlwaysSetAmountInitially**.  
 ```java
