@@ -1,5 +1,19 @@
 ### Lesson #39: Do we need to test with mocks?
-The test in **GildedRoseMultiItemTest.updatesQualityForAllItemsAtEndOfDay** makes a couple of contextual assumptions:
+The test in **GildedRoseMultiItemTest.updatesQualityForAllItemsAtEndOfDay**
+```java
+@Test
+public void updatesQualityForAllItemsAtEndOfDay() {
+    Item fooItem = new Item("foo", ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+    Item agedBrieItem = new Item(AGED_BRIE.name, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
+    GildedRose app = new GildedRose(new Item[]{fooItem, agedBrieItem});
+
+    app.updateAtEndOfDay();
+
+    assertThat(fooItem.quality, is(ARBITRARY_QUALITY - 1));
+    assertThat(agedBrieItem.quality, is(ARBITRARY_QUALITY + 1));
+}
+```
+makes a couple of contextual assumptions:
 1. There exists an AGED BRIE item type.
 2. The AGED BRIE item increases in quality.
 
