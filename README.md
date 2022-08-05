@@ -5,7 +5,7 @@ The uncovered (pink) block of code represents the case where an Aged Brie item h
     - "Aged Brie" actually increases in Quality the older it gets
 ```
 
-So when the sell-by date has passed for Aged Brie, does quality continue to increase by 1, or does it increase by two?  How should we handle such an ambiguity?  The correct answer is "we ask the product owner."  But if the product owner is not available, we make a best guess.  
+So when the sell-by date has passed for Aged Brie, does quality continue to increase by 1, or does it increase by two?  How should we handle such an ambiguity?  The correct answer is "we ask the Product Owner."  But if the Product Owner is not available, we make a best guess.  
 
 ```java
 @Test
