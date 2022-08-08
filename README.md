@@ -2,7 +2,7 @@
 ### Lesson #38: Do we need to move the tests?
 This is a question that comes up quite from proponents of the "London School" (as opposed to the "Detroit School") of Test-Driven Development.  If a "unit" in Java is a class, and every unit requires a unit test, then shouldn't we be converting our tests in **GildedRoseTest** to **DefaultUpdaterTest**, **AgedBrieUpdaterTest**, etc.?
 
-The short answer is no.  If we had extracted these classes for reuse, then we would need tests to document the contract of the new reusable classes.  In our case, however, we extracted the strategy (**ItemUpdater**) classes for maintainability, not for reuse.  One could argue, in fact, that **GildedRose** still qualifies as a "unit."
+The short answer is no.  If we had extracted these classes for reuse, then we would have needed tests to document the contract of the new reusable classes.  In our case, however, we extracted the strategy (**ItemUpdater**) classes for maintainability, not for reuse.  One could argue, in fact, that **GildedRose** still qualifies as a "unit."
 Moreover, moving our tests will require time and effort, and will leave us with _less_ test coverage than before, as we will no longer be covering the behavior of **GildedRose**.  
 
 On the other hand, **GildedRoseTest** has gotten awfully big.  Finding a test method  (or finding the best place to add a new test method) could become unwieldy.
