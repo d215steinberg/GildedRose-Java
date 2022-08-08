@@ -11,6 +11,9 @@ public void qualityIsNeverNegative() {
     assertThat(getLoneItem().quality, is(0));
 }
 ```
+```diff
++ GREEN
+```
 ```
     - "Aged Brie" actually increases in Quality the older it gets
 ```
@@ -22,6 +25,9 @@ public void agedBrieQualityIncreases() {
     assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 1));
 }
 ```
+```diff
++ GREEN
+```
 ```
     - The Quality of an item is never more than 50
 ```
@@ -32,6 +38,9 @@ public void qualityNeverExceeds50() {
     app.updateAtEndOfDay();
     assertThat(getLoneItem().quality, is(50));
 }
+```
+```diff
++ GREEN
 ```
 ```
     - "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
