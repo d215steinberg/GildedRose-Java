@@ -1,5 +1,5 @@
 ### Lesson #41: The "clarification" regarding Sulfuras: A new story
-Back in Lesson #12, we determined that the "clarification" that Sulfuras quality was always 80 should not affect our code.  We further attested that if the Product Owner wanted the system to assure that Sulfuras quality were always 80, a new story would be needed.  Let us now say that the Product Owner has decided to add this new story.
+Back in Lesson #12, we determined that the "clarification" that Sulfuras quality is always 80 should not affect our code.  We further attested that if the Product Owner wanted the system to assure that Sulfuras quality were always 80, a new story would be needed.  Let us now say that the Product Owner has decided to add this new story.
 1. We write a failing test **GildedRoseSulfurasTest.sulfurasQualityIsAlways80**.
 ```java
 @Test
