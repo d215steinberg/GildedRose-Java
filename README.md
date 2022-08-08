@@ -18,6 +18,9 @@ public void agedBrieQualityNeverExceeds50EvenOnceSellDateHasPassed() {
     assertThat(getLoneItem().quality, is(50));
 }
 ```
+```diff
++ GREEN
+```
 Another is for the case of a generic item whose sell date has passed and has already lost all of its quality.  
 
 ```java
@@ -27,6 +30,9 @@ public void qualityIsNeverNegativeEvenOnceSellDateHasPassed() {
     app.updateAtEndOfDay();
     assertThat(getLoneItem().quality, is(0));
 }
+```
+```diff
++ GREEN
 ```
 Finally we come across a missed branch representing the case of a Sulfuras item whose sell-by date has passed.  
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%2315/images/Coverage-Lesson%2315b.png)
