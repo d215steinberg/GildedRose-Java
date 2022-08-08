@@ -90,4 +90,12 @@ the last one) pass.
 Conjured Mana Cake, 2, 4
 ```
 We can now delete this test file, as it is redundant.
+> JUST A THOUGHT:  If this change (and perhaps the changes in Lessons 28 and 29) is all that is needed to satisfy the
+> requirement, did we really need to write all of those unit tests in Lessons 3 through 19?  Granted, some of the
+> refactoring in Lessons 20 through 23 is not completely "safe," but perhaps the coverage provided by 
+> **TexttestFixture** was sufficient.
+> 
+> Of course, we will certainly need full unit test coverage before implementing the other Updaters in Lessons 30 
+> through 37.
+
 ### [Go to Lesson #28](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2328)
