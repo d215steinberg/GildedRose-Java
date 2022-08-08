@@ -1,6 +1,6 @@
 ### Lesson #9: Failing characterization tests are learning opportunities
-We step through the specifications in **GildedRoseRequirements.txt**, capturing each in a test method.  
-
+We step through the specifications in **GildedRoseRequirements.txt**, capturing each in a test method.  After writing
+each new test, we run all the tests to verify that we are still GREEN.
 ```java
 @Test
 public void itemHasSpecifiedName() {
@@ -18,6 +18,9 @@ public void itemHasSpecifiedSellIn() {
     assertThat(getLoneItem().sellIn, is(17));
 }
 ```
+```diff
++ GREEN
+```
 ```
     - All items have a Quality value which denotes how valuable the item is
 ```
@@ -28,6 +31,9 @@ public void itemHasSpecifiedQuality() {
     assertThat(getLoneItem().quality, is(19));
 }
 ```
+```diff
++ GREEN
+```
 ```java
 @Test
 public void nameRemainsUnchangedAtEndOfDay() {  
@@ -35,6 +41,9 @@ public void nameRemainsUnchangedAtEndOfDay() {
     app.updateAtEndOfDay();
     assertThat(getLoneItem().name, is("foo"));
 }
+```
+```diff
++ GREEN
 ```
 ```
     - At the end of each day our system lowers both values for every item
@@ -46,7 +55,11 @@ public void sellInDecreasesAtEndOfDay() {
     app.updateAtEndOfDay();
     assertThat(getLoneItem().sellIn, is(16));
 }
-
+```
+```diff
++ GREEN
+```
+```
 @Test
 public void qualityDecreasesAtEndOfDay() {
     app = createAppWithSingleItem("foo", 0, 19);
@@ -54,12 +67,11 @@ public void qualityDecreasesAtEndOfDay() {
     assertThat(getLoneItem().quality, is(18));
 }
 ```
-This last test surprisingly fails.
 ```diff
 - Expected: is <18>
 -    but: was <17>
 ```
-We realize that we were using 0 has a sample sell-in value, an unwise choice since a sell-in value of 0 has a special meaning.  We change our sample value, and the test succeeds.
+This last test surprisingly failed.  We realize that we were using 0 has a sample sell-in value, an unwise choice since a sell-in value of 0 has a special meaning.  We change our sample value, and the test succeeds.
 
 ```java
 @Test
@@ -92,5 +104,8 @@ public void qualityDecreasesBy2AtEndOfDayOnceSellDateHasPassed() {
     app.updateAtEndOfDay();
     assertThat(getLoneItem().quality, is(17));
 }
+```
+```diff
++ GREEN
 ```
 ### [Go to Lesson #10](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2310)
