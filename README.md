@@ -23,4 +23,8 @@ private Item[] createSingleItemArray(String name, int sellIn, int quality) {
     return new Item[] { new Item(name, sellIn, quality) };
 }
 ```
+After every refactoring, as safe as it might seem, we run our tests to verify that we have not broken anything.
+```diff
++ GREEN
+```
 ### [Go to Lesson #5](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%235)
