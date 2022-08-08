@@ -61,4 +61,7 @@ public void nameRemainsUnchangedAtEndOfDay() {
     assertEquals("foo", app.items[0].name);
 }
 ```
+```diff
++ GREEN
+```
 ### [Go to Lesson #4](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%234)
