@@ -16,7 +16,11 @@ public void backstagePassesQualityDoesNotExceed50Within10DaysOfConcert() {
     app.updateAtEndOfDay();
     assertThat(getLoneItem().quality, is(50));
 }
-
+```
+```diff
++ GREEN
+```
+```java
 @Test
 public void backstagePassesQualityIncreasesBy3Within5DaysOfConcert() {
     app = createAppWithSingleItem(BACKSTAGE_PASSES, 5, ARBITRARY_QUALITY);
@@ -30,5 +34,8 @@ public void backstagePassesQualityDoesNotExceed50Within5DaysOfConcert() {
     app.updateAtEndOfDay();
     assertThat(getLoneItem().quality, is(50));
 }
+```
+```diff
++ GREEN
 ```
 ### [Go to Lesson #17](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2317)
