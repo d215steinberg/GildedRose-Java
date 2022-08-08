@@ -20,4 +20,7 @@ public void qualityDecreasesBy2AtEndOfDayOnceSellDateHasPassed() {
     assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY - 2));
 }
 ```
+```diff
++ GREEN
+```
 ### [Go to Lesson #11](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2311)
