@@ -9,9 +9,9 @@ extension into the codebase.  But does this "wiring" need to live in two places?
 the various specialized item types lives in two classes, a clear violation of DRY.  Java provides a mechanism to isolate
 this knowledge in a single entity, the **enum** construct.
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%2329/images/Lesson%20%2329.png)
-(NOTE:  In the "real world," since the refactoring of this knowledge to an **enum** is non-trivial, the decision to
+> NOTE:  In the "real world," since the refactoring of this knowledge to an **enum** is non-trivial, the decision to
 implement it immediately should be left to the team.  If time pressure demands, the team may choose to deliver the code
-as-is and create a *high-priority* story to pay off the technical debt that they have incurred.)
+as-is and create a *high-priority* story to pay off the technical debt that they have incurred.
 
 We refactor as follows:
 1. We create an **ItemType** enum with known types and **UNKNOWN**.  The **name** values of the known types are set using the **GildedRose** constants (for now).
