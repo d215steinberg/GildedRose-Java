@@ -22,6 +22,9 @@ public void sulfurasMaintainsItsQuality() {
     assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY));
 }
 ```
+```diff
++ GREEN
+```
 But this test seems to contradict another requirement:
 ```
 Just for clarification, an item can never have its Quality increase above 50, however "Sulfuras" is a
