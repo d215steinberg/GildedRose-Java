@@ -25,6 +25,9 @@ public void backstagePassesQualityIncreasesBy2MoreThan5DaysFromConcert() {
     assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 2));
 }
 ```
+```diff
++ GREEN
+```
 ```java
 @Test
 public void backstagePassesQualityIncreasesBy3Within5DaysOfConcert() {
@@ -39,6 +42,9 @@ public void backstagePassesQualityIncreasesBy3UpToConcertDate() {
     app.updateAtEndOfDay();
     assertThat(getLoneItem().quality, is(ARBITRARY_QUALITY + 3));
 }
+```
+```diff
++ GREEN
 ```
 Pitest now reports 100% mutation coverage. 
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%2317/images/mutation-coverage-summary-Lesson%2317b.jpg) 
