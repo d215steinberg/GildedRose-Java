@@ -36,4 +36,6 @@ This test is not very useful for two reasons:
 
 Then again, a 70%-coverage, semi-manual test is better than no test at all.  We will keep this test around until we can 
 render it obsolete. 
+> SPOILER ALERT:  In Lesson 27, we challenge the assumption that full test coverage is needed before doing the
+> refactoring required to implement the new requirement.
 ### [Go to Lesson #3](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%233)
