@@ -13,6 +13,9 @@ private Item getLoneItem(GildedRose app) {
     return app.items[0];
 }
 ```
+```diff
++ GREEN
+```
 The name **getLoneItem** accurately describes the purpose of this method, but **getFirstItem** would more accurately
 reflect its behavior.  Which expression of intent is more important?  Expressing the purpose is more important, but
 Java's **assert** mechanism allows us to do both.
@@ -61,5 +64,8 @@ private Item getLoneItem() {
 private Item getFirstItem() {
     return app.items[0];
 }
+```
+```diff
++ GREEN
 ```
 ### [Go to Lesson #6](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%236)
