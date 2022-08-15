@@ -9,6 +9,19 @@ public void nameRemainsUnchangedAtEndOfDay() {
     assertEquals("foo", getLoneItem().name);
 }
 ```
+```java
+class GildedRose {
+    Item[] items;
+
+    public GildedRose(Item[] items) {
+        this.items = items;
+    }
+
+    public void updateAtEndOfDay() {
+        ...
+    }
+}
+```
 ```diff
 + GREEN
 ```
