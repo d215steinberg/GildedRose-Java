@@ -112,6 +112,6 @@ public void sulfurasNeverNeedsToBeSold() {
 
 We are able to perform this refactoring without complete test coverage because
 1. The refactoring is performed the the IDE and is therefore "safe"
-2. The refactoring provides immediately benefit to our characterization-testing process.
+2. The refactoring provides immediate benefit to our characterization-testing process.
 
 ### [Go to Lesson #12](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2312)
