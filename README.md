@@ -201,3 +201,4 @@ public class SulfurasInitializer implements ItemInitializer {
 ```diff
 + GREEN
 ```
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
