@@ -8,3 +8,4 @@ We begin by discovering what kind of test coverage already exists.  The code bas
 - [**TexttestFixture.java**](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/src/test/java/com/gildedrose/TexttestFixture.java)
 
 ### [Go to Lesson #2](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%232)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
