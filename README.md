@@ -22,3 +22,4 @@ the system would evolve (and therefore could not have designed in extension poin
 The process of refactoring a system to a design pattern after seeing how the system is evolving is know as Reflective
 (as opposed to Predictive) Design.
 ### [Go to Lesson #22](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2322)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
