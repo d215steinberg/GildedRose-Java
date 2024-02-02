@@ -112,3 +112,4 @@ public class GildedRoseMultiItemTest extends GildedRoseTest {
 1. A drawback of this approach is that your IDE will no longer help you to toggle between an implementation class and its corresponding test class.
 2. The nesting feature (**@Nested** attribute) of JUnit5 offers an alternative for test organization within a single **GildedRoseTest** class.
 ### [Go to Lesson #39](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2339)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
