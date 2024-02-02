@@ -18,3 +18,4 @@ introduces the risk of tests failing for no reason.  There is no absolute "right
 In our case, however, the London school tests are clearly more brittle, so we revert to the Detroit school tests of
 Lesson #38.
 ### [Go to Lesson #41](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2341)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
