@@ -28,3 +28,4 @@ After every refactoring, as safe as it might seem, we run our tests to verify th
 + GREEN
 ```
 ### [Go to Lesson #5](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%235)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
