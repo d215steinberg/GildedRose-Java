@@ -116,3 +116,4 @@ public void updateSellIn(Item item) {
 + GREEN
 ```
 ### [Go to Lesson #35](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2335)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
