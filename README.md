@@ -60,3 +60,4 @@ The requirement appears simple.  Yet the code is so obfuscated that we dare not 
 So our adventure begins.
 
 ### [Go to Part II: Initiating Our Test Bed, Lesson #1](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%231)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
