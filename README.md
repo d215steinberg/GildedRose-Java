@@ -55,3 +55,4 @@ the system's behavior.  We check our coverage
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%2313/images/Coverage-Lesson%2313.png)  
 and discover that we still have an uncovered block of two lines and several uncovered branches.  We need a few more tests.
 ### [Go to Lesson #14](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2314)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
