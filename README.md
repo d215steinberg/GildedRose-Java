@@ -59,3 +59,4 @@ public class ConjuredUpdater extends DefaultUpdater {
 + GREEN
 ```
 ### [Go to Lesson #27](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2327)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
