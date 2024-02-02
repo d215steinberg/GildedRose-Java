@@ -99,3 +99,4 @@ We can now delete this test file, as it is redundant.
 > through 37.
 
 ### [Go to Lesson #28](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2328)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
