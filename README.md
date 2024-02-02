@@ -34,3 +34,4 @@ public void conjuredQualityDecreasesBy2() {
 + GREEN
 ```	
 ### [Go to Part IV: Essential Refactoring, Lesson #20](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2320)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
