@@ -34,3 +34,4 @@ public void agedBrieQualityIncreasesBy2OnceSellDateHasPassed() {
 ````
 That's better.  We still want to verify with the Product Owner that this specification is accurate, but we have characterized the code as it is, and we have a clear test with which to demonstrate our observation.  
 ### [Go to Lesson #15](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2315)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
