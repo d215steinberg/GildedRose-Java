@@ -49,3 +49,4 @@ public class DefaultUpdater implements ItemUpdater {
 + GREEN
 ```
 ### [Go to Lesson #34](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2334)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
