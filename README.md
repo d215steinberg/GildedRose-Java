@@ -36,3 +36,4 @@ Perhaps an external system sets this quality as it inputs the item into our syst
 requirement at all but rather, as is stated, a "clarification."  Perhaps the Product Owner envisions a mechanism in our
 system that assures this quality, but such a mechanism would require another story in the product backlog.
 ### [Go to Lesson #13](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2313)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
