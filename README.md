@@ -86,3 +86,4 @@ private ItemUpdater createItemUpdater(String itemName) {
 There remains some ugly code underneath (specifically in **DefaultUpdater**), but our top-level **GildedRose** is pristine.
 
 ### [Go to Lesson #29](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2329)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
