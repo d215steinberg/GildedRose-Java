@@ -39,3 +39,4 @@ render it obsolete.
 > SPOILER ALERT:  In Lesson 27, we challenge the assumption that full test coverage is needed before doing the
 > refactoring required to implement the new requirement.
 ### [Go to Lesson #3](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%233)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
