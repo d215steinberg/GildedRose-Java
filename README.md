@@ -38,3 +38,4 @@ Finally we come across a missed branch representing the case of a Sulfuras item 
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%2315/images/Coverage-Lesson%2315b.png)
 But this can never happen.  The existence of this dead branch is certainly a smell that we will want to eliminate by refactoring.  But we can go ahead and refactor without covering this branch.
 ### [Go to Lesson #16](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2316)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
