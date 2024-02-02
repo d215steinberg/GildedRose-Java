@@ -49,3 +49,4 @@ public void backstagePassesQualityIncreasesBy3UpToConcertDate() {
 Pitest now reports 100% mutation coverage. 
 ![](https://github.com/d215steinberg/GildedRose-Java/blob/Lesson%2317/images/mutation-coverage-summary-Lesson%2317b.jpg) 
 ### [Go to Lesson #18](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2318) 
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
