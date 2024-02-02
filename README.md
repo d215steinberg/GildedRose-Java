@@ -69,3 +69,4 @@ private Item getFirstItem() {
 + GREEN
 ```
 ### [Go to Lesson #6](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%236)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
