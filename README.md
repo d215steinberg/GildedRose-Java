@@ -129,3 +129,4 @@ private void updateSellIn(Item item) {
 ```
 Our code is cleaner than before, but not to the point where we can implement the new requirement.
 ### [Go to Lesson #21](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2321)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
