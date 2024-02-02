@@ -40,3 +40,4 @@ public class ItemUpdaterFactory {
 + GREEN
 ```
 ### [Go to Part V: Implementing the Change, Lesson #26](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2326)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
