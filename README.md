@@ -54,3 +54,4 @@ public class AgedBrieUpdater extends DefaultUpdater {
 + GREEN
 ```
 ### [Go to Lesson #31](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2331)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
