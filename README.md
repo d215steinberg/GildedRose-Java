@@ -62,3 +62,4 @@ public void sulfurasQualityIsAlwaysSetAmount() throws Exception {
 + GREEN
 ```
 ### [Go to Lesson #42](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2342)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
