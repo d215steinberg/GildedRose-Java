@@ -19,3 +19,4 @@ public class ItemUpdaterFactory {
 ```
 With all due respect to Kermit the Frog, it's easy being (and staying) green.
 ### [Go to Lesson #24](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2324)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
