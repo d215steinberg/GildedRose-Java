@@ -101,3 +101,4 @@ public class GildedRoseMultiItemTest extends GildedRoseTest {
 + GREEN
 ```
 ### [Go to Lesson #40](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2340)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
