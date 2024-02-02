@@ -27,3 +27,4 @@ class GildedRose {
 ```
 We have written only two tests, and our gained understanding is already driving the refactoring of our code!
 ### [Go to Lesson #7](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%237)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
