@@ -115,3 +115,4 @@ We are able to perform this refactoring without complete test coverage because
 2. The refactoring provides immediate benefit to our characterization-testing process.
 
 ### [Go to Lesson #12](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%2312)
+### [Table of Contents](https://github.com/d215steinberg/GildedRose-Java/blob/startPoint/Table%20of%20Contents.md)
