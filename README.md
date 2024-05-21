@@ -45,7 +45,7 @@ if (args.length > 0) {
 If we pass in a **days** argument of 26 or more, we get 100% coverage.  The manual verification process, however, 
 becomes more unwieldy.
 
-But it gets better.  As the name **TexttestFixture** implies, this java is final is not intended bo be run as a
+But it gets better.  As the name **TexttestFixture** implies, this java final is not intended to be run as a
 standalone test but rather as a fixture for an Approval Testing framework known as **Texttest**.  **Texttest** reports 
 results in the form of a DIFF view, so deviations between expected and actual output are immediately evident.  I have 
 included **Texttest** support files from Emily's repository.  **start_texttest.bat** runs a 30-day simulation through 
@@ -56,7 +56,7 @@ create a living specification in the way that unit tests do.  This solution, the
 
 > In her video [Best Tests for Gilded Rose Kata | Kent Beck’s Desiderata](https://www.youtube.com/watch?v=vMww6pV6P7s&t=18s),
 > Emily Bache introduces the powerful technique of "Combination Approval Tests."  These tests are quicker to write than 
-> even the > **Texttest** ones, and they also produce DIFF-style output.  This test strategy could be especially 
+> even the **Texttest** ones, and they also produce DIFF-style output.  This test strategy could be especially 
 > effective for code bases that do not have a clearly documented requirements.  The downside of theses tests, like the 
 > **Texttest**-based Approval Tests, is that they do not create a living specification.
 
