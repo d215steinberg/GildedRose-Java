@@ -60,8 +60,6 @@ create a living specification in the way that unit tests do.  This solution, the
 > effective for code bases that do not have a clearly documented requirements.  The downside of theses tests, like the 
 > **Texttest**-based Approval Tests, is that they do not create a living specification.
 
-Then again, a 70%-coverage, semi-manual test is better than no test at all.  We will keep this test around until we can 
-render it obsolete. 
 > SPOILER ALERT:  In Lesson 27, we challenge the assumption that full test coverage is needed before doing the
 > refactoring required to implement the new requirement.
 ### [Go to Lesson #3](https://github.com/d215steinberg/GildedRose-Java/tree/Lesson%233)
