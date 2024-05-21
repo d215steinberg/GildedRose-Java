@@ -34,6 +34,32 @@ This test is not very useful for two reasons:
 - 30% of instructions are not covered
 - We will need to verify results manually after every change
 
+But if we look into the source code for **TextTestFixture**, we see that it takes an additional 
+argument indicating the number of days to simulate:
+```java
+int days = 2;
+if (args.length > 0) {
+    days = Integer.parseInt(args[0]) + 1;
+}
+```
+If we pass in a **days** argument of 26 or more, we get 100% coverage.  The manual verification process, however, 
+becomes more unwieldy.
+
+But it gets better.  As the name **TexttestFixture** implies, this java is final is not intended bo be run as a
+standalone test but rather as a fixture for an Approval Testing framework known as **Texttest**.  **Texttest** reports 
+results in the form of a DIFF view, so deviations between expected and actual output are immediately evident.  I have 
+included **Texttest** support files from Emily's repository.  **start_texttest.bat** runs a 30-day simulation through 
+**Texttest**.
+
+While Approval Testing will cover the code quickly and thus provide the safety net needed for refactoring, it does not 
+create a living specification in the way that unit tests do.  This solution, therefore, takes the unit test approach.
+
+> In her video [Best Tests for Gilded Rose Kata | Kent Beck’s Desiderata](https://www.youtube.com/watch?v=vMww6pV6P7s&t=18s),
+> Emily Bache introduces the powerful technique of "Combination Approval Tests."  These tests are quicker to write than 
+> even the > **Texttest** ones, and they also produce DIFF-style output.  This test strategy could be especially 
+> effective for code bases that do not have a clearly documented requirements.  The downside of theses tests, like the 
+> **Texttest**-based Approval Tests, is that they do not create a living specification.
+
 Then again, a 70%-coverage, semi-manual test is better than no test at all.  We will keep this test around until we can 
 render it obsolete. 
 > SPOILER ALERT:  In Lesson 27, we challenge the assumption that full test coverage is needed before doing the
