@@ -3,7 +3,7 @@ A lesson-by-lesson Java implementation of the [Gilded Rose refactoring kata](htt
 introduced in 2011 by [Terry Hughes and Bobby Johnson using C#](https://github.com/NotMyself/GildedRose) and popularized 
 [in numerous languages by Emily Bache](https://github.com/emilybache/GildedRose-Refactoring-Kata).
 ## Goals of the Kata
-In Emily Bache's repo, she writes 
+In her [introduction to the Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata/), Emily Bache writes 
 ```
 The idea of the exercise is to do some deliberate practice, and improve your skills 
 at designing test cases and refactoring. The idea is not to re-write the code from 
