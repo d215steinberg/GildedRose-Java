@@ -2,6 +2,20 @@
 A lesson-by-lesson Java implementation of the [Gilded Rose refactoring kata](https://github.com/NotMyself/GildedRose), 
 introduced in 2011 by [Terry Hughes and Bobby Johnson using C#](https://github.com/NotMyself/GildedRose) and popularized 
 [in numerous languages by Emily Bache](https://github.com/emilybache/GildedRose-Refactoring-Kata).
+## Goals of the Kata
+In Emily Bache's repo, she writes 
+```
+The idea of the exercise is to do some deliberate practice, and improve your skills 
+at designing test cases and refactoring. The idea is not to re-write the code from 
+scratch, but rather to practice taking small steps, running the tests often, and 
+incrementally improving the design.
+```
+My goals are similar but not identical.  In Lessons 30-37, my solution
+takes the form of of incremental rewrite of part of the code.  Specifically, my goals are
+1. Writing expressive unit tests that completely cover the code's behavior and serve as "living specification"
+2. Driving refactoring by the 4 Rules of Simple of Design
+3. Adhering to SOLID Principles (especially SRP and OCP)
+4. Taking a "real world" economic view
 ## System Requirements
 - Java 8 or above
 - JUnit 4 (Emily Bache's Java version uses JUnit 5, which
