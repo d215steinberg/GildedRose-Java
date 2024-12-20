@@ -45,7 +45,7 @@ if (args.length > 0) {
 If we pass in a **days** argument of 26 or more, we get 100% coverage.  The manual verification process, however, 
 becomes more unwieldy.
 
-But it gets better.  As the name **TexttestFixture** implies, this java final is not intended to be run as a
+But it gets better.  As the name **TexttestFixture** implies, this java file is not intended to be run as a
 standalone test but rather as a fixture for an Approval Testing framework known as **Texttest**.  **Texttest** reports 
 results in the form of a DIFF view, so deviations between expected and actual output are immediately evident.  I have 
 included **Texttest** support files from Emily's repository.  **start_texttest.bat** runs a 30-day simulation through 
