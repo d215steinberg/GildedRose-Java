@@ -7,8 +7,8 @@ import static com.gildedrose.GildedRose.SULFURAS;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Disabled;
 
 public class GildedRoseTest {
 
@@ -175,7 +175,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    @Ignore
+    @Disabled
     public void conjuredQualityDecreasesBy2() {
         app = createAppWithSingleItem(CONJURED, ARBITRARY_SELLIN, ARBITRARY_QUALITY);
         app.updateAtEndOfDay();
