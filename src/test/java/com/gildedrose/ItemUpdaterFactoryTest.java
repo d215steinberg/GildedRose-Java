@@ -3,13 +3,13 @@ package com.gildedrose;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class ItemUpdaterFactoryTest {
     private ItemUpdaterFactory itemUpdaterFactory;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         itemUpdaterFactory = new ItemUpdaterFactory();
     }
