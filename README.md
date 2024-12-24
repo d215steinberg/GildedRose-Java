@@ -18,11 +18,9 @@ takes the form of of incremental rewrite of part of the code.  Specifically, my 
 4. Taking a "real world" economic view
 ## System Requirements
 - Java 8 or above
-- JUnit 4 (Emily Bache's Java version uses JUnit 5, which
-has been around since 2016, but most of my 
-enterprise clients have not yet upgraded
-from JUnit 4)
+- JUnit 5 
 - Maven
+- Pitest (can be obtained directly or through an IDE plugin, such as PIT Mutation Testing plugin for IntelliJ)
 
 ## Part I: Underlying Principles
 ### The Four Rules of Simple Design
