@@ -4,7 +4,7 @@ import static com.gildedrose.ItemType.SULFURAS;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class GildedRoseSulfurasTest extends GildedRoseTest {
     @Test
