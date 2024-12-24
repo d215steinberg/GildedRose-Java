@@ -10,7 +10,7 @@ import static com.gildedrose.QualityIncreaser.MAX_QUALITY;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class GildedRoseTest {
 
