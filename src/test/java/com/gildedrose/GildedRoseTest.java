@@ -1,5 +1,7 @@
 package com.gildedrose;
 
+import org.junit.jupiter.api.Test;
+
 public class GildedRoseTest {
 
     protected static final int ARBITRARY_SELLIN = 17;
