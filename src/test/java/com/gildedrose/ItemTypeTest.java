@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static com.gildedrose.ItemType.*;
 import static org.hamcrest.CoreMatchers.instanceOf;
