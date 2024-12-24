@@ -7,7 +7,7 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ItemTypeTest {
     @Test
@@ -28,7 +28,6 @@ public class ItemTypeTest {
     @Test
     public void createsAgedBrieUpdaterForAgedBrieItemType() throws Exception {
         assertThat(AGED_BRIE.createItemUpdater(), instanceOf(AgedBrieUpdater.class));
-
     }
 
     @Test
