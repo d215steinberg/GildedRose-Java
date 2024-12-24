@@ -57,7 +57,7 @@ create a living specification in the way that unit tests do.  This solution, the
 > In her video [Best Tests for Gilded Rose Kata | Kent Beck’s Desiderata](https://www.youtube.com/watch?v=vMww6pV6P7s&t=18s),
 > Emily Bache introduces the powerful technique of "Combination Approval Tests."  These tests are quicker to write than 
 > even the **Texttest** ones, and they also produce DIFF-style output.  This test strategy could be especially 
-> effective for code bases that do not have a clearly documented requirements.  The downside of theses tests, like the 
+> effective for code bases that do not have a clearly documented requirements.  The downside of these tests, like the 
 > **Texttest**-based Approval Tests, is that they do not create a living specification.
 
 > SPOILER ALERT:  In Lesson 27, we challenge the assumption that full test coverage is needed before doing the
